@@ -30,6 +30,7 @@ On your side (client) you may safely open a shell to yourself
 >
 and here it goes the reverse tunnel
 
+---
 
 __'screen' utility scrollback buffer__</br>
 If the screen scrollback buffer is too small you can enter command line mode in a running session by pressing Ctrl+A, ":", then issuing the command: "scrollback \<num\>".</br>
