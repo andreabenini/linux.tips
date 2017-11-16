@@ -1,0 +1,13 @@
+[Desktop Entry]
+# Sample .desktop entry file
+# ~/.local/share/applications/SublimeText.desktop
+Name=Sublime
+GenericName=Sublime Text Editor
+Comment=Edit text files
+Exec=/opt/sublimetext/sublime_text
+Terminal=false
+Type=Application
+MimeType=text/plain;
+Icon=/opt/sublimetext/Icon/48x48/sublime_text.png
+Categories=Accessories;Utility;TextEditor;
+Keywords=Text;Editor;Sublime;
