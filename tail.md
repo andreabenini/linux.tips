@@ -8,3 +8,4 @@ tail -f logs/SomeLogFile.log | sed \
     -e 's/\(.*\[notice\].*\)/\o033[96m\1\o033[39m/' \
     -e 's/\(.*\[debug\].*\)/\o033[92m\1\o033[39m/'
 ```
+Use `-F` instead of `-f` to track changes to the file by filename, instead of using the inode number which changes during rotation. It will also keep trying to open the file if it's not present.
