@@ -1,5 +1,5 @@
 
-Docs from [NGINX documentation](http://nginx.org/en/docs/http/configuring_https_servers.html)
+### General Docs from [NGINX documentation](http://nginx.org/en/docs/http/configuring_https_servers.html)
 
 ```bash
 server {
@@ -30,3 +30,22 @@ http {
 >>>>        keepalive_timeout   70;
 ```
 Use then when needed
+
+
+### Authentication
+Configuration (site.conf)
+``` bash
+    # Use it inside "location" section or outside them (into "server") for whole site auth
+    # User auth
+    auth_basic "Reserved";
+    auth_basic_user_file /var/www/.htpasswd;
+```
+.htpasswd creation
+```
+    # apache2-utils to have htpasswd utility
+    sudo htpasswd /etc/apache2/.htpasswd ben
+    
+    # without htpasswd you can use ssl as well
+    sudo sh -c "echo -n 'ben:' >> /etc/nginx/.htpasswd"
+    sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
+```
