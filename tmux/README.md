@@ -22,41 +22,44 @@ Kill session:
 
 ## Sessions
 
-    :new<CR>  new session
-    s  list sessions
-    $  name session
+    :new<CR>                new session
+    s                       list sessions
+    $                       name session
 
 ## Windows (tabs)
 
-    c           new window
-    ,           name window
-    w           list windows
-    f           find window
-    &           kill window
-    .           move window - prompted for a new number
-    :movew<CR>  move window to the next unused number
-    n           next window
-    p           previous window
+    c                       new window
+    ,                       name window
+    w                       list windows
+    f                       find window
+    &                       kill window
+    .                       move window - prompted for a new number
+    :movew<CR>              move window to the next unused number
+    n                       next window
+    p                       previous window
 
 ## Panes (splits)
 
-    %  horizontal split
-    "  vertical split
+    %                       horizontal split
+    "                       vertical split
     
-    o  swap panes
-    q  show pane numbers
-    x  kill pane
-    ⍽  space - toggle between layouts
+    o                       swap panes
+    q                       show pane numbers
+    x                       kill pane
+    ⍽  space                toggle between layouts
+    resize-pane -Z          toggle a pane between normal and zoomed mode
+    resize-pand -D 5        Resize down a pane by adding 5 rows to it
+    resize-pand -U 5        Resize up a pane by adding 5 rows to it
 
 ## Window/pane surgery
 
-    :joinp -s :2<CR>  move window 2 into a new pane in the current window
-    :joinp -t :1<CR>  move the current pane into a new pane in window 1
+    :joinp -s :2<CR>        Move window 2 into a new pane in the current window
+    :joinp -t :1<CR>        Move the current pane into a new pane in window 1
 
 
 ## Misc
 
-    d  detach
-    t  big clock
-    ?  list shortcuts
-    :  prompt
+    d                       Detach
+    t                       Big clock
+    ?                       List shortcuts
+    :                       Prompt
