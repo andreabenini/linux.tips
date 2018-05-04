@@ -1,11 +1,12 @@
-# INI highlighting
+## INI highlighting
+## Valid colors are "green", "red", "blue", "white", "yellow", "cyan", "magenta", "black" [optional prefix "bright"]
 syntax "ini" "\.ini(\.old|\.bak|\.example|~)?$"
  
 ## Values
 color brightred "=.*$"
 
 ## Equal sign
-color green "="
+color brightgreen "="
 
 ## Numbers
 color brightblue "-?[0-9\.]+\s*($|;)"
@@ -17,7 +18,8 @@ color brightmagenta "(ON|OFF|On|Off|on|off)\s*($|;)"
 color brightcyan "^\s*\[.*\]"
 
 ## Keys
-color cyan "^\s*[a-zA-Z0-9_\.]+"
+color brightyellow "^\s*[a-zA-Z0-9_\.]+"
 
 ## Comments
-color brightyellow ";.*$"
+color white ";.*$"
+color white "#.*$"
