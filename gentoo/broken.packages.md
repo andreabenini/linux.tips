@@ -1,4 +1,4 @@
-# Rescue a broken gentoo box
+# Rescue a broken package in a gentoo box
 when you screw an important package (mpfr, portage, binutils, ...) you're in a mess and sometimes you need a binary 
 version of that package (even if it's updated) in order to fix your installation. When you destroy for example sys-apps/portage
 you are in a serious problem. All you can do is:
