@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="627.18671"
+   height="160.30943"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="meek-architecture.svg"
+   inkscape:export-xdpi="99.987129"
+   inkscape:export-ydpi="99.987129">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient9460"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#ffebcd;stop-opacity:1;"
+         offset="0"
+         id="stop9462" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Mend"
+       style="overflow:visible">
+      <path
+         id="path3944"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6,-0.6)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.2142651"
+     inkscape:cx="190.15736"
+     inkscape:cy="81.723749"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1278"
+     inkscape:window-height="791"
+     inkscape:window-x="1280"
+     inkscape:window-y="14"
+     inkscape:window-maximized="0"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:connector-spacing="11"
+     guidetolerance="20"
+     units="in"
+     inkscape:snap-global="false"
+     objecttolerance="20"
+     inkscape:snap-bbox="true"
+     inkscape:snap-object-midpoints="false"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(40.534949,-406.61498)">
+    <g
+       id="g5243"
+       transform="translate(-2.8725802,-43.361316)">
+      <rect
+         style="color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         id="rect4327"
+         width="122.76524"
+         height="78.251236"
+         x="213.67522"
+         y="513.14197"
+         ry="14.051025" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+         x="275.52905"
+         y="476.54333"
+         id="text6554"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           id="tspan6556"
+           x="275.52905"
+           y="476.54333">INTERMEDIATE</tspan><tspan
+           id="tspan4263"
+           sodipodi:role="line"
+           x="275.52905"
+           y="488.54333">WEB SERVICE</tspan><tspan
+           style="font-size:10px"
+           id="tspan3277"
+           sodipodi:role="line"
+           x="275.52905"
+           y="499.07352">(Akamai, CloudFront,</tspan><tspan
+           style="font-size:10px"
+           id="tspan4265"
+           sodipodi:role="line"
+           x="275.52905"
+           y="509.07352">Google, etc.)</tspan></text>
+      <rect
+         style="color:#000000;fill:#0000ff;fill-opacity:0;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         id="rect4375"
+         width="65.01786"
+         height="45.397449"
+         x="242.5489"
+         y="513.05371" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4367"
+         y="528.0415"
+         x="275.01392"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+         xml:space="preserve"><tspan
+           id="tspan4371"
+           y="528.0415"
+           x="275.01392"
+           sodipodi:role="line">Frontend</tspan><tspan
+           id="tspan4373"
+           y="540.0415"
+           x="275.01392"
+           sodipodi:role="line">server</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+         x="275.23608"
+         y="553.11377"
+         id="text3281"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           id="tspan3283"
+           x="275.23608"
+           y="553.11377">(gateway to many</tspan><tspan
+           id="tspan3285"
+           sodipodi:role="line"
+           x="275.23608"
+           y="563.11377">domains including</tspan><tspan
+           id="tspan3287"
+           sodipodi:role="line"
+           x="275.23608"
+           y="573.11377"><tspan
+   id="tspan3299"
+   style="font-weight:bold;-inkscape-font-specification:Liberation Mono Bold">allowed.example </tspan>and<tspan
+   id="tspan3289"
+   style="font-weight:bold;-inkscape-font-specification:Liberation Mono Bold" /></tspan><tspan
+           id="tspan3305"
+           sodipodi:role="line"
+           x="275.23608"
+           y="583.11377"><tspan
+   id="tspan3307"
+   style="font-weight:bold;-inkscape-font-specification:Liberation Mono Bold">forbidden.example</tspan>)</tspan></text>
+    </g>
+    <text
+       sodipodi:linespacing="100%"
+       id="text6614"
+       y="554.32263"
+       x="521.30353"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       xml:space="preserve"><tspan
+         y="554.32263"
+         x="521.30353"
+         id="tspan6616"
+         sodipodi:role="line">INTERNET</tspan></text>
+    <g
+       id="g9879"
+       transform="matrix(0.17141238,0.98519937,-0.98519937,0.17141238,356.94773,176.50318)">
+      <rect
+         ry="0"
+         y="323.88644"
+         x="10.929138"
+         height="16.605762"
+         width="565.23444"
+         id="rect7887"
+         style="color:#000000;fill:#808080;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <g
+         id="g9859">
+        <text
+           xml:space="preserve"
+           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+           x="207.30417"
+           y="337.46277"
+           id="text9466"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan9468"
+             x="207.30417"
+             y="337.46277">CENSOR</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g5263"
+       transform="translate(0,-12)">
+      <rect
+         ry="14.051025"
+         y="481.56308"
+         x="-36.640961"
+         height="89.025871"
+         width="99.262344"
+         id="rect3071"
+         style="color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <g
+         transform="translate(-35.847517,-0.42500313)"
+         id="g4377">
+        <rect
+           style="color:#000000;fill:#0000ff;fill-opacity:0;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+           id="rect3897"
+           width="21.70022"
+           height="18.572758"
+           x="37.987617"
+           y="484.24982" />
+        <text
+           xml:space="preserve"
+           style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+           x="48.89925"
+           y="497.42975"
+           id="text3853"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan3855"
+             x="48.89925"
+             y="497.42975">Browser</tspan></text>
+      </g>
+      <g
+         transform="translate(-35.621711,-5.9572598)"
+         id="g4382">
+        <rect
+           y="520.83081"
+           x="37.76181"
+           height="18.572758"
+           width="21.70022"
+           id="rect4363"
+           style="color:#000000;fill:#0000ff;fill-opacity:0;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+        <text
+           xml:space="preserve"
+           style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+           x="48.591412"
+           y="534.05469"
+           id="text3857"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan3859"
+             x="48.591412"
+             y="534.05469">tor</tspan></text>
+      </g>
+      <text
+         sodipodi:linespacing="100%"
+         id="text3861"
+         y="559.49762"
+         x="13.318335"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+         xml:space="preserve"><tspan
+           y="559.49762"
+           x="13.318335"
+           id="tspan3863"
+           sodipodi:role="line">meek-client</tspan></text>
+      <path
+         inkscape:connection-end-point="d4"
+         inkscape:connection-end="#g4382"
+         inkscape:connection-start-point="d4"
+         inkscape:connection-start="#g4377"
+         inkscape:connector-curvature="0"
+         inkscape:connector-type="polyline"
+         id="path4392"
+         d="m 12.99021,502.39757 -10e-7,12.47598"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)" />
+      <path
+         inkscape:connection-start-point="d4"
+         inkscape:connection-start="#g4382"
+         inkscape:connector-curvature="0"
+         inkscape:connector-type="polyline"
+         id="path4394"
+         d="m 12.986115,533.44631 -0.0055,12.47599"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4760"
+         y="477.33435"
+         x="12.911108"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+         xml:space="preserve"><tspan
+           y="477.33435"
+           x="12.911108"
+           id="tspan4762"
+           sodipodi:role="line">CLIENT’S PC</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none;marker-end:url(#Arrow2Mend)"
+       d="M 54.611254,544.00229 C 135.88367,542.72493 184.00859,492.77537 237.97731,487.34657"
+       id="path4495"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="142.89023"
+       y="563.75677"
+       id="text4365"
+       sodipodi:linespacing="100%"><tspan
+         id="tspan4378"
+         sodipodi:role="line"
+         x="142.89023"
+         y="563.75677">fronted request</tspan></text>
+    <rect
+       style="color:#000000;fill:#ffebcd;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect7791-6"
+       width="125.07201"
+       height="92.81588"
+       x="80.17601"
+       y="463.5954"
+       rx="5.1094637"
+       ry="5.1094637" />
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="83.887749"
+       y="478.47977"
+       id="text7776-4"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan7778-4"
+         x="83.887749"
+         y="478.47977"
+         style="font-size:8px;font-weight:bold;-inkscape-font-specification:Liberation Mono Bold" /><tspan
+         sodipodi:role="line"
+         x="83.887749"
+         y="486.47977"
+         id="tspan7795-8">SNI: <tspan
+   style="font-size:8px;font-weight:bold;-inkscape-font-specification:Liberation Mono Bold"
+   id="tspan7799-2">allowed.example</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono Bold"
+       x="142.68173"
+       y="474.43466"
+       id="text7786-1"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan7788-9"
+         x="142.68173"
+         y="474.43466">TLS</tspan></text>
+    <g
+       id="g3276">
+      <rect
+         ry="4.3738055"
+         rx="4.0810037"
+         y="491.87134"
+         x="84.266655"
+         height="60.390137"
+         width="116.96103"
+         id="rect7791-6-6"
+         style="color:#000000;fill:#ffc669;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <g
+         transform="translate(126.36527,68.95114)"
+         id="g5887">
+        <text
+           xml:space="preserve"
+           style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+           x="-38.623959"
+           y="438.31842"
+           id="text7776-4-7"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan7778-4-9"
+             x="-38.623959"
+             y="438.31842"
+             style="font-size:8px;font-weight:bold;-inkscape-font-specification:Liberation Mono Bold" /><tspan
+             sodipodi:role="line"
+             x="-38.623959"
+             y="446.31842"
+             id="tspan5177">POST / HTTP/1.1</tspan><tspan
+             sodipodi:role="line"
+             x="-38.623959"
+             y="454.31842"
+             id="tspan5179">Host: <tspan
+   style="font-size:8px;font-weight:bold;-inkscape-font-specification:Liberation Mono Bold"
+   id="tspan7799-1">forbidden.example</tspan></tspan><tspan
+             id="tspan3085"
+             sodipodi:role="line"
+             x="-38.623959"
+             y="462.31842">X-Session-ID: 123456...</tspan><tspan
+             id="tspan3083"
+             sodipodi:role="line"
+             x="-38.623959"
+             y="470.31842" /><tspan
+             style="font-style:italic;-inkscape-font-specification:Liberation Mono Italic"
+             id="tspan3086"
+             sodipodi:role="line"
+             x="-38.623959"
+             y="478.31842">data...</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono Bold"
+           x="16.219791"
+           y="434.27332"
+           id="text7786-1-2"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan7788-9-3"
+             x="16.219791"
+             y="434.27332">HTTP</tspan></text>
+      </g>
+    </g>
+    <text
+       sodipodi:linespacing="100%"
+       id="text6622"
+       y="455.72498"
+       x="522.17468"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       xml:space="preserve"><tspan
+         y="455.72498"
+         x="522.17468"
+         id="tspan6624"
+         sodipodi:role="line">TOR BRIDGE</tspan><tspan
+         y="466.25516"
+         x="522.17468"
+         sodipodi:role="line"
+         id="tspan5068"
+         style="font-size:10px">at <tspan
+   style="font-size:10px;font-weight:bold;-inkscape-font-specification:Liberation Mono Bold"
+   id="tspan5070">forbidden.example</tspan></tspan></text>
+    <g
+       id="g5295"
+       transform="translate(-6.7408203e-5,-12)">
+      <rect
+         style="color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         id="rect6592"
+         width="96.068871"
+         height="57.444714"
+         x="473.63821"
+         y="481.63788"
+         ry="14.051025" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+         x="522.37292"
+         y="502.24213"
+         id="text6598"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           id="tspan6600"
+           x="522.37292"
+           y="502.24213">meek-server</tspan></text>
+      <rect
+         y="520.11096"
+         x="511.27673"
+         height="18.572758"
+         width="21.70022"
+         id="rect6604"
+         style="color:#000000;fill:#0000ff;fill-opacity:0;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+         x="522.10632"
+         y="533.33484"
+         id="text6606"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           id="tspan6608"
+           x="522.10632"
+           y="533.33484">tor</tspan></text>
+      <path
+         inkscape:connection-end-point="d4"
+         inkscape:connection-end="#rect6604"
+         inkscape:connection-start-point="d4"
+         inkscape:connector-curvature="20"
+         inkscape:connector-type="polyline"
+         id="path7392"
+         d="m 522.12682,507.63498 1e-5,12.47598"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)" />
+      <path
+         sodipodi:nodetypes="cc"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+         d="m 522.12682,537.63498 1e-5,16.47598"
+         id="path5281"
+         inkscape:connector-type="polyline"
+         inkscape:connector-curvature="20" />
+    </g>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path5293"
+       d="m 307.69763,487.47884 c 81.27241,-1.27736 119.26236,-0.45163 171.95371,-0.45162"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none;marker-end:url(#Arrow2Mend)" />
+    <g
+       id="g4103"
+       transform="translate(0,6)">
+      <text
+         xml:space="preserve"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+         x="399.05862"
+         y="515.11243"
+         id="text4393"
+         sodipodi:linespacing="100%"><tspan
+           id="tspan4395"
+           sodipodi:role="line"
+           x="399.05862"
+           y="515.11243">forwarded request</tspan></text>
+      <g
+         transform="translate(256.13323,-44.760898)"
+         id="g3290">
+        <rect
+           ry="4.3738055"
+           rx="4.0810037"
+           y="491.87134"
+           x="84.266655"
+           height="60.390137"
+           width="116.96103"
+           id="rect3292"
+           style="color:#000000;fill:#ffebcd;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+        <g
+           transform="translate(126.36527,68.95114)"
+           id="g3294">
+          <text
+             xml:space="preserve"
+             style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+             x="-38.623959"
+             y="438.31842"
+             id="text3296"
+             sodipodi:linespacing="100%"><tspan
+               sodipodi:role="line"
+               id="tspan3298"
+               x="-38.623959"
+               y="438.31842"
+               style="font-size:8px;font-weight:bold;-inkscape-font-specification:Liberation Mono Bold" /><tspan
+               sodipodi:role="line"
+               x="-38.623959"
+               y="446.31842"
+               id="tspan3300">POST / HTTP/1.1</tspan><tspan
+               sodipodi:role="line"
+               x="-38.623959"
+               y="454.31842"
+               id="tspan3302">Host: <tspan
+   style="font-size:8px;font-weight:bold;-inkscape-font-specification:Liberation Mono Bold"
+   id="tspan3304">forbidden.example</tspan></tspan><tspan
+               id="tspan3306"
+               sodipodi:role="line"
+               x="-38.623959"
+               y="462.31842">X-Session-ID: 123456...</tspan><tspan
+               id="tspan3308"
+               sodipodi:role="line"
+               x="-38.623959"
+               y="470.31842" /><tspan
+               style="font-style:italic;-inkscape-font-specification:Liberation Mono Italic"
+               id="tspan3310"
+               sodipodi:role="line"
+               x="-38.623959"
+               y="478.31842">data...</tspan></text>
+          <text
+             xml:space="preserve"
+             style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono Bold"
+             x="16.219791"
+             y="434.27332"
+             id="text3312"
+             sodipodi:linespacing="100%"><tspan
+               sodipodi:role="line"
+               id="tspan3314"
+               x="16.219791"
+               y="434.27332">HTTP</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
