@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://www.bamsoftware.com/talks/fronting-pets2015/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Blocking-resistant communication through domain fronting</title>
+<style>
+html {
+	width: 100%;
+	height: 100%;
+}
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: blanchedalmond;
+	font-size: 24pt;
+}
+section {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	min-height: 100%;
+	background-color: white;
+	padding: 0.75em;
+	border: 0.75em solid blanchedalmond;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+h1 {
+	text-align: center;
+	margin-top: 0.5em;
+}
+h1.title {
+	text-align: left;
+	font-size: 48pt;
+}
+table th {
+	text-align: left;
+}
+pre {
+	font-size: 48%;
+	color: whitesmoke;
+	background-color: #111;
+}
+.urldemo {
+	padding-top: 2.8em;
+	font-size: 48pt;
+	color: #222;
+	text-align: center;
+}
+.urlcomponent {
+	position: relative;
+}
+.urlcomponentlabel {
+	font-style: italic;
+	position: absolute;
+	font-size: 40%;
+	bottom: 120%;
+	left: 0;
+	right: 0;
+	margin-top: 0.5em;
+}
+.subdued {
+	color: #ccc;
+}
+.highlight {
+	color: black;
+	background-color: lightgreen;
+}
+</style>
+</head>
+<body cz-shortcut-listen="true">
+
+<p align="center">
+These are the visual aids I used to deliver a talk on
+domain fronting on June 30, 2015
+at <a href="https://petsymposium.org/2015/">PETS 2015</a>.
+</p>
+<p align="center">
+For the full paper see:
+<a href="https://www.bamsoftware.com/papers/fronting/">https://www.bamsoftware.com/papers/fronting/</a>.
+</p>
+
+<center>
+<video id="video" controls="">
+<source src="fronting-pets2015.webm" type="video/webm">
+</video>
+<p>
+I extracted the video of my presentation from the full-length conference videos:
+<a href="https://1513041.mediaspace.kaltura.com/media/CCI_PETS_Day_1/1_fk49ha3o">Day&nbsp;1</a>,
+<a href="https://1513041.mediaspace.kaltura.com/media/CCI_PETS_Day_2/1_1bqvhxud">Day&nbsp;2</a>,
+<a href="https://1513041.mediaspace.kaltura.com/media/CCI_PETS_Day_3/1_mos13xhm">Day&nbsp;3</a>.
+</p>
+</center>
+
+<section id="title">
+<h1 class="title">Blocking-resistant communication through domain fronting</h1>
+<p>
+David Fifield<br>
+Chang Lan<br>
+Rod Hynes<br>
+Percy Wegmann<br>
+Vern Paxson
+</p>
+</section>
+
+<section id="introduction">
+<!--
+This is a very simple idea.
+Kind of embarrassing how simple it is, really.
+What's more important is understanding <em>why</em>
+the simple idea is so effective—understanding
+that is understanding the state of censorship circumvention.
+-->
+<p>
+Domain fronting is the use
+of different domain names
+at different layers of communication.
+</p>
+<p>
+The censor sees one domain name (an unblocked <em>front domain</em>),
+while an intermediate network device
+sees and obeys another.
+</p>
+<pre>$ wget -q -O- https://www.google.com/ | grep -o '&lt;title&gt;.*&lt;/title&gt;'
+&lt;title&gt;Google&lt;/title&gt;
+
+$ wget -q -O- https://www.google.com/ <span class="highlight">--header 'Host: maps.google.com'</span> | grep -o '&lt;title&gt;.*&lt;/title&gt;'
+&lt;title&gt;Google Maps&lt;/title&gt;
+
+$ wget -q -O- https://www.google.com/ <span class="highlight">--header 'Host: meek-reflect.appspot.com'</span>
+I’m just a happy little web server.
+</pre>
+<p>
+Transports based on this idea are now deployed in the
+<a href="https://www.torproject.org/">Tor</a>,
+<a href="https://getlantern.org/">Lantern</a>, and
+<a href="https://psiphon.ca/">Psiphon</a>
+circumvention systems.
+</p>
+</section>
+
+<section id="urlcomponents">
+<h1>What does the censor get to see?</h1>
+<div class="urldemo">
+<span class="urlcomponent"><span class="urlcomponentlabel">scheme</span>https://</span><span class="urlcomponent"><span class="urlcomponentlabel">domain</span>example.com</span><span class="urlcomponent"><span class="urlcomponentlabel">path</span>/foobar</span>
+</div>
+</section>
+
+<section id="urlcomponents-subdued">
+<h1>What does the censor get to see?</h1>
+<div class="urldemo">
+<span class="urlcomponent"><span class="urlcomponentlabel">scheme</span>https://</span><span class="urlcomponent"><span class="urlcomponentlabel">domain</span>example.com</span><span class="urlcomponent subdued"><span class="urlcomponentlabel">path</span>/foobar</span>
+</div>
+</section>
+
+<section id="domain">
+<!--
+Threat model: we assume HTTPS.
+-->
+<p>
+When you make an HTTPS request, the domain
+ends up in three places:
+</p><p>
+</p><table align="center" width="80%">
+<tbody><tr>
+<td>DNS query</td>
+<td>(censor can see)</td>
+</tr>
+<tr>
+<td>TLS SNI</td>
+<td>(censor can see)</td>
+</tr>
+<tr>
+<td>HTTP Host header</td>
+<td>(censor <em>cannot</em> see)</td>
+</tr>
+</tbody></table>
+<p>
+We put an unblocked <em>front domain</em>
+in the DNS query and the TLS SNI.
+In the Host header, we put the <em>real destination domain</em>,
+hidden from the censor by HTTPS encryption.
+</p>
+<!--
+Let's review.
+What would happen if we put some
+unrelated domain, like nytimes.com?
+-->
+<pre>$ wget -q -O- https://www.google.com/ <span class="highlight">--header 'Host: maps.google.com'</span> | grep -o '&lt;title&gt;.*&lt;/title&gt;'
+&lt;title&gt;Google Maps&lt;/title&gt;
+</pre>
+</section>
+
+<section id="fronting">
+<img align="center" src="./Blocking-resistant communication through domain fronting_files/meek-architecture.svg" width="100%">
+<p>
+How to circumvent:
+</p>
+<ol>
+<li>Run a proxy on a domain you control.</li>
+<li>Use fronting to reach that domain.</li>
+</ol>
+<p>
+The rest is plumbing.
+You pay a 2–4× performance penalty
+depending on how you implement
+the transport layer.
+</p>
+</section>
+
+<section id="cdns">
+<h1>Where does this work?</h1>
+<p>
+Content delivery networks, mostly.
+</p>
+<ul>
+<li><a href="https://trac.torproject.org/projects/tor/wiki/doc/meek#GoogleAppEngine">Google App Engine</a></li>
+<li><a href="https://trac.torproject.org/projects/tor/wiki/doc/meek#AmazonCloudFront">Amazon CloudFront</a></li>
+<li><a href="https://trac.torproject.org/projects/tor/wiki/doc/meek#MicrosoftAzure">Microsoft Azure</a></li>
+<li><a href="https://trac.torproject.org/projects/tor/wiki/doc/meek#CloudFlare">CloudFlare</a></li>
+<li><a href="https://trac.torproject.org/projects/tor/wiki/doc/meek#Akamai">Akamai</a></li>
+<li><a href="https://trac.torproject.org/projects/tor/wiki/doc/meek#Fastly">Fastly</a></li>
+</ul>
+</section>
+
+<section id="comparison">
+<h1>Comparison with decoy routing and CloudTransport</h1>
+<p>
+All these systems use TLS and
+some sort of <em>tag</em>
+that is undetectable by the censor
+but detectable by some network intermediary.
+</p>
+<table width="100%">
+<thead>
+<tr>
+<th>domain fronting</th>
+<th><a href="https://telex.cc/pub/telex-usenixsec11.pdf" style="color: inherit; text-decoration: inherit;">decoy routing</a></th>
+<th><a href="https://www.petsymposium.org/2014/papers/Brubaker.pdf" style="color: inherit; text-decoration: inherit;">CloudTransport</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>front domain</td>
+<td>decoy web site</td>
+<td>cloud storage</td>
+</tr>
+<tr>
+<td>Host header</td>
+<td>e.g. TLS tag</td>
+<td>URL path</td>
+</tr>
+<tr>
+<td>CDN edge server</td>
+<td>ISP router</td>
+<td>shared files</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section id="import">
+<p style="margin-top: 4em;">
+Why is this a compelling idea?
+</p>
+<p>
+Think of the challenges of
+censorship circumvention like this:
+</p>
+<ul>
+<li>address blocking</li>
+<li>content blocking (DPI)</li>
+<li>active probing</li>
+</ul>
+<!--
+<p>
+Domain fronting addresses these challenges
+and is fairly easy to deploy.
+Does not need cooperation from the CDN
+(though you will want to make a relationship
+for big deployments).
+Its main drawback is monetary cost.
+</p>
+-->
+</section>
+
+<!--
+<section id=tlsfingerprint>
+<h1>TLS fingerprint</h1>
+</section>
+-->
+
+<section id="costs">
+<h1>Costs (of meek with Tor)</h1>
+<table align="center" width="60%" style="font-size: 80%;">
+<thead>
+<tr>
+<th style="text-align: right;">month</th>
+<th style="text-align: right;">GB</th>
+<th style="text-align: right;">cost</th>
+</tr>
+</thead>
+<tbody>
+<tr align="right">
+<td>early&nbsp;2014</td>
+<td>185</td>
+<td>$21</td>
+</tr>
+<tr align="right">
+<td>Oct&nbsp;2014</td>
+<td>1,064</td>
+<td>$202</td>
+</tr>
+<tr align="right">
+<td>Nov&nbsp;2014</td>
+<td>3,143</td>
+<td>$641</td>
+</tr>
+<tr align="right">
+<td>Dec&nbsp;2014</td>
+<td>4,222</td>
+<td>$808</td>
+</tr>
+<tr align="right">
+<td>Jan&nbsp;2015</td>
+<td>6,030</td>
+<td>$1,201</td>
+</tr>
+<tr align="right">
+<td>Feb&nbsp;2015</td>
+<td>7,097</td>
+<td>$1,321</td>
+</tr>
+<tr align="right">
+<td>Mar&nbsp;2015</td>
+<td>9,437</td>
+<td>$1,584</td>
+</tr>
+<tr align="right">
+<td>Apr&nbsp;2015</td>
+<td>11,517</td>
+<td>$1,881</td>
+</tr>
+<tr align="right">
+<td>May&nbsp;2015</td>
+<td>11,666</td>
+<td>$2,043</td>
+</tr>
+</tbody>
+</table>
+<p>
+<small>
+Includes fees for Google App Engine, Amazon CloudFront,
+and (estimated) Microsoft Azure.
+</small>
+</p>
+</section>
+
+<section id="users-tor">
+<h1>Users (Tor)</h1>
+<a href="https://metrics.torproject.org/userstats-bridge-transport.html?graph=userstats-bridge-transport&amp;start=2014-10-01&amp;transport=meek"><img align="center" src="./Blocking-resistant communication through domain fronting_files/clients-meek.svg" width="100%"></a>
+</section>
+
+<section id="bandwidth-lantern">
+<h1>Bandwidth (Lantern)</h1>
+<img align="center" src="./Blocking-resistant communication through domain fronting_files/bandwidth-lantern.svg" width="100%">
+</section>
+
+<section id="users-psiphon">
+<h1>Users (Psiphon)</h1>
+<img align="center" src="./Blocking-resistant communication through domain fronting_files/clients-psiphon.svg" width="100%">
+</section>
+
+<section id="summary">
+<p>
+Ready-to-run executables:
+</p>
+<ul>
+<li><a href="https://www.torproject.org/download/download-easy">Tor Browser</a> <small>torproject.org</small></li>
+<li><a href="https://getlantern.org/">Lantern</a> <small>getlantern.org</small></li>
+<li><a href="https://psiphon.ca/">Psiphon</a> <small>psiphon.ca</small></li>
+</ul>
+<p>
+General information and source code:
+</p>
+<ul style="font-size: 80%;">
+<li><a href="https://trac.torproject.org/projects/tor/wiki/doc/meek">https://trac.torproject.org/projects/tor/wiki/doc/meek</a></li>
+<li><a href="https://gitweb.torproject.org/pluggable-transports/meek.git">https://gitweb.torproject.org/pluggable-transports/meek.git</a></li>
+<li><a href="https://github.com/getlantern/flashlight">https://github.com/getlantern/flashlight</a>
+</li><li><a href="https://bitbucket.org/psiphon/psiphon-circumvention-system">https://bitbucket.org/psiphon/psiphon-circumvention-system</a></li>
+</ul>
+<p>
+fifield@eecs.berkeley.edu
+</p>
+</section>
+
+
+
+<script>
+var SLIDES = document.getElementsByTagName("section");
+function current_slide() {
+	for (var i = 0; i < SLIDES.length; i++) {
+		if (SLIDES[i].getBoundingClientRect().top >= 0)
+			return i;
+	}
+}
+function goto_slide(n) {
+	if (n < 0)
+		n = 0;
+	else if (n > SLIDES.length - 1)
+		n = SLIDES.length - 1;
+	var id = SLIDES[n].id;
+	if (id) {
+		document.location.hash = id;
+	} else {
+		document.location.hash = null;
+		SLIDES[n].scrollIntoView();
+	}
+}
+function prev_slide() {
+	goto_slide(current_slide() - 1);
+}
+function next_slide() {
+	goto_slide(current_slide() + 1);
+}
+document.onkeydown = function(e) {
+	var key = e.which;
+	/* 32: space
+	   33: page up
+	   34: page down
+	   37: left arrow
+	   39: right arrow */
+	// console.debug(e.which);
+	if (key === 33 || key === 37) {
+		prev_slide();
+	} else if (key === 32 || key === 34 || key === 39) {
+		next_slide();
+	} else {
+		return true;
+	}
+	return false;
+}
+</script>
+
+</body></html>
