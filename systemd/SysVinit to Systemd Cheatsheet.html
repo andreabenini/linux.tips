@@ -1,0 +1,167 @@
+<html class="client-js" lang="en" dir="ltr"><head>
+<meta charset="UTF-8">
+<title>SysVinit to Systemd Cheatsheet - Fedora Project Wiki</title>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-SysVinit_to_Systemd_Cheatsheet rootpage-SysVinit_to_Systemd_Cheatsheet skin-fedora action-view" cz-shortcut-listen="true">		
+	<div class="bodycontent">
+		<div class="mw-body container" role="main">
+			<div class="mw-body-content">
+    			<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+
+<h2><span class="mw-headline" id="Services">Services</span></h2>
+<p>Note that all recent versions of systemctl assume the '.service' if left off. So, 'systemctl start frobozz.service' is the same as 'systemctl start frobozz'
+</p>
+<table border="1" cellspacing="0">
+<tbody><tr>
+<th>Sysvinit Command</th>
+<th>Systemd Command</th>
+<th>Notes
+</th></tr>
+<tr>
+<td> service frobozz start </td>
+<td> systemctl start frobozz </td>
+<td> Used to start a service (not reboot persistent)
+</td></tr>
+<tr>
+<td> service frobozz stop </td>
+<td> systemctl stop frobozz </td>
+<td> Used to stop a service (not reboot persistent)
+</td></tr>
+<tr>
+<td> service frobozz restart </td>
+<td> systemctl restart frobozz  </td>
+<td> Used to stop and then start a service
+</td></tr>
+<tr>
+<td> service frobozz reload </td>
+<td> systemctl reload frobozz  </td>
+<td> When supported, reloads the config file without interrupting pending operations.
+</td></tr>
+<tr>
+<td> service frobozz condrestart </td>
+<td> systemctl condrestart frobozz  </td>
+<td> Restarts if the service is already running.
+</td></tr>
+<tr>
+<td> service frobozz status </td>
+<td> systemctl status frobozz </td>
+<td> Tells whether a service is currently running.
+</td></tr>
+<tr>
+<td> ls /etc/rc.d/init.d/ </td>
+<td nowrap="">  systemctl (or) systemctl list-unit-files --type=service (or) <br>ls /lib/systemd/system/*.service /etc/systemd/system/*.service</td>
+<td> Used to list the services that can be started or stopped <br> Used to list all the services and other units
+</td></tr>
+<tr>
+<td> chkconfig frobozz on </td>
+<td> systemctl enable frobozz </td>
+<td> Turn the service on, for start at next boot, or other trigger.
+</td></tr>
+<tr>
+<td> chkconfig frobozz off </td>
+<td> systemctl disable frobozz </td>
+<td> Turn the service off for the next reboot, or any other trigger.
+</td></tr>
+<tr>
+<td> chkconfig frobozz </td>
+<td> systemctl is-enabled frobozz </td>
+<td> Used to check whether a service is configured to start or not in the current environment.
+</td></tr>
+<tr>
+<td> chkconfig --list </td>
+<td> systemctl list-unit-files --type=service (or) ls /etc/systemd/system/*.wants/ </td>
+<td> Print a table of services that lists which runlevels each is configured on or off
+</td></tr>
+<tr>
+<td nowrap=""> chkconfig --list | grep 5:on </td>
+<td> systemctl list-dependencies graphical.target </td>
+<td> Print a table of services that will be started when booting into graphical mode
+</td></tr>
+<tr>
+<td> chkconfig frobozz --list </td>
+<td> ls /etc/systemd/system/*.wants/frobozz.service </td>
+<td> Used to list what levels this service is configured on or off
+</td></tr>
+<tr>
+<td> chkconfig frobozz --add </td>
+<td> systemctl daemon-reload </td>
+<td> Used when you create a new service file or modify any configuration
+</td></tr>
+</tbody></table>
+<p>Note that all /sbin/service and /sbin/chkconfig lines listed above continue to work on systemd, and will be translated to native equivalents as necessary. The only exception is chkconfig --list. 
+</p>
+
+<h2><span class="mw-headline" id="Runlevels.2Ftargets">Runlevels/targets</span></h2>
+<p>Systemd has a concept of <i>targets</i> which serve a similar purpose as runlevels but act a little different.  Each <i>target</i> is named instead of numbered and is intended to serve a specific purpose.  Some <i>targets</i> are implemented by inheriting all of the services of another <i>target</i> and adding additional services to it.  There are systemd <i>target</i>s that mimic the common sysvinit runlevels so you can still switch <i>target</i>s using the familiar <code>telinit RUNLEVEL</code> command.  The runlevels that are assigned a specific purpose on vanilla Fedora installs; 0, 1, 3, 5, and 6; have a 1:1 mapping with a specific systemd <i>target</i>.  Unfortunately, there's no good way to do the same for the user-defined runlevels like 2 and 4.  If you make use of those it is suggested that you make a new named systemd <i>target</i> as <code>/etc/systemd/system/$YOURTARGET</code> that takes one of the existing runlevels as a base (you can look at <code>/lib/systemd/system/graphical.target</code> as an example), make a directory <code>/etc/systemd/system/$YOURTARGET.wants</code>, and then symlink the additional services that you want to enable into that directory.  (The service unit files that you symlink live in <code>/lib/systemd/system</code>).
+</p>
+<table border="1" cellspacing="0">
+<tbody><tr>
+<th>Sysvinit Runlevel</th>
+<th>Systemd Target</th>
+<th>Notes
+</th></tr>
+<tr>
+<td> 0 </td>
+<td> runlevel0.target, poweroff.target </td>
+<td> Halt the system.
+</td></tr>
+<tr>
+<td> 1, s, single </td>
+<td> runlevel1.target, rescue.target </td>
+<td> Single user mode.
+</td></tr>
+<tr>
+<td> 2, 4 </td>
+<td nowrap=""> runlevel2.target, runlevel4.target, multi-user.target </td>
+<td> User-defined/Site-specific runlevels. By default, identical to 3.
+</td></tr>
+<tr>
+<td> 3 </td>
+<td> runlevel3.target, multi-user.target </td>
+<td> Multi-user, non-graphical.  Users can usually login via multiple consoles or via the network.
+</td></tr>
+<tr>
+<td> 5 </td>
+<td> runlevel5.target, graphical.target </td>
+<td> Multi-user, graphical.  Usually has all the services of runlevel 3 plus a graphical login.
+</td></tr>
+<tr>
+<td> 6 </td>
+<td> runlevel6.target, reboot.target </td>
+<td> Reboot
+</td></tr>
+<tr>
+<td> emergency </td>
+<td> emergency.target </td>
+<td> Emergency shell
+</td></tr>
+</tbody></table>
+<p>Changing runlevels:
+</p>
+<table border="1" cellspacing="0">
+<tbody><tr>
+<th>Sysvinit Command</th>
+<th>Systemd Command</th>
+<th>Notes
+</th></tr>
+<tr>
+<td> telinit 3 </td>
+<td nowrap=""> systemctl isolate multi-user.target<br>
+    (OR systemctl isolate runlevel3.target OR telinit 3) </td>
+<td> Change to multi-user run level.
+</td></tr>
+<tr>
+<td> sed s/^id:.*:initdefault:/id:3:initdefault:/ </td>
+<td> ln -sf /lib/systemd/system/multi-user.target /etc/systemd/system/default.target </td>
+<td nowrap=""> Set to use multi-user runlevel on next reboot.
+</td></tr></tbody></table>
+<p>Kernel Options:
+</p><p>The above systemd targets can be used when booting.  At the GRUB menu, edit the selection to add "systemd.unit=<i>target</i>" (without the double-quotation marks) as a kernel option where <i>target</i> is one of the above.  (For example, "rescue.target".)
+</p><p>Tip:  the ".target" extention is optional.  The "systemd.unit=rescue" kernel option works the same as "systemd.unit=rescue.target".
+</p>
+</div>
+				</div>
+			</div>			
+		</div>
+</body></html>
+
