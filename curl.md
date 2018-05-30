@@ -9,5 +9,9 @@ curl \
 
 ## HTTP Upload file
 ```
-curl -F "file=@filename.txt;filename=NameOfTheFileInPOST.txt" "http://remote.http.site/upload/"
+# As a multipart    (multipart/form-data)
+curl -F "file=@filename.txt;filename=NameOfTheFileInPOST.txt" "http://remote.http.site/upload"
+
+# As a binary file  (application/x-www-form-urlencoded)
+curl --request POST --data-binary "@bigfile.img" "http://remote.http.site/upload"
 ```
