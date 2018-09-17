@@ -46,7 +46,7 @@ read -n 1 CONFIRM
 if [ "$CONFIRM" != "y" ]; then
     exit 0
 fi
-
+echo -e "\nplease wait..."
 mkdir tmp
 cp $1 tmp/
 cd tmp/
@@ -59,4 +59,4 @@ rsync -a resources/ ../../resources/
 cd ../..
 rm -r tmp/
 
-echo -e "\nInstallation Completed\n"
+echo -e "Installation Completed\n"
