@@ -4,6 +4,7 @@ Here's what you can do to install a vnc server on a linux mint (mate, cinnamon, 
 
 - Install x11vnc:
 ```
+# debian, ubuntu, mint
 sudo apt-get -y install x11vnc
 ```
 - Create the directory for the password file:
