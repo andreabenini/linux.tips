@@ -10,3 +10,14 @@ GRUB_TERMINAL_OUTPUT="console"
 GRUB_CMDLINE_LINUX="ipv6.disable=1 crashkernel=auto rhgb quiet"
 GRUB_DISABLE_RECOVERY="true"
 ```
+
+Regenerate grub configuration
+```
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+Restart machine and check how it goes
+```
+shutdown -r now
+ip addr show | grep net6
+```
