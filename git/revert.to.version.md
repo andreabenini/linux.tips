@@ -1,7 +1,8 @@
 
 # Revert to a specific version
 ```
-git log -p
+git log
+# git log -p   Gives you an huge verbose so it could be difficult to read commit id
 # Get required commit ID from log and use its output with --soft
 git reset --soft 4ef2e27167cd51a299999999983c3d44a897b8d2
 ```
