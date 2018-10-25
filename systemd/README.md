@@ -22,3 +22,9 @@ journalctl --vacuum-time=2d
 # Retain only the past 500 MB:
 journalctl --vacuum-size=500M
 ```
+
+## Live log
+See current log agent on stdout
+```
+journalctl -f
+```
