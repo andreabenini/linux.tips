@@ -12,3 +12,9 @@ as well as:
     ~$ mysqladmin status
     Uptime: 4661  Threads: 1  Questions: 200  Slow queries: 0  Opens: 16  Flush
     tables: 1  Open tables: 6  Queries per second avg: 0.043
+
+### Records from all tables in a database
+```
+SHOW databases;
+SELECT TABLE_NAME, TABLE_ROWS FROM information_schema.tables  WHERE table_schema = 'NameOfYourDatabase';
+```
