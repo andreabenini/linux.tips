@@ -15,6 +15,14 @@ openssl rand -out sample.txt -base64 $((100800 * 3/4))
 # Create 1Mb file
 openssl rand -out sample.txt -base64 $((1032000 * 3/4))
 
+# Short table
+#    1 K    1008
+#   10 K    10080
+#  100 K    100800
+#    1 M    1032000
+#   10 M    10320000
+#  100 M    103200000
+#    1 G    1032000000
 ```
 
 # Create a bunch of files (100k each)
