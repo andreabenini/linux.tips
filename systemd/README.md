@@ -1,5 +1,5 @@
 # Cheat Sheet (preview page above)
-https://rawgit.com/andreabenini/linux.tips/master/systemd/SysVinit%20to%20Systemd%20Cheatsheet.html
+http://htmlpreview.github.io/?https://github.com/andreabenini/linux.tips/master/systemd/SysVinit%20to%20Systemd%20Cheatsheet.html
 
 
 ## Remove a service
