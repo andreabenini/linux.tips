@@ -13,4 +13,5 @@ On a non hardened system with basic auth requirements this should suffice
 # IPv4 local connections:
 host    all             all             127.0.0.1/32            md5
 ```
-disable everything else, no need for ipv6, ipv4 (on ensXX) or local; restart when done
+Disable everything else, there's no need for: ipv6, ipv4 (on external address) or 'local' entry.
+Restart when done
