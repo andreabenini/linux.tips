@@ -1,5 +1,5 @@
 ## Get stat of a file
-```
+```sh
 $ ls -la filename
 -rw-r--r-- 1 root root 0 Aug 27 21:24 filename
 
@@ -15,12 +15,21 @@ Change: 2018-08-27 21:27:34.715695430 +0200
 ```
 
 ## Get date from filename
-```
+```sh
 date -R -r filename
 Mon, 27 Aug 2018 21:24:37 +0200
 ```
 
 ## Alter stat of a filename
-```
+```sh
 $ touch -d "Sun, 12 Aug 2018 12:24:37 +0200" filename
+```
+
+## User/Group of a file
+```sh
+# Get user:group (name) of a file
+stat file.conf --format "%U %G"
+
+# Multiple assignment on single line of USER:GROUP of a file
+read -r USER GROUP <<<$(stat file.conf --format "%U %G"); echo "$USER:$GROUP"
 ```
