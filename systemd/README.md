@@ -28,3 +28,8 @@ See current log agent on stdout
 ```
 journalctl -f
 ```
+
+## Detect if service is running (from script or whatever)
+```
+systemctl is-active sshd && echo "ON" || echo "OFF"
+```
