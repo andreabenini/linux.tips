@@ -1,6 +1,9 @@
 ### Create public and private keys
 ```sh
+# plain as is
 ssh-keygen -t rsa
+# specify email address to use
+ssh-keygen -t rsa -C "your.email@domain.com"
 ```
 
 ### Create public key from private
