@@ -20,17 +20,22 @@
 #
 # @license      GPLv3
 # @see          History
+#               v1.1 (2019/03)
+#                   Visual Studio now warns about previous/older files so keeping them with an
+#                   updated version doesn't seems to be nice anymore, a new "unsupported" label
+#                   appears in the titlebar so I basically rewritten the whole thing.
+#                   Now find+tar are the only things to do and previous rsyncing is gone
 #               v1.0 (2018/06)
 #                   Visual Studio Code gets upgraded every 2/3 weeks so I'm really getting
 #                       tired of upgrading it manually, that's the reason of the script.
-#                   rsync and cp to upgrade a generic vscode-stable*64.tar.gz on a generic distro.
-#                   Folks using rpm and debs are probably doing it with their specific upgrade flag
+#                   rsync and cp to upgrade vscode-stable*64.tar.gz on a generic distro.
+#                   rpm and deb packages are probably doing it with their specific upgrade flag
 #
 FILENAME=$1
 if [ "$FILENAME" == "" ]; then
     echo -e "\nUsage:\n    $0 <vscode.filename.tar.gz>\n"
     echo "Possible values:"
-    ls -a code-stable* |xargs -I % echo "    %"
+    ls -a code-stable* 2>/dev/null |xargs -I % echo "    %"
     echo ""
     exit 1
 fi
@@ -46,17 +51,14 @@ read -n 1 CONFIRM
 if [ "$CONFIRM" != "y" ]; then
     exit 0
 fi
-echo -e "\nplease wait..."
-mkdir tmp
-cp $1 tmp/
-cd tmp/
-tar -zxvf $FILENAME   >/dev/null 2>&1
-cd VSCode-linux-x64/
-mv * ../../           2>/dev/null
-rsync -a bin/ ../../bin/
-rsync -a locales/ ../../locales/
-rsync -a resources/ ../../resources/
-cd ../..
-rm -r tmp/
+echo -en "\nplease wait..."
+# Remove everything except few files
+find . -maxdepth 1  ! -name '.'         ! -name 'visual-*' \
+                    ! -name 'visual.*'  ! -name 'code-*'   \
+       -exec rm -rf {} +
+# Extract new file
+tar -zxf $FILENAME  >/dev/null 2>&1
+mv VSCode-linux-x64/* .
+rmdir VSCode-linux-x64
 
-echo -e "Installation Completed\n"
+echo -e "\nInstallation Completed\n"
