@@ -14,3 +14,8 @@ git --no-pager branch -a
 ```
 git remote -v
 ```
+
+## List of files in branch 'master'
+```
+git ls-tree -r master
+```
