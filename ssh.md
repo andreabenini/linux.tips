@@ -9,6 +9,14 @@ ssh-keygen -t rsa -C "your.email@domain.com"
 ### Create public key from private
 ```sh
 ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
+# Works for putty .ppk public keys too
+```
+
+### Putty Stuff
+You can convert a .ppk file with putty-tools.
+```
+# Convert .ppk file with puttygen to OpenSSH's format
+puttygen <the_key.ppk> -O private-openssh -o <new_openssh_key>.key
 ```
 
 ### Remote shell with certificate (no password login)
