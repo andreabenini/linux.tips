@@ -22,14 +22,14 @@
 # @see          History
 #               v1.1 (2019/03)
 #                   Visual Studio now warns about previous/older files so keeping them with an
-#                   updated version doesn't seems to be nice anymore, a new "unsupported" label
-#                   appears in the titlebar so I basically rewritten the whole thing.
+#                   updated version doesn't seems nice anymore, a new "unsupported" label appears
+#                   in the titlebar so I basically rewritten the whole thing.
 #                   Now find+tar are the only things to do and previous rsyncing is gone
 #               v1.0 (2018/06)
 #                   Visual Studio Code gets upgraded every 2/3 weeks so I'm really getting
 #                       tired of upgrading it manually, that's the reason of the script.
-#                   rsync and cp to upgrade vscode-stable*64.tar.gz on a generic distro.
-#                   rpm and deb packages are probably doing it with their specific upgrade flag
+#                   rsync and cp to upgrade a generic vscode-stable*64.tar.gz on a generic distro.
+#                   Folks using rpm and debs are probably doing it with their specific upgrade flag
 #
 FILENAME=$1
 if [ "$FILENAME" == "" ]; then
@@ -49,6 +49,7 @@ echo -e "with: $FILENAME\n"
 echo -en "Do you want to proceed [y|N] ? "
 read -n 1 CONFIRM
 if [ "$CONFIRM" != "y" ]; then
+    echo -e "\n"
     exit 0
 fi
 echo -en "\nplease wait..."
