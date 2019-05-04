@@ -7,3 +7,8 @@ pacman -Qdt
 ```
 pacman -Rsn $(pacman -Qdtq)
 ```
+
+# Remove multiple packages and their dependencies
+```
+pacman -Rnsu pack1 pack2
+```
