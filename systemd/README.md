@@ -1,5 +1,6 @@
 # Cheat Sheet (preview page above)
 http://htmlpreview.github.io/?https://github.com/andreabenini/linux.tips/master/systemd/SysVinit%20to%20Systemd%20Cheatsheet.html
+https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
 
 
 ## Remove a service
