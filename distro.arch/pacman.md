@@ -1,3 +1,11 @@
+# List of installed packages
+```
+# detailed list, multiple lines per package
+pacman -Qi
+# one line for each single package
+pacman -Qe
+```
+
 # List orphans packages
 ```
 pacman -Qdt
