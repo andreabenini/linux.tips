@@ -3,6 +3,12 @@ AUR is the Arch User Repository and you can find unsupported packages or somethi
 (skype, x264, ...). pacman is not responsable for upgrading these packages, when you install something from it you're
 on your own
 
+## Requirements
+list of suggested packages
+- git
+- binutils
+- fakeroot (optional but sometimes used for packages tests)
+
 ## Installation
 clone requested package from AUR (with an unprivileged user)
 ```
