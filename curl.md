@@ -1,4 +1,11 @@
 # CURL HTTP POST
+
+## HTTP GET, generic
+```
+# Generic request, just like wget.  (v)erbose, (s)ilent, suppress progress bar meter
+curl -vs http://remote.http.site
+```
+
 ## HTTP Form POST
 ```
 curl \
