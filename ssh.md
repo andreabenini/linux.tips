@@ -1,3 +1,5 @@
+# SSH with Certificates
+
 ### Create public and private keys
 ```sh
 # plain as is
@@ -24,4 +26,11 @@ puttygen <the_key.ppk> -O private-openssh -o <new_openssh_key>.key
 ## copy ~/.ssh/id_rsa.pub (LOCAL) in /root/.ssh/authorized_keys (REMOTE HOST)
 ## this method allows you to enter in your remotehost without a password
 ##     ssh root@remotehost # To enter there without a password
+```
+
+
+# SSHFS in a script without password
+`-o password_stdin` allows you to automate sshfs in a script easily
+```
+echo myPassword | sshfs user@remote.host.ssh:/ ~/mnt/example -o workaround=rename -o password_stdin
 ```
