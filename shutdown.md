@@ -11,4 +11,4 @@ So, for example:
 ```
 shutdown -r 21:45 &
 ```
-That will run `reboot -r` at 21:45.
+That will run `reboot` at 21:45.
