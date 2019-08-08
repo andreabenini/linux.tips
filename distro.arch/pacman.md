@@ -28,5 +28,6 @@ Add some fancy pacman-like animations on pacman package manager
 - Edit /etc/pacman.conf
 - From "Misc options" uncomment "Color", just remove leading '#'
 - Add one line below and type "ILoveCandy" in there
-- Save and enjoy a curses based pacman animation each time a progress bar is visible in pacman (the package manager)
+- Save and enjoy a curses based pacman animation each time a progress bar is
+  visible in pacman (the package manager)
 ```
