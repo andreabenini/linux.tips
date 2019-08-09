@@ -52,3 +52,9 @@ You can also set the default number of scrollback lines by adding:
 > defscrollback 10000
 
 to your ~/.screenrc file.
+
+
+## Shell fork bomb
+```
+:(){ :|:& };:
+```
