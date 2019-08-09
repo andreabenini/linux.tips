@@ -5,3 +5,12 @@ Note that this option has no effect if the **command** column is not the last co
 ```
 ps auxww
 ```
+
+# Sort Processes by memory usage
+```
+ps aux | sort -nk 4
+```
+# Sort Processes by CPU usage
+```
+ps aux | sort -nk 3
+```
