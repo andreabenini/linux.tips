@@ -14,6 +14,11 @@ curl \
     -d "{\"registration_ids\":[\"fARzJ0ysrZIxHpYSSg6wZTfURcuKwEGdCl0bku7n\"],\"data\":{\"title\":\"My Cool Title\"} }"
 ```
 
+## HTTP Form POST JSON data
+```
+curl -d '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/json" -X POST http://localhost/form
+```
+
 ## HTTP Upload file
 ```
 # As a multipart    (multipart/form-data)
