@@ -19,3 +19,11 @@ git remote -v
 ```
 git ls-tree -r master
 ```
+
+## Save credentials (user/password) on git project
+Issue the first command and then use a `git pull`<br>
+**please note:** The credentials are stored in a file on the disk, with the disk permissions of "just user readable/writable" but still in plaintext
+```
+git config --global credential.helper store
+git pull
+```
