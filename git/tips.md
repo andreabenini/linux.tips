@@ -27,3 +27,10 @@ Issue the first command and then use a `git pull`<br>
 git config --global credential.helper store
 git pull
 ```
+
+## Show user latest commits
+To grab some information from github just substitute with favorite username, when an user is not that smart you
+probably will see it's email address poorly configured on git
+```
+https://api.github.com/users/<username>/events/public
+```
