@@ -34,3 +34,10 @@ journalctl -f
 ```
 systemctl is-active sshd && echo "ON" || echo "OFF"
 ```
+
+## Reduce number of auto VTs on a system
+/etc/systemd/logind.conf
+```
+NAutoVTs=1
+# Default is 6, adjust it to whatever number you'd like (1 as example)
+```
