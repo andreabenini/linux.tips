@@ -3,6 +3,30 @@ http://htmlpreview.github.io/?https://github.com/andreabenini/linux.tips/master/
 https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
 
 
+## Basic unit management
+The basic object that `systemd` manages and acts upon is a _"unit"_.
+Units can be of many types, but the most common type is a _"service"_ (indicated by a unit file ending in `.service`).
+To manage services on a `systemd` enabled server, our main tool is the `systemctl` command.  
+All of the normal init system commands have equivalent actions with the `systemctl` command.
+#### Start/Stop/Restart/Reload
+I can start a service by typing
+```
+sudo systemctl start nginx
+```
+To stop it:
+```
+sudo systemctl stop nginx
+```
+The same goes for restarting:
+```
+sudo systemctl restart nginx.service
+```
+To attempt to reload a service without interrupting normal functionality, I can type (where service supports it):
+```
+sudo systemctl reload nginx.service
+```
+
+
 ## Remove a service
 Removing a service from system should be an easy thing but follow these steps:
 ```
