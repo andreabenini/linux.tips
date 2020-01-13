@@ -27,7 +27,16 @@ sudo systemctl reload nginx.service
 ```
 
 
-## Remove a service
+## Enable/Disable/Remove a service
+By default, most systemd unit files are not started automatically at boot. To configure this functionality, you need to "enable" to unit. This hooks it up to a certain boot "target", causing it to be triggered when that target is started.  
+To enable a service to start automatically at boot, type:
+```
+sudo systemctl enable nginx.service
+```
+If you wish to disable the service
+```
+sudo systemctl disable nginx.service
+```
 Removing a service from system should be an easy thing but follow these steps:
 ```
 systemctl stop [servicename]
