@@ -47,6 +47,24 @@ systemctl daemon-reload
 systemctl reset-failed
 ```
 
+
+## Getting an Overview of the System State
+To get all of the unit files that systemd has listed as _active_, type:
+```
+systemctl list-units
+```
+To list all the units that systemd has loaded or attempted to load into memory,
+including those that are not currently active just add the `--all` switch
+```
+systemctl list-units --all
+```
+To list all of the units installed in a system, 
+this includes those that systemd has not tried to load into memory
+```
+systemctl list-unit-files
+```
+
+
 ## Clear log
 The self maintenance method is to vacuum the logs by size or time.
 ```
