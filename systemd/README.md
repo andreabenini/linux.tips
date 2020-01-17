@@ -65,6 +65,27 @@ systemctl list-unit-files
 ```
 
 
+## Inspecting Units and Unit Files
+A unit file contains parameters to handle a unit  
+
+Contents of a unit file
+```
+systemctl cat nginx
+```
+details on unit's setup
+```
+systemctl show nginx
+```
+Unit dependencies
+```
+systemctl list-dependencies nginx
+```
+Unit dependencies (recursive)
+```
+systemctl list-dependencies --all nginx
+```
+
+
 ## Clear log
 The self maintenance method is to vacuum the logs by size or time.
 ```
