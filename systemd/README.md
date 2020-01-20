@@ -65,12 +65,23 @@ systemctl list-unit-files
 ```
 
 
-## Inspecting Units and Unit Files
+## Editing Units and Unit Files
 A unit file contains parameters to handle a unit  
 
 Contents of a unit file
 ```
 systemctl cat nginx
+```
+Modifying unit file
+```sh
+# Documentation refers to editing a snippet
+systemctl edit nginx.service
+
+# Prefer the file entire content, always
+systemctl edit --full nginx.service
+
+# Always reload systemd process to pick changes
+sudo systemctl daemon-reload
 ```
 details on unit's setup
 ```
@@ -83,6 +94,37 @@ systemctl list-dependencies nginx
 Unit dependencies (recursive)
 ```
 systemctl list-dependencies --all nginx
+```
+
+# Targets (aka RunLevels)
+An init system transitions between different states and it typically refers to them as "runlevels", it allows to be in one
+level at a time.
+Systemd they're referred as _"targets"_. They're synchronization points that can be used to bring the machine to a specific
+state. Service and other unit files can be tied to a target and multiple targets can be active at the same time.
+
+Available targets on a system
+```
+systemctl list-unit-files --type=targetName
+```
+
+To view default target systemd tries to reach at boot which starts all the unit files that make up the dependency
+tree
+```
+systemctl get-default
+```
+Change the default target that will be used at boot
+```
+sudo systemctl set-default multi-user.target
+```
+See what units are tied to a target
+```
+systemctl list-dependencies multi-user.target
+```
+You can modify the system state to transition between targets with the isolate option.
+This will stop any units that are not tied to the specified target.
+Be sure that the target you are isolating does not stop any essential services
+```
+sudo systemctl isolate multi-user.target
 ```
 
 
