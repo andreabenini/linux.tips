@@ -42,6 +42,10 @@ With existing encrypted (unecrypted) private key:
 openssl req -x509 -new -days 100000 -key private_key.pem -out certificate.pem
 ```
 
+## Encrypt STDIN and provide a password(prompt)
+echo "message" | openssl enc -aes-256-cbc -a
+
+
 ### Encrypt a file
 
 Encrypt binary file:
