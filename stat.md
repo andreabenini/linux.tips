@@ -14,15 +14,23 @@ Change: 2018-08-27 21:27:34.715695430 +0200
  Birth: -
 ```
 
-## Get date from filename
+## Get date from file
 ```sh
 date -R -r filename
 Mon, 27 Aug 2018 21:24:37 +0200
 ```
 
-## Alter stat of a filename
+## Alter stat of a file
 ```sh
 $ touch -d "Sun, 12 Aug 2018 12:24:37 +0200" filename
+```
+
+## Alter stat (ctime) of a file
+well, you can't. But... temporary editing with system clock might do what you'd like
+```sh
+# One shot execution in order to avoid mess
+# Or alter $NOW to whatever you'd like
+NOW="2020-01-01 10:20:30" && sudo date -s "2010-02-03 11:12:13" && touch CONTRIBUTING.md && sudo date -s "$NOW"
 ```
 
 ## User/Group of a file
