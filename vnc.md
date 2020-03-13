@@ -29,6 +29,8 @@ After=multi-user.target
 [Service]
 Type=simple
 ExecStart=/usr/bin/x11vnc -auth guess -forever -noxdamage -repeat -rfbauth /etc/x11vnc/vncpwd -rfbport 5900 -shared
+# Use this one if "-auth guess" doesn't work or is not supported
+# ExecStart=/usr/bin/x11vnc -forever -noxdamage -repeat -rfbauth /etc/x11vnc/vncpwd -rfbport 5900 -shared
 
 [Install]
 WantedBy=multi-user.target
