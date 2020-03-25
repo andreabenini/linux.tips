@@ -96,6 +96,13 @@ Unit dependencies (recursive)
 systemctl list-dependencies --all nginx
 ```
 
+# Run service as with a specific user
+```
+[Service]
+User=<favorite.user>
+Group=<favorite.group>
+```
+
 # Targets (aka RunLevels)
 An init system transitions between different states and it typically refers to them as "runlevels", it allows to be in one
 level at a time.
