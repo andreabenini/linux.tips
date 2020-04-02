@@ -103,6 +103,14 @@ User=<favorite.user>
 Group=<favorite.group>
 ```
 
+# User specific services (controlled by himself)
+Each single user may have its own .service files, everything written here is still valid and applicable on specific user settings.
+Just use `--user` flag on each single command.  
+Systemd will take care of your settings and create a `$HOME/.config/systemd/user` folder where it will store your setup.  
+This is called **user lingering** and should be applied to user supplied or specific services run by a user.  
+More information https://wiki.archlinux.org/index.php/Systemd/User, seems to be an effective way to start user specific daemons (mpd, gaming services and so on)
+
+
 # Targets (aka RunLevels)
 An init system transitions between different states and it typically refers to them as "runlevels", it allows to be in one
 level at a time.
