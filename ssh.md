@@ -34,3 +34,22 @@ puttygen <the_key.ppk> -O private-openssh -o <new_openssh_key>.key
 ```
 echo myPassword | sshfs user@remote.host.ssh:/ ~/mnt/example -o workaround=rename -o password_stdin
 ```
+
+# ssh to remote and map port locally
+At the beginning of an ssh connection it's possible to tunnel some remote ports locally, for example:
+```
+ssh user@remotehost -L 8080:remotehost:80
+# Maps on localhost:8080 the port 80 on remotehost
+```
+but even:
+```
+ssh user@remotehost -L 8080:otherRemoteHost:80
+# Maps on localhost:8080 the port 80 available on a different host [otherRemoteHost] 
+# but that can be seen from [remotehost], each request to [otherRemoteHost] came from [remotehost]
+```
+and also:
+```
+ssh user@remotehost -L 192.168.0.141:8080:otherRemoteHost:80
+# Same as above but if 192.168.0.141 is the network address of current localhost machine then each
+# single machine on the same network of [localhost] might access port 80 of [otherRemoteHost]
+```
