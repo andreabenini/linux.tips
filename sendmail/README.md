@@ -11,3 +11,8 @@ Depending on the settings on your server you will probably need to run these com
 either as root or using the sudo command. You may also need to type the full path to
 sendmail if needed
 
+# Logging
+Show the current _maillog_
+```
+less /var/log/maillog
+```
