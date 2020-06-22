@@ -170,3 +170,20 @@ systemctl is-active sshd && echo "ON" || echo "OFF"
 NAutoVTs=1
 # Default is 6, adjust it to whatever number you'd like (1 as example)
 ```
+
+# Dealing with errors
+Shit happens, each day, and systemd is happy when something is broken. I'm not that happy and sometimes I need to fix its crap in 
+unusual ways.
+## "failed to connect to bus: Connection refused"
+dbus was peaceful place before systemd but when you see this weird message you basically need to solve with one of these methods:
+```
+# Method 1
+- Kill|Restart dbus, init
+- dbus-launch to restart everything
+# Method 2
+- reboot/shutdown/poweroff
+# Method 3
+- systemctl reboot -ff
+```
+I personally hate systemctl wrapper around UNIX commands but when it broke or you're not been able to communicate with dbus you
+absolutely need to use it. Method3 only when you absolutely know what you're doing.
