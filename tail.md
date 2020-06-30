@@ -17,3 +17,9 @@ To view /var/log/messages and /var/log/auth.log, enter:
 ```sh
 multitail /var/log/messages /var/log/auth.log
 ```
+
+# Run a command and view a log file
+```sh
+# multitail /var/log/iptables.log -l "ping server.nixcraft.in"
+# multitail /var/log/httpd.log    -l "netstat -nat"
+```
