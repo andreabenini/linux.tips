@@ -53,3 +53,12 @@ ssh user@remotehost -L 192.168.0.141:8080:otherRemoteHost:80
 # Same as above but if 192.168.0.141 is the network address of current localhost machine then each
 # single machine on the same network of [localhost] might access port 80 of [otherRemoteHost]
 ```
+
+# SSH Connection Timeout
+To handle the ssh connection head over to `/etc/ssh/sshd_config` file and take a look at those two parameters:  
+- **ClientIntervalAlive** parameter specifies the time in seconds that the server will wait before sending a null packet to the client system to keep the connection alive.
+- **ClientAliveCountMax** parameter defines the number of client alive messages which are sent without getting any messages from the client. 
+If this limit is reached while the messages are being sent, the sshd daemon will drop the session, effectively terminating the ssh session.
+
+The timeout value is given by the product of the above parameters i.e.  
+**Timeout value = ClientIntervalAlive * ClientAliveCountMax**
