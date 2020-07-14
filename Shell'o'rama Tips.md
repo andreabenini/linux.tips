@@ -12,6 +12,12 @@ My favorite shell colors (gentoo rocks) on /etc/bash/bashrc, /etc/bash.bashrc or
 ```
 
 
+## Shell separator-\<hr> like command
+```
+# Print a separator until last column
+printf '━%.0s' $(seq $COLUMNS)
+```
+
 ## After sending shutdown command, ssh session doesn't terminate
 Debian does it by default with virtual machines, here's a simple solution
 >
