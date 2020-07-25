@@ -16,6 +16,9 @@ My favorite shell colors (gentoo rocks) on /etc/bash/bashrc, /etc/bash.bashrc or
 ```
 # Print a separator until last column
 printf '━%.0s' $(seq $COLUMNS)
+
+# Same as above but preferred if seq is not fully supported
+printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 ```
 
 ## After sending shutdown command, ssh session doesn't terminate
