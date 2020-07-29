@@ -27,3 +27,11 @@ curl -F "file=@filename.txt;filename=NameOfTheFileInPOST.txt" "http://remote.htt
 # As a binary file  (application/x-www-form-urlencoded)
 curl --request POST --data-binary "@bigfile.img" "http://remote.http.site/upload"
 ```
+
+## HTTPS various options (example: insecure mode)
+To force specific curl options, like insecure mode (do not care about untrusted certs) you might edit your `$HOME/.curlrc` file.
+for example:
+```
+insecure
+```
+in your `.curlrc` file and everything is fine.
