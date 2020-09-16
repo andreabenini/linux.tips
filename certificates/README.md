@@ -1,7 +1,7 @@
 # openssl
 ## view SSL certificate (PEM file)
 ```
-openssl x509 -in zc_crypt.pem -noout -text
+openssl x509 -in certificate.pem -noout -text
 ```
 
 ## Fetch a certificate from remote
