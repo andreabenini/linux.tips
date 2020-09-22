@@ -31,3 +31,8 @@ that you get from the git log command
 ```
 git revert <commit hash>
 ```
+
+Discard all local changes to all files permanently:
+```
+git reset --hard
+```
