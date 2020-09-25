@@ -23,4 +23,8 @@ find . -type f -newermt '01 aug 2020 00:00:00' -not -newermt '01 sep 2020 00:00:
 # Delete files (or dirs) between two dates
 find . -type f -newermt '01 aug 2020 00:00:00' -not -newermt '01 sep 2020 00:00:00' -delete
 
+# Change directory permissions recursively with find and chmod
+find . -type d -exec chmod 755 {} \;
+# Change files permissions recursively with find and chmod
+find . -type f -exec chmod 644 {} \;
 ```
