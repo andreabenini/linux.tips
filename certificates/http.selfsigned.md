@@ -76,4 +76,5 @@ So, to recap there're these files:
 HTTPD server must use:
 - server private key
 - signed certificate
+
 So edit the httpd .conf file as suggested in the section above
