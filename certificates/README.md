@@ -7,6 +7,9 @@ openssl x509 -in certificate.pem -noout -text
 ## Fetch a certificate from remote
 ```
 openssl s_client -connect www.google.com:443 -showcerts
+
+# A more compact form to fetch info and store in a certfile
+echo "" | openssl s_client -connect www.google.com:443 -showcerts 2>/dev/null | openssl x509 -out certfile.txt
 ```
 ## Generate certificate information
 where *.crt is one of the certificates replied from previous query
