@@ -33,6 +33,12 @@ git config --global credential.helper store
 git pull
 ```
 
+# See latest commits
+Shows names of the files that changed for the last two commits.
+```
+git log --name-status -2
+```
+
 ## Show user latest commits
 To grab some information from github just substitute with favorite username, when an user is not that smart you
 probably will see it's email address poorly configured on git
