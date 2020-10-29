@@ -33,7 +33,7 @@ git config --global credential.helper store
 git pull
 ```
 
-# See latest commits
+## See latest commits (after a git pull)
 Shows names of the files that changed for the last two commits.
 ```
 git log --name-status -2
