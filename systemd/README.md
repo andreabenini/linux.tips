@@ -96,6 +96,13 @@ Unit dependencies (recursive)
 systemctl list-dependencies --all nginx
 ```
 
+## Disable systemd pager
+On CentOS and other Distros (Ubuntu/...) the pager is enabled by default, to remove it you can:  
+- Use the `--no-pager` flag
+
+export SYSTEMD_PAGER=''
+dhbridge /etc/nginx/conf.d# service nginx status
+
 # Run service as with a specific user
 ```
 [Service]
