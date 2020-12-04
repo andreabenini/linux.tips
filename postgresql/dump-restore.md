@@ -10,3 +10,7 @@ pg_dump --username=<username> --password --host=127.0.0.1 <databaseName>  >  dat
 ```
 pg_restore --dbname=<database> --user=<username> --host=127.0.0.1 database.dump
 ```
+but from a plain text file you should use:
+```
+psql <databaseName> < <nameOfTheDumpTextFile>
+```
