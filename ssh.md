@@ -2,11 +2,38 @@
 
 ### Create public and private keys
 ```sh
-# plain as is
+# plain as it is
 ssh-keygen -t rsa
+# add size too
+ssh-keygen -t rsa -b 4096
 # specify email address to use
-ssh-keygen -t rsa -C "your.email@domain.com"
+ssh-keygen -t rsa -b 4096 -C "your.email@domain.com"
 ```
+
+### config file
+Example configuration file, `.ssh/config` _(chmod 600)_
+```conf
+Host ring0
+    HostName 192.168.1.10
+    User lucifer
+    Port 6666
+    IdentityFile ~/.ssh/inferno.key
+
+Host heaven
+    HostName 192.168.10.20
+
+Host *ell
+    user dante
+
+Host * !caronte
+    user kerberos
+    LogLevel INFO
+
+Host *
+    User root
+    Compression yes
+```
+
 
 ### Create public key from private
 ```sh
