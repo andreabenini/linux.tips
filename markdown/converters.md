@@ -20,3 +20,13 @@ Some alternatives are listed here:
 - utility: **markdown-pdf**
 - `npm install markdown-pdf`
 - easy to use
+
+# HTML converters
+## HTML to PDF
+**wkhtmltopdf** (or _wkhtml2pdf_)
+```sh
+# Margins: -B 0mm -L 0mm -R 0mm -T 0mm
+# Local file access: --enable-local-file-access
+# Enable internal links: --enable-internal-links
+wkhtmltopdf -B 0mm -L 0mm -R 0mm -T 0mm  --enable-local-file-access --enable-internal-links source.html dest.pdf
+```
