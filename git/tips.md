@@ -1,3 +1,12 @@
+## Unstage/remove files from current commit
+To unstage files from current commit
+```sh
+git reset HEAD -- path/to/file
+# or (recursive on dirs)
+git reset HEAD -- .
+```
+
+
 ## Disable pager|less on git commands
 ```sh
 # for example when printing available branches
