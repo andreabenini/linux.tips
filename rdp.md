@@ -56,3 +56,27 @@ Type=Application
 StartupNotify=true
 ```
 Copy it to `/usr/share/applications/rdp.desktop` so it's system wide available and not just for one user only.
+
+# X11 frontend
+This is just a simple script, `zenity` and `xfreerdp` are mandatory, just a quick wrapper for **Quick Toggler** (or similar GnomeExtensions):
+```sh
+#!/usr/bin/env bash
+#
+# Remote desktop wrapper for quick connections
+#        zenity and xfreerdp required
+#
+SCREEN_SIZE=1920x1080           # Current screen size
+KEYBOARD=0x00020409             # US International
+OPTIONS="/cert-ignore"          # Ignore certificate trust question
+#OPTIONS="/monitors:2 /multimon"# Multimonitor setup
+#OPTIONS="/f"                   # Full screen
+
+dialogEntries=$(zenity --title "Remote Destop" --forms --text="host details" \
+                       --add-entry "host" --add-entry="domain" --add-entry="username" --add-entry="password")
+host=$(echo "$dialogEntries"     | cut -d'|' -f 1)
+domain=$(echo "$dialogEntries"   | cut -d'|' -f 2)
+username=$(echo "$dialogEntries" | cut -d'|' -f 3)
+password=$(echo "$dialogEntries" | cut -d'|' -f 4-)
+
+$(which xfreerdp) +clipboard /v:$host /d:$domain /u:$username /p:"$password" /size:$SCREEN_SIZE /kbd:$KEYBOARD $OPTIONS
+```
