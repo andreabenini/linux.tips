@@ -57,8 +57,8 @@ StartupNotify=true
 ```
 Copy it to `/usr/share/applications/rdp.desktop` so it's system wide available and not just for one user only.
 
-# X11 frontend
-This is just a simple script, `zenity` and `xfreerdp` are mandatory, just a quick wrapper for **Quick Toggler** (or similar GnomeExtensions):
+# X11 Wrapper Script
+This is just a simple script, `zenity` and `xfreerdp` are mandatory, just a quick wrapper for **QuickToggler** (or similar GnomeExtensions):
 ```sh
 #!/usr/bin/env bash
 #
@@ -79,4 +79,14 @@ username=$(echo "$dialogEntries" | cut -d'|' -f 3)
 password=$(echo "$dialogEntries" | cut -d'|' -f 4-)
 
 $(which xfreerdp) +clipboard /v:$host /d:$domain /u:$username /p:"$password" /size:$SCREEN_SIZE /kbd:$KEYBOARD $OPTIONS
+```
+
+### [QuickToggler](https://extensions.gnome.org/extension/1077/quick-toggler/) (Gnome Extension) entry
+Inside `.entries.json` file this is the required entry for above script:
+```json
+    {
+      "type": "launcher",
+      "title": "RDP Desktop",
+      "command": "$HOME/bin/rdp.generic"
+    },
 ```
