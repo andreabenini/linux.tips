@@ -38,3 +38,8 @@ openssl x509 -inform der -in certificate.cer -out certificate.pem
 ```
 keytool -printcert -file certificate.pem
 ```
+
+
+# External links:
+- Build a Tiny Certificate Authority For Your Homelab  
+    https://smallstep.com/blog/build-a-tiny-ca-with-raspberry-pi-yubikey/  
