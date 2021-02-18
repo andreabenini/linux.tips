@@ -8,3 +8,9 @@ or:
 pg_ctl reload
 ```
 from your favorite shell
+
+# Check Syntax
+```sql
+select pg_hba_file_rules();
+```
+To see if there's something wrong into the `pg_hba.conf` file
