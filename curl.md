@@ -6,6 +6,13 @@
 curl -vs http://remote.http.site
 ```
 
+## HTTP GET, with basic auth
+feel free to use `--anyauth` or `--negotiate` to properly match preferred auth.
+Usually `--anyauth` is preferred for basic realm
+```sh
+curl --anyauth --verbose --user 'username:password' "http://your.http.host.name/YOUR/REST/API"
+```
+
 ## HTTP Form POST
 ```
 curl \
