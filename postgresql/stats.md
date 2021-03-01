@@ -24,6 +24,8 @@ To enable the module and create the virtual view issue this command to the engin
 ```sql
 CREATE EXTENSION pg_stat_statements;
 ```
+Extension must be enabled on each database you want to control
+
 
 ## Using the extension
 as simple as:
