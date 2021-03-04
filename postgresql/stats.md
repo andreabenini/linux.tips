@@ -31,6 +31,35 @@ Extension must be enabled on each database you want to control
 as simple as:
 ```sql
 SELECT * FROM pg_stat_statements;
+
+-- Table structure
+\d pg_stat_statements;
+           View "public.pg_stat_statements"
+       Column        |       Type       | Modifiers
+---------------------+------------------+--------------
+ userid              | oid              | 
+ dbid                | oid              | 
+ queryid             | bigint           | 
+ query               | text             | 
+ calls               | bigint           | 
+ total_time          | double precision | 
+ min_time            | double precision | 
+ max_time            | double precision | 
+ mean_time           | double precision | 
+ stddev_time         | double precision | 
+ rows                | bigint           | 
+ shared_blks_hit     | bigint           | 
+ shared_blks_read    | bigint           | 
+ shared_blks_dirtied | bigint           | 
+ shared_blks_written | bigint           | 
+ local_blks_hit      | bigint           | 
+ local_blks_read     | bigint           | 
+ local_blks_dirtied  | bigint           | 
+ local_blks_written  | bigint           | 
+ temp_blks_read      | bigint           | 
+ temp_blks_written   | bigint           | 
+ blk_read_time       | double precision | 
+ blk_write_time      | double precision | 
 ```
 To reset internal stats:
 ```sql
