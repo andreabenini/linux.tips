@@ -27,4 +27,10 @@ find . -type f -newermt '01 aug 2020 00:00:00' -not -newermt '01 sep 2020 00:00:
 find . -type d -exec chmod 755 {} \;
 # Change files permissions recursively with find and chmod
 find . -type f -exec chmod 644 {} \;
+
+# Rename all files and dirs to lowercase, but keep the shell out of reach of children/win users/pets, ...
+#  -depth  Lists each directory’s contents before the directory itself
+#  -n 1    Instructs xargs to use at most one argument per command line from find output
+find /somedir -depth | xargs -n 1 rename -v 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
+
 ```
