@@ -81,6 +81,15 @@ ssh user@remotehost -L 192.168.0.141:8080:otherRemoteHost:80
 # single machine on the same network of [localhost] might access port 80 of [otherRemoteHost]
 ```
 
+## remote host configuration
+On **remotehost** you need to allow TCP forwarding in order to use ports on remote LAN. There's nothing
+to do if you want to map `<localPort>:<remoteHost>:<remotePort>` but if you'd like to have
+`<localPort>:<remoteHost>:<otherHostRemotePort>` please ensure this option inside your `/etc/ssh/sshd_config`:
+```
+AllowTcpForwarding yes
+```
+and restart _sshd daemon_ after your mod (if any)
+
 # SSH Connection Timeout
 To handle the ssh connection head over to `/etc/ssh/sshd_config` file and take a look at those two parameters:  
 - **ClientIntervalAlive** parameter specifies the time in seconds that the server will wait before sending a null packet to the client system to keep the connection alive.
