@@ -22,3 +22,10 @@ find .local/ |grep -i team
 find .electron-gyp/ |grep -i team
 find .yarn |grep -i team
 ```
+
+### Enable request control feature
+Add this line to `/usr/bin/teams` startup utility or use it manually before starting Teams:
+```sh
+sed -i 's/enableScreenSharingToolbar":false/"enableScreenSharingToolbar":true/' ~/.config/Microsoft/Microsoft\ Teams/settings.json
+```
+this will be overwritten by Teams itself on close each time
