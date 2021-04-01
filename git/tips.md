@@ -59,3 +59,17 @@ probably will see it's email address poorly configured on git
 ```sh
 https://api.github.com/users/<username>/events/public
 ```
+
+## Show differences between commits
+```sh
+# Show differences between two commits
+git show
+#...also works
+git diff HEAD^ HEAD
+```
+
+## Show differences between current code and latest commit
+```sh
+# Show differences between current uncommitted code and latest commit
+git diff origin/master
+```
