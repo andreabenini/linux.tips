@@ -6,6 +6,12 @@ git reset HEAD -- path/to/file
 git reset HEAD -- .
 ```
 
+## Restore file from remote repo
+Restore file from previous commit, omit it if you want to restore from previous one
+```sh
+git checkout <commitID> -- file/to/restore file/to/restore
+git checkout -- file/to/restore file/to/restore
+```
 
 ## Disable pager|less on git commands
 ```sh
