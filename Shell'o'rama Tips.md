@@ -1,3 +1,12 @@
+## ls, list and count them
+`ls` files in a dir and count them, quite useful when dealing with huge number of them
+```sh
+MYDIR=/home/ben
+ls -la $MYDIR/ ; echo $((`ls -la /$MYDIR/|wc -l` -3 ))
+
+# Or oneshot with an alias...
+```
+
 ## Shell colors
 My favorite shell colors (gentoo rocks) on /etc/bash/bashrc, /etc/bash.bashrc or whatever your favorite Linux OS calls it
 ```sh
