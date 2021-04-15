@@ -17,6 +17,24 @@ You might try to specify `/size` with **WidthxHeigh** calculated as the sum of t
 xfreerdp +clipboard /v:<YOUR HOST ADDRESS> /d:<DOMAIN> /u:<YOUR USER> /multimon /p:'<THE PASSWD>' +fonts /sound:sys:alsa /multimedia:sys:alsa /f /kbd:0x00020409 -floatbar
 ```
 
+## Dealing with multiple monitors and full scren mode
+To get a list of connected monitors you can use:
+```sh
+xfreerdp /monitor-list
+```
+Start full screen on monitor:
+```sh
+# 2: third monitor
+xfreerdp /monitors:2 /multimon /v:<host>
+# /f: fullscreen, get resolution from current computer monitor. Really useful.
+xfreerdp /f
+```
+Or full screen multiple monitors:
+```sh
+xfreerdp /monitors:1,2 /multimon /v:<host>
+```
+**NOTE: Second monitor is _/monitors:1_ !**
+
 ### Sending Ctrl+Alt+Del
 To send Ctrl+Alt+Del over an RDP connection (Example: freerdp) you need to send
 - **Ctrl+Alt+End** with a common keyboard and no fancy settings
