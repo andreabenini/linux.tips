@@ -33,4 +33,7 @@ find . -type f -exec chmod 644 {} \;
 #  -n 1    Instructs xargs to use at most one argument per command line from find output
 find /somedir -depth | xargs -n 1 rename -v 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
 
+# Find and Delete a directory
+find . -name "__pycache*" -exec rm -rf {} +
+
 ```
