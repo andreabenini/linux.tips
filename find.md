@@ -34,6 +34,6 @@ find . -type f -exec chmod 644 {} \;
 find /somedir -depth | xargs -n 1 rename -v 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
 
 # Find and Delete a directory
-find . -name "__pycache*" -exec rm -rf {} +
+find . -name "__pycache__" -exec rm -rf {} +
 
 ```
