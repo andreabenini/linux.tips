@@ -9,3 +9,9 @@ This script will substitute tabs with four spaces in every file found in this ro
 ```
 find . -type f -exec sed -i.orig 's/\t/    /g' {} +
 ```
+
+# Change text between quotes
+```sh
+# SomeVar = 'dummytest'; -> SomeVar = 'cool';
+sed -i "s/\(.*\)\(SomeVar = '\)\(.*\)'\(.*\)/\1\2cool'\4/" /name/of/the/file
+```
