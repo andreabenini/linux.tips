@@ -1,7 +1,3 @@
-# Kubernetes resources
-- Make your Kubernetes cluster bulletproof  
-    https://medium.com/swlh/make-your-kubernetes-cluster-bulletproof-6304dd667ade  
-    Resource requests and limits in the workloads, a little bit of automation and optimization
 - 03 What is a container  
   https://www.docker.com/resources/what-container
 - 06 kubernetes Components:  
@@ -27,3 +23,14 @@
   https://kubernetes.io/docs/concepts/configuration/secret/
 - 32 POD Resources  
   https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+- 35 Persistent Volumes  
+  https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+- 40 Health Checks  
+  Container probes  
+  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
+- 42 Logging  
+  https://kubernetes.io/docs/concepts/cluster-administration/logging/
+- 43 Metrics Pipelines  
+  https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/  
+  Metrics Server  
+  https://github.com/kubernetes-sigs/metrics-server
