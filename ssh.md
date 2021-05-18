@@ -81,16 +81,25 @@ ssh user@remotehost -L 192.168.0.141:8080:otherRemoteHost:80
 # single machine on the same network of [localhost] might access port 80 of [otherRemoteHost]
 ```
 
-## remote host configuration
-On **remotehost** you need to allow TCP forwarding in order to use ports on remote LAN. There's nothing
-to do if you want to map `<localPort>:<remoteHost>:<remotePort>` but if you'd like to have
-`<localPort>:<remoteHost>:<otherHostRemotePort>` please ensure this option inside your `/etc/ssh/sshd_config`:
-```
-AllowTcpForwarding yes
-```
-and restart _sshd daemon_ after your mod (if any)
+# ssh timeout
+ssh daemon (sshd), which runs server-side, closes the connection from the server-side if the client goes silent.  
+To prevent connection loss, instruct the ssh client to send a sign-of-life signal to the server once in a while.
 
-# SSH Connection Timeout
+The configuration for this is in the file $HOME/.ssh/config, create the file if it does not exist (chmod 600 ~/.ssh/config).  
+To send the signal every minute to the remote host, put the following in that configuration file:
+
+Host yourhost
+    HostName yourhost.com
+    ServerAliveInterval 60
+
+To enable sending a keep-alive signal for all hosts, place the following contents in the configuration file.
+### One shot solution
+to keep it for just one connection without creating the file you can issue something like:
+```sh
+ssh -o ServerAliveInterval=60 ben@yourhost.com
+```
+
+## SSH Connection Timeout
 To handle the ssh connection head over to `/etc/ssh/sshd_config` file and take a look at those two parameters:  
 - **ClientIntervalAlive** parameter specifies the time in seconds that the server will wait before sending a null packet to the client system to keep the connection alive.
 - **ClientAliveCountMax** parameter defines the number of client alive messages which are sent without getting any messages from the client. 
@@ -98,3 +107,12 @@ If this limit is reached while the messages are being sent, the sshd daemon will
 
 The timeout value is given by the product of the above parameters i.e.  
 **Timeout value = ClientIntervalAlive * ClientAliveCountMax**
+
+# remote host configuration
+On **remotehost** you need to allow TCP forwarding in order to use ports on remote LAN. There's nothing
+to do if you want to map `<localPort>:<remoteHost>:<remotePort>` but if you'd like to have
+`<localPort>:<remoteHost>:<otherHostRemotePort>` please ensure this option inside your `/etc/ssh/sshd_config`:
+```
+AllowTcpForwarding yes
+```
+and restart _sshd daemon_ after your mod (if any)
