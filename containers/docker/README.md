@@ -1,17 +1,19 @@
-# 30s getting started
-Login
+# Easy HelloWorld http test
+From public dockerhub image
+
+#### Login
 ```sh
 docker login
 ```
-build
+#### build
 ```sh
 docker build -t andreabenini/hello.tests .
 ```
-run
+#### run
 ```sh
 docker run --rm -it --name helloHTTP -p 8080:7070 andreabenini/hello.tests
 ```
-push
+#### push
 ```sh
 docker push andreabenini/hello.tests
 ```
