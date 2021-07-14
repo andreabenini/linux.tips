@@ -6,15 +6,15 @@ pacman -Qi
 pacman -Qe
 ```
 
-# List orphans packages
-```sh
-pacman -Qdt
-```
-
 # Remove package
 ```sh
 pacman -Rsn <packageName>
 # You are on your own in order to remove configuration files in your $HOME directory
+```
+
+# List orphans packages
+```sh
+pacman -Qdt
 ```
 
 # Remove orphans packages
@@ -26,7 +26,6 @@ pacman -Rsn $(pacman -Qdtq)
 ```sh
 pacman -Rnsu pack1 pack2
 ```
-
 
 # Pacman on PacMan
 Add some fancy pacman-like animations on pacman package manager
