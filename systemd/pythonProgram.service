@@ -1,0 +1,32 @@
+# This is a template for every python program running from Systemd
+[Unit]
+Description=Your coolest description for your program
+After=network-online.target
+
+[Service]
+Type=simple
+# Run this service without root privileges
+#User=pi
+#Group=pi
+
+# Working directory and program script name
+#WorkingDirectory=/home/pi/customscript
+#ExecStart=/home/pi/customscript/main.py
+
+# Where stdout should go, journal is fine for me
+#StandardOutput=journal
+#StandardError=journal
+
+# Some restarting features, useful
+Restart=on-failure
+RestartSec=30s
+
+# Force a TTY to the program, I can even use graphical libraries with it (example: pygame)
+# Assigning a TTY to the user is a good method to get the display interface without root privileges
+#StandardInput=tty
+#StandardOutput=tty
+#TTYPath=/dev/tty7
+#ExecStartPre=/bin/chvt 7
+
+[Install]
+WantedBy=multi-user.target
