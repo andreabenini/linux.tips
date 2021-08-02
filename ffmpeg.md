@@ -27,8 +27,8 @@ Convert files in a directory from 1080p to 720p
 #
 # Utility for converting src/* from 1080p to 720p
 #
-DIRSRC=/tmp/working/original/*
-DIRDEST=/tmp/working/new
+DIRSRC=$HOME/Downloads/tmp/src/*
+DIRDEST=$HOME/Downloads/tmp/dst
 
 for FILE in $DIRSRC; do
     FILEDST=`basename "$FILE"`
