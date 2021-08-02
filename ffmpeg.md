@@ -27,8 +27,10 @@ Convert files in a directory from 1080p to 720p
 #
 # Utility for converting src/* from 1080p to 720p
 #
-DIRSRC=$HOME/Downloads/tmp/src/*
-DIRDEST=$HOME/Downloads/tmp/dst
+# ffmpeg -y -i input -c:v libx264 -b:v 2600k -pass 1 -an -f null /dev/null && \
+# ffmpeg -i input -c:v libx264 -b:v 2600k -pass 2 -c:a aac -b:a 128k output.mp4
+DIRSRC=/tmp/tmp/src/*
+DIRDEST=/tmp/tmp/dst
 
 for FILE in $DIRSRC; do
     FILEDST=`basename "$FILE"`
