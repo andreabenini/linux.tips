@@ -32,3 +32,11 @@ Mem:        8053300     4523964     2968264      144388      561072     3286236
 Swap:       4194300           0     4194300
 ```
 As you can see buffer mem is cleared with drop_cache
+
+### Additional information
+- Clear pagecache only.  
+  `# sync; echo 1 > /proc/sys/vm/drop_caches`
+- Clear dentries and inodes  
+  `# sync; echo 2 > /proc/sys/vm/drop_caches`
+- Clear pagecache, dentries, and inodes  
+  `# sync; echo 3 > /proc/sys/vm/drop_caches`
