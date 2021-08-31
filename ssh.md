@@ -116,3 +116,15 @@ to do if you want to map `<localPort>:<remoteHost>:<remotePort>` but if you'd li
 AllowTcpForwarding yes
 ```
 and restart _sshd daemon_ after your mod (if any)
+
+
+# Windows, cygwin, Xorg, Terminator and ssh with certificates
+Here's the magic combo: cygwin, xorg-server, ssh with certs... what else could go wrong ?  
+Trying to use certificates under SSH and cygwin it seems to work fine **without** xorg, when you're using a graphical terminal from within xorg (xterm, terminator, ...)
+you may run into problems due to the fact you need ssh-keyring (gnome-keyring, ssh-agent) to run it.
+- Configure .ssh directory, file permissions and everything else like your public/private keys
+- Execute SSH agent from xorg by adding to your `$HOME/.bashrc` file this content:
+```sh
+eval $(ssh-agent)
+```
+- Restart cygwin xorg and you're set. Now you can use `ssh <username@yourHost>` without passwords
