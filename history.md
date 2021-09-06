@@ -17,6 +17,12 @@ But for a more complete list of command take a look at this:
 - **ignoreboth** – It is shorthand for “ignorespace” and “ignoredups” values. If you set these two values to HISTCONTROL variable, the lines beginning with a space and the duplicates will not be saved.
 - **erasedups** – eliminate duplicates across the whole history.
 
+# Execute last command
+as simple as (`!!`):
+```sh
+$ !!
+```
+
 # Execute last instance of a command
 ```sh
 $ ls -laR test
