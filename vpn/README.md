@@ -6,3 +6,5 @@
     **obfs4**, proxy obfourscator (for openVPN, Tor and all those funny tools). More information on: https://gitlab.com/yawning/obfs4#installation
 - https://proprivacy.com/vpn/guides/how-to-hide-openvpn-traffic-an-introduction  
     How to hide OpenVPN traffic – A Beginner's Guide
+- https://snikt.net/blog/2016/12/01/how-not-to-hide-openvpn-behind-https/ssl/  
+    How (NOT) To Hide OpenVPN Behind HTTPS/SSL
