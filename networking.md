@@ -3,6 +3,12 @@
 ifconfig eth0:0 192.168.11.22 netmask 255.255.255.0 up
 ```
 
+# Route
+### route pretty print
+```sh
+ip route |column -t
+```
+
 ## Add a manual route to your eth device
 (_dev eth..._) might be omitted  
 _**ip route**_
