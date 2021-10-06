@@ -1,4 +1,4 @@
-
+# Find commands
 ```sh
 # Just like "ls -la" but do not list ".." and "."
 find . -maxdepth 1 -not -name '.'
@@ -35,5 +35,11 @@ find /somedir -depth | xargs -n 1 rename -v 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
 
 # Find and Delete a directory
 find . -name "__pycache__" -exec rm -rf {} +
+```
 
+# Du commands
+```sh
+# Sort filesystem files from the biggest to the smallest
+# exclude files with 0|1 file size, if you still want them too just remove latest grep
+du -a / | sort -n -r|grep -v "^[0|1]"
 ```
