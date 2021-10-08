@@ -1,5 +1,9 @@
 # Quick commands
 ```sh
+# Configure minikube to use kvm/docker/...
+# Always use kvm, seems to be a more performant driverq
+minikube config set driver kvm2
+minikube config set driver docker
 # Start/Stop
 minikube start
 minikube stop
