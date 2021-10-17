@@ -1,9 +1,10 @@
 #!/bin/sh /etc/rc.common
 #
-# Standalone uhttpd service startup script
+# Embedded https daemon startup script
 #
 START=60
-USE_PROCD=1
+EXTRA_COMMANDS='status'
+EXTRA_HELP='        status          Daemon status'
 
 # Environment variables
 WORK_DIR=/etc/fakehttps
@@ -13,13 +14,13 @@ restart() {
     start_service
 }
 
-start_service() {
+start() {
     # -f # keep it in foreground
     /usr/sbin/uhttpd -h $WORK_DIR/www -x $WORK_DIR -A 1 -n 1 -N 1 -R -p 127.0.0.1:7777
     exit 0
 }
 
-stop_service() {
+stop() {
     PID="`ps w |grep [h]ttp|grep [f]akehttps/www|awk '{print $1}'`"
     if [ "$PID" != "" ]; then
         kill -9 $PID 2>/dev/null
@@ -27,10 +28,19 @@ stop_service() {
     exit 0
 }
 
-reload_service() {
+status() {
+    PID="`ps w |grep [h]ttp|grep [f]akehttps/www|awk '{print $1}'`"
+    if [ "$PID" != "" ]; then
+        echo 'Daemon is running'
+    else
+        echo 'Daemon is not running'
+    fi
+}
+
+reload() {
     echo ''
 }
-                                                                                                                       
+
 boot() {
     start
 }
