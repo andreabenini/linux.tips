@@ -128,3 +128,13 @@ you may run into problems due to the fact you need ssh-keyring (gnome-keyring, s
 eval $(ssh-agent)
 ```
 - Restart cygwin xorg and you're set. Now you can use `ssh <username@yourHost>` without passwords
+
+
+# Common Errors
+> ssh refusing connection with message "no hostkey alg"
+
+On the destination machine it's better to create new rsa and dsa keys to fix it:
+```sh
+ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
+ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+```
