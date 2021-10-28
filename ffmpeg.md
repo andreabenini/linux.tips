@@ -37,3 +37,17 @@ for FILE in $DIRSRC; do
     ffmpeg -i "$FILE" -vf scale=-1:720 -c:v libx264 -crf 18 -preset veryslow -c:a copy "$DIRDEST/$FILEDST"
 done
 ```
+
+# Convert webm to mp3
+```sh
+# -vn      # disable video
+# -ab xxx  # audio bitrate
+# -ar xxx  # audio sampling rate (in Hz)
+ffmpeg -i filename.webm -vn -ab 128K -ar 44100 filename.mp3
+```
+
+# Play files
+```sh
+# Play mp3 file, full text command line, no display needed
+ffplay -nodisp filename.mp3
+```
