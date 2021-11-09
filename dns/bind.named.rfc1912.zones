@@ -1,0 +1,72 @@
+// named.rfc1912.zones:
+// Provided by caching-nameserver package 
+//
+// ISC BIND named zone configuration for zones recommended by RFC 1912 section 4.1 : localhost TLDs and address zones
+// and http://www.ietf.org/internet-drafts/draft-ietf-dnsop-default-local-zones-02.txt
+// See /usr/share/doc/bind*/sample/ for example named configuration files.
+//
+zone "localhost.localdomain" IN {
+	type master;
+	file "named.localhost";
+	allow-update { none; };
+};
+
+zone "localhost" IN {
+	type master;
+	file "named.localhost";
+	allow-update { none; };
+};
+
+zone "1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa" IN {
+	type master;
+	file "named.loopback";
+	allow-update { none; };
+};
+
+zone "1.0.0.127.in-addr.arpa" IN {
+	type master;
+	file "named.loopback";
+	allow-update { none; };
+};
+
+zone "0.in-addr.arpa" IN {
+	type master;
+	file "named.empty";
+	allow-update { none; };
+};
+
+
+// INTERNAL DNS ZONE DNS
+zone "4.168.192.in-addr.arpa" IN {
+    type master;
+    file "4.168.192";
+    allow-update { none; };
+};
+zone "4.168.192.zlan.local.in-addr.arpa" IN {
+    type master;
+    file "4.168.192";
+    allow-update { none; };
+};
+
+zone "test.local" IN {
+    type master;
+    file "test.local";
+    allow-update { none; };
+};
+
+zone "otherdns.it" IN {
+    type forward;
+    // forward only;
+    forwarders { 172.16.2.2; 172.16.2.6; };
+};
+
+// Force specific resolvers for a particular host or dns zone.
+// It might be something related to a split horizon configuration, internal lan issues
+// or other configs. When you need to force a dns host/zone resolution and you'd like to
+// to use a specific host this is what it could be done
+zone "dummy.host.it" IN {
+    type forward;
+    forwarders { 8.8.8.8; 8.8.4.4; };
+};
+
+//END
