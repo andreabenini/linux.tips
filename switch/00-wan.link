@@ -1,0 +1,9 @@
+# Rename a device [eth0] with a new name [wan]
+
+[Match]
+OriginalName=eth0
+#MACAddress=aa:bb:cc:11:22:33
+
+[Link]
+Description=WAN Interface
+Name=wan
