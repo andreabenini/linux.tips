@@ -1,0 +1,8 @@
+[Match]
+Name=lan
+
+[Network]
+#DHCP=yes
+Address=192.168.0.66/24
+Gateway=192.168.0.1
+DNS=8.8.8.8
