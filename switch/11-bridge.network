@@ -1,0 +1,6 @@
+# Add as many as this in separate files for each nic you want to join to [lan] interface
+[Match]
+Name=enp2s0
+
+[Network]
+Bridge=lan
