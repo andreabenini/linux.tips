@@ -15,3 +15,9 @@ find . -type f -exec sed -i.orig 's/\t/    /g' {} +
 # SomeVar = 'dummytest'; -> SomeVar = 'cool';
 sed -i "s/\(.*\)\(SomeVar = '\)\(.*\)'\(.*\)/\1\2cool'\4/" /name/of/the/file
 ```
+
+# Get text between tags
+Extract a comment from the page
+```sh
+curl --no-progress-meter http://my.favorite.site.com/whatever/url/U/need | sed -n '/<!--/,/-->/p'
+```
