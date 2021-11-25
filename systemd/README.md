@@ -169,6 +169,12 @@ See current log agent on stdout
 journalctl -f
 ```
 
+## Find log failures from journalctl
+```sh
+journalctl --no-pager --since today --grep 'fail|error|fatal' --output json|jq '._EXE' | \
+           sort | uniq -c | sort --numeric --reverse --key 1
+```
+
 ## Detect if service is running (from script or whatever)
 ```
 systemctl is-active sshd && echo "ON" || echo "OFF"
