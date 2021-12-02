@@ -7,6 +7,10 @@
     Nana also has MOOC courses, some of them are free, some don't but her resources are really good and simple to understand.  
     https://www.youtube.com/watch?v=X48VuDVv0do
 
+# Utilities
+- Kubebox - Terminal And Web Console For Kubernetes  
+    https://hakin9.org/kubebox-terminal-and-web-console-for-kubernetes/
+
 # Assorted Links
 - Scaling Kubernetes to 7,500 Nodes  
     https://openai.com/blog/scaling-kubernetes-to-7500-nodes/  
