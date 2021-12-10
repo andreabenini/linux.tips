@@ -1,0 +1,9 @@
+          livenessProbe:
+            httpGet:
+              path: /healthPath
+              port: 7070
+              httpHeaders:
+              - name: MyCustomHeader
+                value: someValueHere
+            initialDelaySeconds: 20
+            periodSeconds: 5
