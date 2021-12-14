@@ -73,6 +73,7 @@ to your ~/.screenrc file.
 
 
 ## Shell fork bomb
+A classic to use where ulimit is not set :)
 ```
 :(){ :|:& };:
 ```
