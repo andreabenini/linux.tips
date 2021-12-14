@@ -1,3 +1,37 @@
+## Parsing input parameters with bash script
+I still prefer python btw but this is a nice idea to parse input parameters
+with few lines of bash scripting
+```sh
+help_usage() {
+    echo -e "\nSome kind of help for my script (--param1 <p1>, --filename <file>)\n"
+    exit 1
+}
+## Parsing input params
+if [[ $# -eq 0 ]]; then
+    help_usage
+fi
+PARAM1="defaultvalue"
+FILE="defaultfilename"
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -p|--param1)
+            PARAM1="$2"
+            shift        # Argument
+            shift        # Value
+            ;;
+        -f|--filename)
+            FILE="$2"
+            shift        # Argument
+            shift        # Value
+            ;;
+        *)
+            help_usage
+            ;;
+    esac
+done
+# ... and there you have it ...
+```
+
 ## ls, list and count them
 `ls` files in a dir and count them, quite useful when dealing with huge number of them
 ```sh
