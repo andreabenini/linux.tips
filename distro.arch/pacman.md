@@ -4,6 +4,7 @@
 pacman -Qi
 # one line for each single package
 pacman -Qe
+pacman -Qe --color=always | less -r   # With colors
 ```
 
 # Remove package
