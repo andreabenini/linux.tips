@@ -4,6 +4,9 @@
 # Execute command with redirection from another user
 # [but with sudo privileges]
 sudo sh -c 'ls -hal /root/ > /root/test.out'
+
+# Same thing but without submitting the sudo password (taken from stdin)
+echo "yourRootPassword" | sudo -S sh -c 'mount -t nfs remoteHost:/remote/nfs/share ~/mnt/'
 ```
 
 # Alternative: runuser
