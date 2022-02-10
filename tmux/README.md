@@ -37,6 +37,7 @@ Kill session:
     :movew<CR>              move window to the next unused number
     n                       next window
     p                       previous window
+    0...9                   select window by number
 
 ## Panes (splits)
 
