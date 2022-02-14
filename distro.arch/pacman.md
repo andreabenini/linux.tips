@@ -1,4 +1,5 @@
-# List of installed packages
+# Query commands
+## List of installed packages
 ```sh
 # detailed list, multiple lines per package
 pacman -Qi
@@ -6,24 +7,25 @@ pacman -Qi
 pacman -Qe
 pacman -Qe --color=always | less -r   # With colors
 ```
+## List orphans packages
+```sh
+pacman -Qdt
+```
+## List of files installed by a package:
+```sh
+pacman -Ql <packageName>
+```
 
 # Remove package
 ```sh
 pacman -Rsn <packageName>
-# You are on your own in order to remove configuration files in your $HOME directory
+# You are on your own if you need to remove configuration files in your $HOME directory
 ```
-
-# List orphans packages
-```sh
-pacman -Qdt
-```
-
-# Remove orphans packages
+## Remove orphans packages
 ```sh
 pacman -Rsn $(pacman -Qdtq)
 ```
-
-# Remove multiple packages and their dependencies
+## Remove multiple packages and their dependencies
 ```sh
 pacman -Rnsu pack1 pack2
 ```
