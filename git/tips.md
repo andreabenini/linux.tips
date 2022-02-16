@@ -9,6 +9,21 @@ git reset HEAD -- path/to/file
 git reset HEAD -- .
 ```
 
+## Create new branch
+```sh
+git checkout -b newbranch
+```
+
+## Branch list
+```sh
+### all branches
+git branch -a
+### local branches
+git branch
+### remote branches
+git branch -r
+```
+
 ## Restore file from remote repo
 Restore file from previous commit, omit it if you want to restore from previous one
 ```sh
