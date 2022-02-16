@@ -1,3 +1,6 @@
+## Current git repository information
+git config --list
+
 ## Unstage/remove files from current commit
 To unstage files from current commit
 ```sh
