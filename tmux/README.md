@@ -26,6 +26,13 @@ Kill session:
     s                       list sessions
     $                       name session
 
+## Scrolling features
+
+    <Ctrl>+b+[              Command mode, scroll mode
+        <arrows keys>       Move with arrows keys around
+        <page keys>         Scroll backwards and forwards one screen at a time
+    <Ctrl>+c                When done with the scroll
+
 ## Windows (tabs)
 
     c                       new window
