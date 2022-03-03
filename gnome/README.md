@@ -12,3 +12,6 @@ and reload the whole gnome environment (X11: `<alt>+<f2>`, `'r'`.   Wayland: Log
 - `dconf` editor
 - Path `/org/gnome/nautilus/preferences`
 - Flag `show-hidden-files`, turn it **on**
+
+# Shortcuts
+> **`<Super> <Space>`** Change keyboard layout
