@@ -15,6 +15,26 @@ md2html README.md --full-html --github --output=readme.html     # MD   -> HTML
 wkhtmltopdf --page-size A4 readme.html  readme.pdf              # HTML -> PDF
 rm readme.html
 ```
+or automate it with this simple script
+```sh
+#!/usr/bin/env bash
+#
+# MD to PDF converter
+# Change formatting options at will
+#
+FILENAME=$1
+if [ "$1" == "" ]; then
+    echo "Usage: $0 <filename.md>"
+    exit 1
+fi
+if [ ! -f "$FILENAME" ]; then
+    echo "File: '$FILENAME' does not exists"
+    exit 1
+fi
+md2html $FILENAME --full-html --github --output="$FILENAME.html"   
+wkhtmltopdf --page-size A4 "$FILENAME.html" "${FILENAME%.*}.pdf"
+rm -f "$FILENAME.html"
+```
 
 
 ## Markdown to PDF
