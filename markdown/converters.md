@@ -1,4 +1,22 @@
 # Markdown converters
+
+## Simple script
+`pandoc` or `python grip` are preferred ways to convert markdown to PDF files, 
+but if you're not satisfied by them because:
+- pandoc is **huge**, it installe the whole TeX environment and **haskell language** but 
+you still prefer to keep a lightweight machine
+- **grip** is fine but you still need to do some manual processing (visiting localhost:5000)
+and use Chromium to save your page as PDF
+
+You can try this script which consists of the combination of `md2html` and `wkhtmltopdf`.
+Those two utils are really lightweight and are as simple as:
+```sh
+md2html README.md --full-html --github --output=readme.html     # MD   -> HTML
+wkhtmltopdf --page-size A4 readme.html  readme.pdf              # HTML -> PDF
+rm readme.html
+```
+
+
 ## Markdown to PDF
 Some alternatives are listed here:
 ### pandoc
