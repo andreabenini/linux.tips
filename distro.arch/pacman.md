@@ -16,6 +16,14 @@ pacman -Qdt
 pacman -Ql <packageName>
 ```
 
+## Query which package provides specific filename
+```sh
+# Get latest package database from remote
+sudo pacman -Fy
+# Search locally which package provides specific filename (example: md2html)
+pacman -F md2html
+```
+
 # Remove package
 ```sh
 pacman -Rsn <packageName>
