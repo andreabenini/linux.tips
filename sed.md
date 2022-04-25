@@ -16,6 +16,12 @@ find . -type f -exec sed -i.orig 's/\t/    /g' {} +
 sed -i "s/\(.*\)\(SomeVar = '\)\(.*\)'\(.*\)/\1\2cool'\4/" /name/of/the/file
 ```
 
+# Delete file contents after a specific line
+Delete all file contents after a specific line, if present
+```sh
+sed -i '/^<!--MARKUP LINE-->$/,$d' file.md
+```
+
 # Get text between tags
 Extract a comment from the page
 ```sh
