@@ -122,6 +122,9 @@ Can be overridden by the `GIT_SSL_CERT_PASSWORD_PROTECTED` environment variable.
 ```sh
 # oneliner for a single command
 git -c http.sslVerify=false clone|pull|....
+# Or directly edit .git/config file and add:
+#> [http]
+#>    sslVerify = false
 
 # same goes for this one as well
 GIT_SSL_NO_VERIFY=true git clone https://example.com/path/to/git
