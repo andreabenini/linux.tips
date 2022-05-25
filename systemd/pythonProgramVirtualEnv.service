@@ -1,0 +1,32 @@
+# This is a template for every python program running from Systemd with VirtualEnv
+[Unit]
+Description=Your coolest description for your program
+After=network.target
+
+[Service]
+Type=simple
+User=ben
+#Group=staff
+
+# Working directory and program script name
+WorkingDirectory=/home/ben/myprogram
+Environment=PATH=/home/ben/myprogram/bin:$PATH
+ExecStart=/home/ben/myprogram/server --verbose
+
+# Where stdout should go, journal is fine for me
+#StandardOutput=journal
+#StandardError=journal
+
+# Some restarting features, useful
+Restart=on-failure
+RestartSec=30s
+
+# Force a TTY to the program, I can even use graphical libraries with it (example: pygame)
+# Assigning a TTY to the user is a good method to get the display interface without root privileges
+#StandardInput=tty
+#StandardOutput=tty
+#TTYPath=/dev/tty7
+#ExecStartPre=/bin/chvt 7
+
+[Install]
+WantedBy=multi-user.target
