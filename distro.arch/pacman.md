@@ -38,6 +38,18 @@ pacman -Rsn $(pacman -Qdtq)
 pacman -Rnsu pack1 pack2
 ```
 
+# Clear package cache
+Arch Linux stores a copy of each package you download in the `/var/cache/pacman/pkg/` directory.
+This includes every package you download, even upgrades. You can roll back to previous versions
+in case an update breaks a package, which comes in handy on a rolling-release distro like Arch.
+However it does take up a lot of space.
+
+This command will remove any packages from the cache that are not currently installed.
+Adding another -c flag in the command will remove all of the cached packages too.
+```sh
+pacman -Scc
+```
+
 # Pacman on PacMan
 Add some fancy pacman-like animations on pacman package manager
 ```
