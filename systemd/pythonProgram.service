@@ -2,6 +2,8 @@
 [Unit]
 Description=Your coolest description for your program
 After=network-online.target
+# Add dependency for this project, if you start this service the required one will be started as well
+#Requires=your.dependent.service
 
 [Service]
 Type=simple
