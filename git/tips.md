@@ -14,6 +14,11 @@ git reset HEAD -- .
 git checkout -b newbranch
 ```
 
+## Rename current branch
+```sh
+git branch -m newname
+```
+
 ## Branch list
 ```sh
 ### all branches
