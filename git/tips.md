@@ -132,3 +132,11 @@ GIT_SSL_NO_VERIFY=true git clone https://example.com/path/to/git
 # Do NOT do this unless you're aware of what you're doing
 git config [--global] http.sslVerify false
 ```
+
+## Set system editor
+Set your sistem editor to _vim_ or whatever you prefer
+```sh
+# do it globally not just related to project itself
+# remove --global to set it to your current project only
+git config --global core.editor "vim"
+```
