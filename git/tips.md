@@ -48,9 +48,12 @@ git --no-pager branch
 git --no-pager branch -a
 ```
 
-## Delete local branch
+## Delete branch
 ```sh
+# Delete local branch
 git branch -D <local-branch-name>
+# Delete remote branch
+git push origin --delete <remote-branch-name>
 ```
 
 ## Detailed list of remote machines
