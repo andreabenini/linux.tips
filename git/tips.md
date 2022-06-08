@@ -1,6 +1,7 @@
 ## Current git repository information
 git config --list
 
+
 ## Unstage/remove files from current commit
 To unstage files from current commit
 ```sh
@@ -9,15 +10,18 @@ git reset HEAD -- path/to/file
 git reset HEAD -- .
 ```
 
+
 ## Create new branch
 ```sh
 git checkout -b newbranch
 ```
 
+
 ## Rename current branch
 ```sh
 git branch -m newname
 ```
+
 
 ## Branch list
 ```sh
@@ -29,12 +33,14 @@ git branch
 git branch -r
 ```
 
+
 ## Restore file from remote repo
 Restore file from previous commit, omit it if you want to restore from previous one
 ```sh
 git checkout <commitID> -- file/to/restore file/to/restore
 git checkout -- file/to/restore file/to/restore
 ```
+
 
 ## Disable pager|less on git commands
 ```sh
@@ -48,6 +54,14 @@ git --no-pager branch
 git --no-pager branch -a
 ```
 
+
+## Fetch all remote branches and sync all
+Use also `-p, --prune`, after fetching, remove any remote-tracking branches which no longer exist on the remote
+```sh
+git fetch --prune
+```
+
+
 ## Delete branch
 ```sh
 # Delete local branch
@@ -56,15 +70,18 @@ git branch -D <local-branch-name>
 git push origin --delete <remote-branch-name>
 ```
 
+
 ## Detailed list of remote machines
 ```sh
 git remote -v
 ```
 
+
 ## List of files in branch 'master'
 ```sh
 git ls-tree -r master
 ```
+
 
 ## Save credentials (user/password) on git project
 Issue the first command and then use a `git pull`<br>
@@ -79,11 +96,13 @@ git config --global user.name "Ben"
 git config --global user.email "ben@ben"
 ```
 
+
 ## See latest commits (after a git pull)
 Shows names of the files that changed for the last two commits.
 ```sh
 git log --name-status -2
 ```
+
 
 ## Show user latest commits
 To grab some information from github just substitute with favorite username, when an user is not that smart you
@@ -91,6 +110,7 @@ probably will see it's email address poorly configured on git
 ```sh
 https://api.github.com/users/<username>/events/public
 ```
+
 
 ## Show differences between commits
 ```sh
@@ -100,11 +120,13 @@ git show
 git diff HEAD^ HEAD
 ```
 
+
 ## Show differences between current code and latest commit
 ```sh
 # Show differences between current uncommitted code and latest commit
 git diff origin/master
 ```
+
 
 ## Ignore SSL issuer certificates
 ***http.sslVerify***  
@@ -140,6 +162,7 @@ GIT_SSL_NO_VERIFY=true git clone https://example.com/path/to/git
 # Do NOT do this unless you're aware of what you're doing
 git config [--global] http.sslVerify false
 ```
+
 
 ## Set system editor
 Set your sistem editor to _vim_ or whatever you prefer
