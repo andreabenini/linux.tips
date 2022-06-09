@@ -41,6 +41,16 @@ ls -la $MYDIR/ ; echo $((`ls -la /$MYDIR/|wc -l` -3 ))
 # Or oneshot with an alias...
 ```
 
+## ls full path
+`ls` to list files, `awk` to transform into fullpath filenames, `grep` to gather data from it.  
+Useful inside a container or when you don't have `find` with you
+```sh
+ls -R / 2>/dev/null | awk '
+/:$/&&f{s=$0;f=0}
+/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}
+NF&&f{ print s"/"$0 }' |grep WhatEverFileName
+```
+
 ## Shell colors
 My favorite shell colors (gentoo rocks) on /etc/bash/bashrc, /etc/bash.bashrc or whatever your favorite Linux OS calls it
 ```sh
