@@ -13,21 +13,36 @@ as well as:
     Uptime: 4661  Threads: 1  Questions: 200  Slow queries: 0  Opens: 16  Flush
     tables: 1  Open tables: 6  Queries per second avg: 0.043
 
-### Records from all tables in a database
+Show hostnames, users and threads currently opened
+```sql
+    SELECT
+        SUBSTRING_INDEX(host, ':', 1) AS host_short,
+        GROUP_CONCAT(DISTINCT user) AS users,
+        COUNT(*) AS threads
+    FROM
+        information_schema.processlist
+    GROUP BY
+        host_short
+    ORDER BY
+        COUNT(*), host_short;
 ```
+
+
+### Records from all tables in a database
+```sql
 SHOW databases;
 SELECT TABLE_NAME, TABLE_ROWS FROM information_schema.tables  WHERE table_schema = 'NameOfYourDatabase';
 ```
 
 ### Detect table type
 inno, myisam and so on
-```
+```sql
 SHOW TABLE STATUS WHERE Name='YourTableName';
 ```
 
 ### Sort tables by disk space
 Useful when you need to optimize tables or understand who is wasting disk space
-```
+```sql
 SELECT
     TABLE_NAME AS `Table`,
     ROUND((DATA_LENGTH + INDEX_LENGTH) / 1024 / 1024) AS `Size (MB)`
