@@ -53,3 +53,12 @@ WHERE
 ORDER BY
     (DATA_LENGTH + INDEX_LENGTH) DESC;
 ```
+
+### List databases size on disk
+```sql
+SELECT table_schema 'DB Name',
+    round( sum(data_length + index_length) / 1024 / 1024 / 1024, 2)   AS "DB Size [Gb]",
+    round( sum(data_free) / 1024 / 1024 / 1024, 2)  AS "Free Space [Gb]"
+FROM information_schema.TABLES
+GROUP BY table_schema; 
+```
