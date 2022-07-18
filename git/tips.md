@@ -83,6 +83,19 @@ git ls-tree -r master
 ```
 
 
+## Cleanup .gitignore problems
+When you add information to _.gitignore_ file you may face out some troubles and sometimes it seems it's not properly working.  
+That might be related to common local cache problems. Something like this might be helpful:
+```sh
+# Cleanup cache information
+# It might be a good idea to delete SINGLE FILES individually instead of removing all of them at once
+git rm -rf --cached .
+
+# Get back in business with some adds
+git add .
+```
+
+
 ## Save credentials (user/password) on git project
 Issue the first command and then use a `git pull`<br>
 **please note:** The credentials are stored in a file on the disk, with the disk permissions of "just user readable/writable" but still in plaintext
