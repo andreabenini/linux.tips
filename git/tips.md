@@ -88,10 +88,12 @@ When you add information to _.gitignore_ file you may face out some troubles and
 That might be related to common local cache problems. Something like this might be helpful:
 ```sh
 # Cleanup cache information
-# It might be a good idea to delete SINGLE FILES individually instead of removing all of them at once
+# It might be a good idea to delete SINGLE FILES individually, like:
+git rm -rf --cached config.yaml
+# Instead of removing all of them at once
 git rm -rf --cached .
 
-# Get back in business with some adds
+# Get back in business with some adds later on
 git add .
 ```
 
