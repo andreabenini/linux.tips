@@ -142,6 +142,34 @@ git diff HEAD^ HEAD
 git diff origin/master
 ```
 
+## Stash commands
+Stash stores temporarily the changes to work on something else and re-apply changes later.
+```sh
+# Stash all uncommitted changes
+git stash
+# Stash all uncommitted and untracked files
+git stash -u -a
+# Save a stash with a message MESSAGE_ID
+git stash save MESSAGE_ID
+
+# Retrieve back stashed changes
+git stash pop
+
+# Stash history
+git stash list
+
+# Show stash made in STASH_ID
+git stash show -p STASH_ID
+
+# Remove latest stash entry
+git stash drop
+# Remove stash STASH_ID entry
+git stash drop STASH_ID
+
+# Remove all stashed entries
+git stash clear
+```
+
 
 ## Ignore SSL issuer certificates
 ***http.sslVerify***  
