@@ -7,6 +7,8 @@
 
 
 ## Various links
+- Setting Up the Server  
+  https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server
 - How to create and apply a patch with Git  
   https://www.devroom.io/2009/10/26/how-to-create-and-apply-a-patch-with-git/
 - Working with multiple remote repositories  
