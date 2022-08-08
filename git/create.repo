@@ -1,0 +1,18 @@
+# Use it on server side
+
+# Repository Name
+read -p "Repository Name ?  " REPOSITORY_NAME
+if [ "$REPOSITORY_NAME" == "" ]; then
+    echo "Empty repository name, aborting operation"
+    exit 1
+fi
+# Creating repository
+mkdir $REPOSITORY_NAME.git
+chmod 750 $REPOSITORY_NAME.git
+cd $REPOSITORY_NAME.git/
+git init --bare
+cd ..
+chown git:git $REPOSITORY_NAME.git -R
+
+echo -e "\n- Repository '$REPOSITORY_NAME' created"
+echo "- Clone the new repository       git clone git@$HOSTNAME:$REPOSITORY_NAME"
