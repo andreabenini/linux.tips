@@ -11,6 +11,20 @@ git reset HEAD -- .
 ```
 
 
+## Reset/Discard local branch changes
+Destructive, use it with care
+```sh
+# Always safer to check current status before doing nasty things
+git status
+# Brute force mode if you really want to
+git reset --hard
+# Or something like this to restore to a well known point
+git reset --hard <COMMIT_ID>
+# HEAD points to your current branch (current commit)
+git reset --hard HEAD
+```
+
+
 ## Edit latest commit message
 ```sh
 # Amend/edit latest committed message
