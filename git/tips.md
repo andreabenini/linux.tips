@@ -11,6 +11,13 @@ git reset HEAD -- .
 ```
 
 
+## Edit latest commit message
+```sh
+# Amend/edit latest committed message
+git commit --amend
+```
+
+
 ## Create new branch
 ```sh
 git checkout -b newbranch
