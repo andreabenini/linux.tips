@@ -14,6 +14,10 @@ List available sessions
 
     tmux list-sessions
     tmux ls
+    
+List macros or mapped keys
+
+    tmux list-keys
 
 Kill session:
 
