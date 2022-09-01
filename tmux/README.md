@@ -65,6 +65,17 @@ Kill session:
     :joinp -t :1<CR>        Move the current pane into a new pane in window 1
 
 
+## Status Bar
+From tmux  command line you can toggle it on/off with:
+```
+:set status on
+```
+or bind a key to it precisely
+```sh
+# toggle statusbar
+bind-key b set-option status
+```
+
 ## Misc
 
     d                       Detach
