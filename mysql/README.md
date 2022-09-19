@@ -62,3 +62,13 @@ SELECT table_schema 'DB Name',
 FROM information_schema.TABLES
 GROUP BY table_schema; 
 ```
+
+### Use pager on SELECT results
+A pager is somewhat handy when you need to parse or evaluate a massive amount of output from stdout
+```sql
+-- set pager to less
+pager less
+
+-- restore pager to factory defaults
+pager
+```
