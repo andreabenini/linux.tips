@@ -24,6 +24,12 @@ sudo pacman -Fy
 pacman -F md2html
 ```
 
+# Reinstall a specific package as well as its dependencies
+With a little bit of bashism here's a method to reinstall a package (graphviz in my example)
+```sh
+pacman -Si graphviz | awk -F ": " -v filter="^Depends" \ '$0 ~ filter {gsub(/[>=<][^ ]*/,"",$2) ; gsub(/ +/,"\n",$2) ; print $2}' | sudo pacman -S --asdeps -
+```
+
 # Remove package
 ```sh
 pacman -Rsn <packageName>
