@@ -20,6 +20,16 @@ To change video resolution on a file just use these flags
 ffmpeg -i input.mkv -vf scale=1920:-2 output.mkv
 ```
 
+# Remove tracks (Audio/Video) from file
+```sh
+# Gather information from file
+ffpmeg -i filename.mkv
+
+# Keep/Select only the required tracks, might be video or audio
+ffmpeg -i filename.mkv -map 0:0 -map 0:1 -acodec copy -vcodec copy filenamenew.mkv
+```
+
+
 # Convert 1080p -> 720p
 Convert files in a directory from 1080p to 720p
 ```sh
