@@ -2,6 +2,12 @@
 git config --list
 
 
+## Remote repositories list
+```sh
+git remote show origin
+```
+
+
 ## Unstage/remove files from current commit
 To unstage files from current commit
 ```sh
