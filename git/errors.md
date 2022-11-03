@@ -1,4 +1,13 @@
-**master reference broken**
+## Authentication problems
+When you deal with SSL keys sometimes you may want to troubleshoot issues when authentication fails, this is a good example for
+gathering information from a broken auth, mostly by enabling ultra verbose mode on SSH connections.
+```sh
+# Verbose information to see possible key exchange problems
+git config core.sshCommand "ssh -vvv"
+git pull
+```
+
+## master reference broken
 ```sh
 ben@ben ~/git $ git push -u 'localbackup' master --verbose
 Pushing to ssh://git@xxx.xxx.xxx.xxx/home/git
