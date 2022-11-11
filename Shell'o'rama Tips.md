@@ -32,6 +32,13 @@ done
 # ... and there you have it ...
 ```
 
+## while not EOF do
+Simple file loop without **read** statements so I can use them elsewhere
+```sh
+for line in $(cat ~/ben/filename); do echo "-->$line<-- (hit enter)"; read junk; done
+```
+
+
 ## ls, list and count them
 `ls` files in a dir and count them, quite useful when dealing with huge number of them
 ```sh
