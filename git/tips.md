@@ -50,6 +50,30 @@ git branch -m newname
 ```
 
 
+## git pull _(with a dry-run)_
+```sh
+# Estimate what merge might change, fetch changes but don't merge
+git fetch origin branch
+# Diff current HEAD with fetched commits
+git diff HEAD..origin/branch
+
+#...do whatever you need here...
+
+# Merge fetched commits
+git merge origin/branch
+
+# Abort/reset fetched commits
+# ...taking a look at reflog and reset back to desired state
+git reflog
+#> ...
+#> ben666  HEAD@{0}: merge activity
+#> ab000ba HEAD@{1}: fetch origin/branch
+#> 0dead00 HEAD@{2}: activity before the fetch
+#> ...
+git reset --hard HEAD@{2}
+```
+
+
 ## Branch list
 ```sh
 ### all branches
