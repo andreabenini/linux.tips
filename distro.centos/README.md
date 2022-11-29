@@ -9,3 +9,9 @@ but you can still do it manually with just one line:
 ```sh
 curl https://download.docker.com/linux/centos/docker-ce.repo | cat > /etc/yum.repos.d/DockerCE.repo
 ```
+
+## Remove old kernel versions
+Remove old kernel versions from the system
+```sh
+yum remove --oldinstallonly
+```
