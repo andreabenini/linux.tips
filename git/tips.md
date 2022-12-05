@@ -86,10 +86,13 @@ git branch -r
 
 
 ## Restore file from remote repo
-Restore file from previous commit, omit it if you want to restore from previous one
 ```sh
+# Restore file from previous commit, omit it if you want to restore from previous one
 git checkout <commitID> -- file/to/restore file/to/restore
 git checkout -- file/to/restore file/to/restore
+
+# Reset file to original content (from brach), some kind of reset --hard on a single file
+git checkout HEAD -- file/to/restore
 ```
 
 
