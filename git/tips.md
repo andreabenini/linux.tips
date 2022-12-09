@@ -115,6 +115,12 @@ Use also `-p, --prune`, after fetching, remove any remote-tracking branches whic
 git fetch --prune
 ```
 
+## Diff between two branches
+They can be local or remote as well
+```sh
+# Might be master or whatever thing you've at your disposal
+git diff branch1..branch2
+```
 
 ## Delete branch
 ```sh
