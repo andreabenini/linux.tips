@@ -123,6 +123,14 @@ You can also set the default number of scrollback lines by adding:
 to your ~/.screenrc file.
 
 
+## Internet Check
+Somewhat nice and eye catching when you've a 10000 lines terminal full of ping output
+```sh
+# Using Google but whatever other classic ip is fine too
+ping 8.8.8.8 | sed -e 's/Unreachable/Unreachable\r ❌ /' -e 's/ ms/ ms\r✅/'
+```
+
+
 ## Shell fork bomb
 A classic to use where ulimit is not set :)
 ```
