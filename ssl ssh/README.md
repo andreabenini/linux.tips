@@ -63,7 +63,9 @@ echo myPassword | sshfs user@remote.host.ssh:/ ~/mnt/example -o workaround=renam
 ```
 
 # SSHFS specify ssh key
+```sh
 sshfs -o IdentityFile=$HOME/.ssh/my.specific.identity.file.pub root@remote.host.name.here localmount
+```
 
 # ssh to remote and map port locally
 At the beginning of an ssh connection it's possible to tunnel some remote ports locally, for example:
