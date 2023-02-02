@@ -72,3 +72,15 @@ pager less
 -- restore pager to factory defaults
 pager
 ```
+
+
+## Galera commands
+credit: https://severalnines.com/blog/galera-cluster-recovery-101-deep-dive-network-partitioning/
+```sql
+-- Cluster status
+SHOW STATUS LIKE 'wsrep_cluster_status';
+
+-- Global status for a node
+SELECT * FROM information_schema.global_status WHERE variable_name IN ('WSREP_CLUSTER_STATUS','WSREP_LOCAL_STATE_COMMENT','WSREP_CLUSTER_SIZE','WSREP_EVS_DELAYED','WSREP_READY');
+
+```
