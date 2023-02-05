@@ -1,3 +1,14 @@
+# Master/Slave basic usage:
+On master side
+```sh
+nc --local-port=1234 --listen --source=127.0.0.1
+```
+On slave side
+```sh
+nc localhost 1234
+```
+
+
 # Hex commands to remote
 How to send binary commands to a remote device
 ```
