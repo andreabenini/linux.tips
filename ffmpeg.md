@@ -56,6 +56,15 @@ done
 ffmpeg -i filename.webm -vn -ab 128K -ar 44100 filename.mp3
 ```
 
+# wav to mp3
+```sh
+# Classic codec, no frame adjustments
+ffmpeg -i myfile.wav -acodec mp3 myfile.mp3
+
+# Changing sound bitrate too
+ffmpeg -i track01.wav -acodec mp3 -ab 64k track01.mp3
+```
+
 # Play files
 ```sh
 # Play mp3 file, full text command line, no display needed
