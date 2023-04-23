@@ -63,6 +63,9 @@ ffmpeg -i myfile.wav -acodec mp3 myfile.mp3
 
 # Changing sound bitrate too
 ffmpeg -i track01.wav -acodec mp3 -ab 64k track01.mp3
+
+# lame does it too (and changes the bitrate in the middle if it's needed)
+lame -b 128 input.wav output.mp3
 ```
 
 # Play files
