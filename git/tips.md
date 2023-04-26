@@ -179,6 +179,13 @@ git log --name-status -2
 ```
 
 
+## View previous git commits
+```sh
+git log
+git show <LOGNAME>
+```
+
+
 ## Show user latest commits
 To grab some information from github just substitute with favorite username, when an user is not that smart you
 probably will see it's email address poorly configured on git
