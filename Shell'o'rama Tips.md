@@ -37,6 +37,12 @@ Simple file loop without **read** statements so I can use them elsewhere
 ```sh
 for line in $(cat ~/ben/filename); do echo "-->$line<-- (hit enter)"; read junk; done
 ```
+Same as above but it gets an entire line at a time from a file
+```sh
+while IFS="" read -r LINE || [ -n "$LINE" ]; do
+    echo ">>$LINE<<"
+done <<< $(cat ~/ben/filename)
+```
 
 
 ## ls, list and count them
