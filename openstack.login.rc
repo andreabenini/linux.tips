@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#
+# Openstack script for using CLI interface and rc files provided by Horizon through its export mechanism
+# This script authenticates you once, keeps the token avoids troubles on subsequent runs when you deal with OTP auth schemas
+#
+RC_FILE=$1
+
+if [[ "$(which openstack)" == "" ]]; then
+    echo -e "\nERROR: Cannot access openstack CLI utility\n       Please enter VirtualEnvironment before using this script\n"
+    return
+fi
+if [[ "$RC_FILE" == "" ]]; then
+    echo -e "\nERROR: Please provide openstack rc file for the login process\n       Syntax: $0 <your.openstack.rc.sh.filename>\n"
+    return
+fi
+. $RC_FILE
+export OS_TOKEN=$(openstack token issue -f value -c id)
+if [[ $? -ne 0 ]]; then
+    echo -e "ERROR: Authentication failed:\n$OS_TOKEN\n"
+    return
+fi
+export OS_AUTH_TYPE=token
+unset  OS_PASSWORD
+unset  OS_PASSWORD_INPUT
+unset  OS_USER_DOMAIN_NAME
+export OS_AUTH_TYPE OS_AUTH_URL OS_IDENTITY_API_VERSION OS_INTERFACE OS_PROJECT_DOMAIN_ID OS_PROJECT_ID OS_PROJECT_NAME OS_REGION_NAME OS_TOKEN OS_USERNAME
+#
+echo -e "\nAuthentication for '$OS_USERNAME' on project '$OS_PROJECT_NAME' succeeded\n"
