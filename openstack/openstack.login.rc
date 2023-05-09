@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-# Openstack script for using CLI interface and rc files provided by Horizon through its export mechanism
-# This script authenticates you once, keeps the token avoids troubles on subsequent runs when you deal with OTP auth schemas
+# Openstack script for using CLI interface and rc files provided by Horizon through its export mechanisms
+# This script authenticates you once, keeps the token and avoids troubles on subsequent runs when you deal with OTP auths schemas
 #
 RC_FILE=$1
 
