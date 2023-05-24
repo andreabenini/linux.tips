@@ -22,3 +22,32 @@ vlc \
     --screen-width=1920 --screen-height=1080 \
     screen://
 ```
+
+### Example script for dealing with it
+You can obiously add input parameters if needed, as a sample this is a fixed one:
+```sh
+#!/usr/bin/env bash
+#
+# Self contained utility for sharing just one portion of the screen
+#     - Useful for conferencing tools where partial screen sharing is not supported (@all)
+#     - Fully parametric across 'vlc' options, feel free to adjust it
+#     - Using 'cvlc', the command line version of vlc, user interface is not needed at all
+#     - Ctrl-C to stop sharing
+#
+TOP=0
+LEFT=0
+WIDTH=1920
+HEIGHT=1080
+FRAMES=20
+
+echo -e "\n\nSharing portion of the screen [$TOP,$LEFT] (${WIDTH}x${HEIGHT}) @${FRAMES}fps\n\n"
+cvlc \
+    --no-video-deco           \
+    --no-embedded-video       \
+    --screen-fps=$FRAMES      \
+    --screen-top=$TOP         \
+    --screen-left=$LEFT       \
+    --screen-width=$WIDTH     \
+    --screen-height=$HEIGHT   \
+    screen://
+```
