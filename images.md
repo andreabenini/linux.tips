@@ -11,6 +11,12 @@ mogrify -format png *.jpg
 gm convert -size 128x128 '/path/to/document.pdf[0]' -resize 128x128 +profile "*" '/path/to/PREVIEW.jpg
 ```
 
+### Convert multiple JPGs to a single PDF
+```sh
+# as simple as:
+convert page1.jpg page2.jpg pageN.jpg  manual.pdf
+```
+
 ### Convert a HTML to a JPG
 ```
 # html2ps (html2ps), gs (GhostScript) and gm (GraphicsMagick) are required in order to make it work
