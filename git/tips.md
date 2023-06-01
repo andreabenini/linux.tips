@@ -73,6 +73,19 @@ git reflog
 git reset --hard HEAD@{2}
 ```
 
+## See Push changes before submitting them
+For a list of files to be pushed:
+```sh
+# see list of pushed files before doing it
+git diff --stat --cached origin/master
+
+# Code diff of the files to be pushed:
+git diff [remote repo/branch]
+
+# Full file paths of the files that will change
+git diff --numstat [remote repo/branch]
+```
+
 
 ## Branch list
 ```sh
