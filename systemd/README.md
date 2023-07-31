@@ -113,6 +113,10 @@ User=<favorite.user>
 Group=<favorite.group>
 ```
 
+# Run a specific command as the last in the boot process
+- This guy has a nice hint: create a custom target  
+    https://www.mauras.ch/systemd-run-it-last.html
+
 # User specific services (controlled by himself)
 Each single user may have its own .service files, everything written here is still valid and applicable on specific user settings.
 Just use `--user` flag on each single command.  
