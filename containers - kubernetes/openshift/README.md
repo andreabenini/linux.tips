@@ -60,6 +60,9 @@ oc get pods,rs                  # Get pods and replicasets (comma is used to get
 oc get pods,rs --show-labels    # Same as above but also shows labels applied to these resources
 oc get pods --selector app=nginx        # Select all pods with label 'app=nginx'
 
+# This command removes label 'app' from specified pod
+# If pod is managed by a ReplicaSet then a new pod is automatically started
+oc label pod mypod-123-xxx app-
 oc label pod mypod-234-xxx storage=ssd  # Apply 'storage=ssd' label to selected pod (or resource)
 
 # get logs for a specific resource
