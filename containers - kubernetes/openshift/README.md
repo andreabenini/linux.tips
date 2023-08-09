@@ -56,6 +56,7 @@ oc get pods
 oc get pods -A                  # You need admin privileges for getting all pods from system
 oc get pods mypod -o yaml       # Generate yaml info about a single pod, you can copy and reuse it later
 oc describe pod mypod           # Get information about <mypod> for troubleshooting
+oc describe pod mypod -n NS     # Where NS is the namespace I've access to. kubeadmin can use them all
 oc get pods,rs                  # Get pods and replicasets (comma is used to get multiple resources)
 oc get pods,rs --show-labels    # Same as above but also shows labels applied to these resources
 oc get pods --selector app=nginx        # Select all pods with label 'app=nginx'
