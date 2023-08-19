@@ -13,7 +13,8 @@
   https://www.devroom.io/2009/10/26/how-to-create-and-apply-a-patch-with-git/
 - Working with multiple remote repositories  
   https://jigarius.com/blog/multiple-git-remote-repositories
-
+- Download the changes contained in a Github pull request as a unified diff  
+  https://stackoverflow.com/questions/6188591/download-github-pull-request-as-unified-diff
 
 ---
 
