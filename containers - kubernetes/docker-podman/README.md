@@ -84,4 +84,31 @@ sudo podman run -d -v /srv/dbfiles:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=passwor
 sudo podman run -d -v /srv/dbfiles:/var/lib/mysql:Z -e MYSQL_ROOT_PASSWORD=password mariadb
 ```
 
----
+SELinux permissions and storage
+```sh
+# Inspect image and look for [User] to find which user this is
+podman inspect image
+# Evaluate an image to understand user permissions, example:
+    podman inspect registry.access.redhat.com/rhscl/mysql-57-rhel7
+    #> "User": "27",
+    sudo mkdir /srv/dbfiles
+    sudo chown -R 27:27 /srv/dbfiles
+
+# Setting UUID permissions on host side (as usual), ID refers to what previous inspection reported
+sudo chown -R [id]:[id] /hostdir
+
+# Set SE Linux permissions on dir
+sudo semanage fcontext -a -t container_file_t "/hostdir(/.*)?"
+# as in previous example the semanage command might look like this:
+    sudo semanage fcontext -a -t container_file_t "/srv/dbfiles(/.*)?"
+
+# Apply SELinux policies just set on the host side. YOU NEED TO EXECUTE IT BEFORE using file system
+sudo restorecon -Rv /hostdir
+    sudo restorecon -Rv /srv/dbfiles
+
+# SELinux permission check
+sudo ls -ladZ /srv/dbfiles/
+
+# Mount the newly applied storage dir back to the image (and create a new container)
+podman run -v /hostdir:/dir-in-container myimage
+```
