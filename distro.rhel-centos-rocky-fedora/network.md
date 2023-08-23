@@ -21,3 +21,9 @@ systemctl disable NetworkManager
 systemctl disable NetworkManager-wait-online.service
 ```
 same goes for `firewalld` if you're using iptables on it
+
+
+# Links
+- Firewalld for beginners  
+    https://docs.rockylinux.org/guides/security/firewalld-beginners/
+
