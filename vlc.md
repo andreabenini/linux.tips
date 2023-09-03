@@ -34,12 +34,22 @@ You can obiously add input parameters if needed, as a sample this is a fixed one
 #     - Using 'cvlc', the command line version of vlc, user interface is not needed at all
 #     - Ctrl-C to stop sharing
 #
+# Usage: ./share.screen.sh [Width] [Height] <enter>
+#     Defaults:
+#         Width: 1920
+#         Height: 1080
 TOP=0
 LEFT=0
 WIDTH=1920
 HEIGHT=1080
 FRAMES=20
 
+if [ "$1" != "" ]; then
+    WIDTH=$1
+fi
+if [ "$2" != "" ]; then
+    HEIGHT=$2
+fi
 echo -e "\n\nSharing portion of the screen [$TOP,$LEFT] (${WIDTH}x${HEIGHT}) @${FRAMES}fps\n\n"
 cvlc \
     --no-video-deco           \
