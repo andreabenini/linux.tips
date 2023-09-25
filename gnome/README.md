@@ -1,3 +1,11 @@
+# Detect xorg/x11/wayland
+In order to detect where gnome is running this is quite handy:
+```sh
+echo "$XDG_SESSION_TYPE"
+# x11|xorg|wayland
+```
+
+
 # gnome-shell debug
 Developing gnome plugins is not too hard but it's supposed to be simpler, expecially when you need to debug your extensions.
 When you need some sort of debugging with your JS hell code a console is usually nice, so run this in your favorite terminal:
