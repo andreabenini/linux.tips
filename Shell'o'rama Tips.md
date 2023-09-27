@@ -64,7 +64,7 @@ ls -R / 2>/dev/null | awk '
 NF&&f{ print s"/"$0 }' |grep WhatEverFileName
 ```
 
-## Shell colors
+## Shell prompt colors
 My favorite shell colors (gentoo rocks) on /etc/bash/bashrc, /etc/bash.bashrc or whatever your favorite Linux OS calls it
 ```sh
     # Shell prompt
@@ -76,6 +76,8 @@ My favorite shell colors (gentoo rocks) on /etc/bash/bashrc, /etc/bash.bashrc or
     # ls colors
     alias ls='ls --color=auto'
 ```
+_**NOTE**:_ Always use `/etc/bash.bashrc.local` file when sourced or called within `/etc/bash.bashrc`.  
+There are chances that your changes will be lost during system upgrades if you are not wise enough. Instead always use **`/etc/bash.bashrc.local`** when available
 
 
 ## Shell separator-\<hr> like command
