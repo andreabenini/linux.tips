@@ -34,7 +34,7 @@ You can obiously add input parameters if needed, as a sample this is a fixed one
 #     - Using 'cvlc', the command line version of vlc, user interface is not needed at all
 #     - Ctrl-C to stop sharing
 #
-# Usage: ./share.screen.sh [Width] [Height] <enter>
+# Usage: ./share.screen.sh [Width] [Height]
 #     Defaults:
 #         Width: 1920
 #         Height: 1080
@@ -44,6 +44,10 @@ WIDTH=1920
 HEIGHT=1080
 FRAMES=20
 
+if [ "`which cvlc 2>/dev/null`" == "" ]; then
+    echo -e "\n'cvlc' utility not found, install 'vlc' package\n"
+    exit 1
+fi
 if [ "$1" != "" ]; then
     WIDTH=$1
 fi
