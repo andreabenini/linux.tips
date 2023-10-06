@@ -8,6 +8,8 @@ ssh-keygen -t rsa
 ssh-keygen -t rsa -b 4096
 # specify email address to use
 ssh-keygen -t rsa -b 4096 -C "your.email@domain.com"
+# Write it to a specific file
+ssh-keygen -t rsa -b 4096 -C "your.email@domain.com" -f .ssh/newfile.not.thedefault.id_rsa
 ```
 
 ### config file
