@@ -23,8 +23,11 @@ podman inspect registry.access.redhat.com/rhscl/mysql-57-rhel7
 # Spot the difference, non root does not get images downloaded from sudo users
 # rootless: images are stored in user home directory
 # root: images are stored in /var/lib/containers/storage/overlay-images
-podman images
+podman images [-a]
 sudo podman images
+
+# Building images (from local directory)
+podman build -t [imageName] .
 
 # Remove an image (container should not use it before removing)
 podman rmi [imagename]
