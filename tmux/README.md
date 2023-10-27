@@ -46,6 +46,7 @@ Kill session:
     &                       kill window
     .                       move window - prompted for a new number
     :movew<CR>              move window to the next unused number
+    :move-window -r<CR>     renumber windows to fill unused gap numbers
     n                       next window
     p                       previous window
     0...9                   select window by number
