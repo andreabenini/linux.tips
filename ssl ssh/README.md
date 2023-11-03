@@ -12,6 +12,15 @@ ssh-keygen -t rsa -b 4096 -C "your.email@domain.com"
 ssh-keygen -t rsa -b 4096 -C "your.email@domain.com" -f .ssh/newfile.not.thedefault.id_rsa
 ```
 
+### List ssh keys
+```sh
+# signatures
+ssh-add -l
+# public keys from files
+ssh-add -L
+```
+
+
 ### config file
 Example configuration file, `.ssh/config` _(chmod 600)_
 ```conf
