@@ -73,3 +73,22 @@ lame -b 128 input.wav output.mp3
 # Play mp3 file, full text command line, no display needed
 ffplay -nodisp filename.mp3
 ```
+
+# Office365 - Download Videos
+Download View Only Video From Microsoft Sharepoint / Streams
+### Force download from Share Point or Stream
+`Chrome/Edge(F12) -> Inspector -> Network -> videomanifest?privode`
+- Open the page with the video you want to download
+- Ctrl+Shift+C to open the browser inspector
+- Go to the Network tab, select filter to gather specific URL
+    - Search for `videomanifest?provider=...` in the filter field
+    - Copy that link address, this is usually a h264 direct stream,  
+      it should be something looking like:
+      ```txt
+          videomanifest?provider=spo...
+      ```
+- Use ffmpeg to download the video. Command syntax:
+    ```sh
+        ffmpeg -i "https://videoManifestFullURL" -codec copy /tmp/download.mp4
+    ```
+
