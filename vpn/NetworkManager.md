@@ -61,3 +61,11 @@ Now, in order to fix the dual gateway connection we've just commented out you ne
     - In the `Gateway` field after the import you should probably see: `gateway1.company.com` which is what we just imported
     - Change the text field `Gateway` to `gateway1.company.com gateway2.company.com`. It's perfectly legit and instructs NetworkManager
       to use a dual gateway configuration when one of them is not reachable
+
+
+## Make a backup copy of an existing VPN connection
+If you have a VPN network connection established with _NetworkManager_ you can easily create a copy of it. All VPN
+connections are stored in `/etc/NetworkManager/system-connections` so you can basically get a backup or create a copy:
+```sh
+cp /etc/NetworkManager/system-connections/myVPN.nmconnection /etc/NetworkManager/system-connections/copyVPN.nmconnection
+```
