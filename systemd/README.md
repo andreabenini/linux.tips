@@ -50,6 +50,16 @@ systemctl reset-failed
 ```
 
 
+## Status of a service/socket
+```sh
+# As easy as:
+systemctl status podman.socket
+
+# Root detecting active services (or sockets like in this case) for a specific user
+# Users can have their own defined services, they're not directly related to system services
+systemctl --machine=ben@.host --user status podman.socket
+```
+
 ## Getting an Overview of the System State
 To get all of the unit files that systemd has listed as _active_, type:
 ```
