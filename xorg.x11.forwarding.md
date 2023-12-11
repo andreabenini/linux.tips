@@ -11,14 +11,16 @@ is not wrong to disable this sanity check.
 
 Here are needed steps to avoid it:
 - Edit `/etc/ssh/sshd_config` file
-- Set the following two options in it
-```
-    X11Forwarding yes
-    X11UseLocalhost no
+- Set these options in it
+```conf
+    AllowTcpForwarding  yes
+    X11Forwarding       yes
+    X11DisplayOffset    10
+    X11UseLocalhost     yes
 ```
 - Save and close the file
 - Restart sshd daemon (with init script or systemctl utility)
-- Check if `xauth` is present on `remoteserver`, if it isn't there you need to install it with your favorite
+- Check if `xauth` is present on `remoteserver`, if it not present you need to install it with your favorite
 package manager
 - Open a new shell from `localhost` to `remoteserver` with a command like this one:
 ```
@@ -32,3 +34,9 @@ ssh -X user@remoteserver
 
 Now in this new shell you can run everything you want from command line and applications will be rendered locally on your
 XOrg server
+
+### Note:
+If you receive errors trying to run graphical applications, try ForwardX11Trusted instead
+```sh
+ssh -Y user@remoteserver
+```
