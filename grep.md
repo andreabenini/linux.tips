@@ -16,3 +16,9 @@ Massive search and replace a string inside a bunch of files, it might take some 
 ```sh
 grep -rIl 'Some Text Here' /path/where/files/are/* | xargs sed -i 's/Some Text Here/Ben is cool/g'
 ```
+
+### Grep content from a line and print N lines after it
+In this example I'm searching `This Pattern` in `filename` and it prints up to **20** lines after it
+```sh
+grep -A 20 "This Pattern" /path/to/filename
+```
