@@ -4,6 +4,15 @@
 mogrify -format png *.jpg
 ```
 
+### Batch resize a bunch of images
+```sh
+# Might be something like:
+convert -resize 50% *.png
+# Or even better with an xargs fine graining command
+mkdir _resized
+find . -maxdepth 1 -iname "*.jpg" | xargs -L1 -I{} convert -resize 50% "{}" _resized/"{}"
+```
+
 ### Convert a PDF to a JPG
 ```
 # gs (GhostScript) and gm (GraphicsMagick) are required in order to make it work
