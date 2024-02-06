@@ -9,10 +9,12 @@ In order to diagnose what's wrong in the boot process you probably need to see s
 Before messing around with software updates or configuration is always better to:
 ```sh
 # Distribution upgrade
-zypper dup
+sudo zypper dup
+#...even better, start with Packam updates before doing something else..
+sudo zypper dup --from packman
 
 # Packages updates
-zypper update
+sudo zypper update
 ```
 
 ## Graphic Card Issues
@@ -20,9 +22,9 @@ I usually don't have these problems with Arch Linux but SUSE does not always pro
 ### amd
 ```sh
 # Force uCode and GPU card updates
-zypper install -f ucode-amd kernel-firmware-amdgpu libamd2 libdrm_amdgpu1
+sudo zypper install -f ucode-amd kernel-firmware-amdgpu libamd2 libdrm_amdgpu1
 # Force firmware reinstallation as well as grub update (and mkinitrd when necessary)
-zypper install -f ucode-amd kernel-firmware-amdgpu libamd2 libdrm_amdgpu1
+sudo zypper install -f ucode-amd kernel-firmware-amdgpu libamd2 libdrm_amdgpu1
 ```
 
 **NOTE**  
