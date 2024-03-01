@@ -1,6 +1,13 @@
 ## Current git repository information
+```sh
 git config --list
+```
 
+## git clone/pull/... from non a non standard port
+```sh
+# in this case machine name is 'remotehost' and remote ssh port is '55466
+git clone ssh://git@remotehost:55466/ben/project.git
+```
 
 ## Remote repositories list
 ```sh
