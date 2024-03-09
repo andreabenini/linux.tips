@@ -257,6 +257,11 @@ git stash drop STASH_ID
 git stash clear
 ```
 
+## Remove from repo all previously deleted files
+List of all deleted files from the repo and apply `git rm` to them
+```sh
+git ls-files --deleted -z | xargs -0 git rm
+```
 
 ## Ignore SSL issuer certificates
 ***http.sslVerify***  
