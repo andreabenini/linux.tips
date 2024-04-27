@@ -5,3 +5,10 @@ To keep this default behavior just create an empy _.vimrc_ file as suggested her
 ```sh
 mkdir ~/.vim/; [[ -s ~/.vim/vimrc ]] && echo "aborted, file exists" || :> ~/.vim/vimrc
 ```
+
+# Useful commands
+### Tabstops and spaces
+set tabstops every 4 spaces and set the shiftwidth that amount you indent as 4 spaces also to match your tabstops
+```
+set ts=4 sw=4
+```
