@@ -1,4 +1,13 @@
 # Query commands
+## debug packages
+Find installed packages with the debug flag enabled
+```sh
+pacman -Qtdq
+```
+To disable debug packages requirements or installation just:
+- edit `/etc/makepkg.conf`
+- in **OPTIONS** change `debug` to `!debug`
+
 ## List of installed packages
 ```sh
 # detailed list, multiple lines per package
