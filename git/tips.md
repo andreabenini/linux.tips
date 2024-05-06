@@ -298,6 +298,30 @@ GIT_SSL_NO_VERIFY=true git clone https://example.com/path/to/git
 git config [--global] http.sslVerify false
 ```
 
+## Permanently remove a file from the repository and wipe its information from history too
+```sh
+# Go to repository home
+cd [repository home]
+
+# Must pull, commit and push changes before proceeding with the operation
+# stash files are allowed pending changes are not
+git pull
+git add .
+git commit -m "Updating changes"
+git push
+
+# Now save and keep a copy of your special file somewhere (outside the repo is better)
+
+# git filter-branch command is that will be used
+#   [--tree-filter] option
+#       Allows to rewrite the history of the repository by applying a specified command to each commit
+git filter-branch --tree-filter 'rm -f path/of/the/file/todelete.txt' -- --all
+# Forcing push to [origin] in order to rewrite history there too
+git push origin --force --all
+
+# just to try a sync after the previous operation
+git pull
+```
 
 ## Set system editor
 Set your sistem editor to _vim_ or whatever you prefer
