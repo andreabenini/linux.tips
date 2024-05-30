@@ -1,7 +1,13 @@
-# Get text between tags
+# Tags management
+### Get text between tags
 Extract a comment from the page
 ```sh
 curl --no-progress-meter http://my.favorite.site.com/whatever/url/U/need | sed -n '/<!--/,/-->/p'
+```
+### Get value of a tag from a XML stream
+Same as above but extract only the value between `<author/>` tag
+```sh
+cat myXMLstream | sed -n 's/.*<author>\(.*\)<\/author>.*/\1/p'
 ```
 
 
