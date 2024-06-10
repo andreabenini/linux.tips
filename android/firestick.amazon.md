@@ -18,3 +18,12 @@ adb -s $FIRESTICK_IP shell pm grant com.wolf.minilm android.permission.READ_LOGS
 # whitelist Launch Manager mini to allow its safe execution
 adb -s $FIRESTICK_IP shell dumpsys deviceidle whitelist +com.wolf.minilm
 ```
+
+### Useful commands
+Random order for common commands
+```sh
+adb connect $FIRESTICK_IP
+adb -s $FIRESTICK_IP shell appops set com.wolf.minilm SYSTEM_ALERT_WINDOW allow
+adb -s $FIRESTICK_IP shell pm grant com.wolf.minilm android.permission.READ_LOGS
+adb -s $FIRESTICK_IP shell dumpsys deviceidle whitelist +com.wolf.minilm
+```
