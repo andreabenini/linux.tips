@@ -22,7 +22,16 @@ adb -s $FIRESTICK_IP shell dumpsys deviceidle whitelist +com.wolf.minilm
 ### Useful commands
 Random order for common commands
 ```sh
+# Connect to device
 adb connect $FIRESTICK_IP
+
+# Open adb shell interactively
+adb -s $FIRESTICK_IP shell
+
+# Get bluetooth address
+adb -s $FIRESTICK_IP shell settings get secure bluetooth_address
+
+# Various adb commands
 adb -s $FIRESTICK_IP shell appops set com.wolf.minilm SYSTEM_ALERT_WINDOW allow
 adb -s $FIRESTICK_IP shell pm grant com.wolf.minilm android.permission.READ_LOGS
 adb -s $FIRESTICK_IP shell dumpsys deviceidle whitelist +com.wolf.minilm
