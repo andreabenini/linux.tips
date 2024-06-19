@@ -23,6 +23,11 @@ Kill session:
 
     tmux kill-session -t myname
 
+## Logging and verbose
+Start tmux with verbose logging to check for errors:
+```sh
+tmux -Ltest -f/dev/null -vv new
+```
 
 ## Sessions
 
