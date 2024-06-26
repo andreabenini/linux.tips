@@ -117,9 +117,15 @@ git checkout HEAD -- file/to/restore
 
 
 ## Disable pager|less on git commands
+Temporarily disable default pager from git
 ```sh
 # for example when printing available branches
 git --no-pager branch
+```
+To permanently disable pager from git you need to add this config to your `~/.gitconfig` file
+```ini
+[core]
+    pager = cat
 ```
 
 
