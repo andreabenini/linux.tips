@@ -3,7 +3,7 @@ Required software
 - Launch manager (mini) https://www.techdoctoruk.com/sdm_downloads/lm-mini/
 - Wolf Launcher (or whatever other nice launcher for fire tv) https://www.techdoctoruk.com/sdm_downloads/lm-mini/
 
-Device setup
+### Device setup
 ```sh
 # they're now restricting devices more and more, even local adb is now forbidden (why ?),
 # this remote hack circumvents these fancy guys by setting permissions in the android 
@@ -35,4 +35,22 @@ adb -s $FIRESTICK_IP shell settings get secure bluetooth_address
 adb -s $FIRESTICK_IP shell appops set com.wolf.minilm SYSTEM_ALERT_WINDOW allow
 adb -s $FIRESTICK_IP shell pm grant com.wolf.minilm android.permission.READ_LOGS
 adb -s $FIRESTICK_IP shell dumpsys deviceidle whitelist +com.wolf.minilm
+```
+
+### External storage setup
+From the adb shell command:
+```sh
+# List of available disks, hopefully your ready new recognized drive
+sm list-disks
+
+
+# Partition external device for Fire Stick usage
+# "disk:8,0" is the name of the external disk, see 'sm list-disks' to get it
+
+# Partition the entire disk for application/internal storage only
+sm partition disk:8,0 private
+# Partition the entire disk for storing photo,music,external media
+sm partition disk:8,0 public
+# half/half private and public usage
+sm partition disk:8,0 mixed 50 50
 ```
