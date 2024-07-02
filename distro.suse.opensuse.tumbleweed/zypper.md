@@ -6,3 +6,10 @@ zypper search --provides /usr/bin/tree
 # or the short version
 zypper se --provides /usr/bin/tree
 ```
+
+# Search RPM package and download it
+```sh
+rpm -qa |grep tmux
+zypper info tmux
+zypper download tmux
+```
