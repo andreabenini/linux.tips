@@ -114,4 +114,8 @@ sudo ls -ladZ /srv/dbfiles/
 
 # Mount the newly applied storage dir back to the image (and create a new container)
 podman run -v /hostdir:/dir-in-container myimage
+
+# Get disk space usage
+podman system df
+podman system df -v
 ```
