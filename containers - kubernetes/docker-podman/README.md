@@ -1,5 +1,6 @@
 # Useful commands
 
+## Registry related commands
 ```sh
 # Podman login to the specified registry with supplied credentials (for rootless containers)
 podman login -u [username] -p [password] [registry.access.redhat.com]
@@ -19,10 +20,13 @@ podman image inspect [...]
 #      IF you use 'podman pull' and then 'podman inspect' is totally fine to run it
 #      ...for example:
 podman inspect registry.access.redhat.com/rhscl/mysql-57-rhel7
+```
 
-# Spot the difference, non root does not get images downloaded from sudo users
-# rootless: images are stored in user home directory
-# root: images are stored in /var/lib/containers/storage/overlay-images
+## Image manipulation commands
+```sh
+# Spot the difference here, non root does not get images downloaded from sudo users
+#   rootless:   - images are stored in user home directory
+#   root:       - images are stored in /var/lib/containers/storage/overlay-images
 podman images [-a]
 sudo podman images
 
@@ -33,7 +37,11 @@ podman build -t [imageName] .
 podman rmi [imagename]
 # Remove ALL images
 podman rmi -a
+```
 
+
+## Container commands
+```sh
 # Remove container
 podman rm [ContainerName/ID]
 
@@ -85,9 +93,13 @@ sudo podman run -d -e MYSQL_ROOT_PASSWORD=password mariadb
 sudo podman run -d -v /srv/dbfiles:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password mariadb
 # This :Z option takes care of SELinux context directly and it's the preferred way for running rootless containers
 sudo podman run -d -v /srv/dbfiles:/var/lib/mysql:Z -e MYSQL_ROOT_PASSWORD=password mariadb
+
+# Get disk space usage
+podman system df
+podman system df -v
 ```
 
-SELinux permissions and storage
+## SELinux permissions and storage
 ```sh
 # Inspect image and look for [User] to find which user this is
 podman inspect image
@@ -114,8 +126,4 @@ sudo ls -ladZ /srv/dbfiles/
 
 # Mount the newly applied storage dir back to the image (and create a new container)
 podman run -v /hostdir:/dir-in-container myimage
-
-# Get disk space usage
-podman system df
-podman system df -v
 ```
