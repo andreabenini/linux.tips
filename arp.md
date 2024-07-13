@@ -4,6 +4,10 @@ as simple as that:
 arp -a
 arp -n
 ```
+_arp is now deprecated in favor of **ip** utils_, this is the equivalent command
+```sh
+ip neigh show
+```
 
 # (incomplete) entries
 ARP table might contain (incomplete) entries, these are not a problem and not present in the arp table any more
