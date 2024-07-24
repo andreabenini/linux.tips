@@ -24,6 +24,8 @@ Random order for common commands
 ```sh
 # Connect to device
 adb connect $FIRESTICK_IP
+# Disconnect from device
+adb disconnect
 
 # Open adb shell interactively
 adb -s $FIRESTICK_IP shell
@@ -31,10 +33,14 @@ adb -s $FIRESTICK_IP shell
 # Get bluetooth address
 adb -s $FIRESTICK_IP shell settings get secure bluetooth_address
 
-# Various adb commands
+# Get/Set properties from device
+adb -s $FIRESTICK_IP shell appops get --uid com.ghisler.android.TotalCommander MANAGE_EXTERNAL_STORAGE
 adb -s $FIRESTICK_IP shell appops set com.wolf.minilm SYSTEM_ALERT_WINDOW allow
+# Various adb commands
 adb -s $FIRESTICK_IP shell pm grant com.wolf.minilm android.permission.READ_LOGS
 adb -s $FIRESTICK_IP shell dumpsys deviceidle whitelist +com.wolf.minilm
+# untested/not working
+adb -s $FIRESTICK_IP exec-out run-as org.xbmc.kodi ls -R
 ```
 
 ### External storage setup
