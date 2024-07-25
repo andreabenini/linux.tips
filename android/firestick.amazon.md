@@ -33,6 +33,9 @@ adb -s $FIRESTICK_IP shell
 # Get bluetooth address
 adb -s $FIRESTICK_IP shell settings get secure bluetooth_address
 
+# Get installed applications
+adb -s $FIRESTICK_IP shell pm list packages
+
 # Get/Set properties from device
 adb -s $FIRESTICK_IP shell appops get --uid com.ghisler.android.TotalCommander MANAGE_EXTERNAL_STORAGE
 adb -s $FIRESTICK_IP shell appops set com.wolf.minilm SYSTEM_ALERT_WINDOW allow
