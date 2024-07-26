@@ -33,6 +33,11 @@ adb -s $FIRESTICK_IP shell
 # Start an application from remote, example: wolf launcher
 adb -s $FIRESTICK_IP shell am start com.wolf.firelauncher
 
+# Kill an application by forcing a crash, useful for protected applications too
+adb -s $FIRESTICK_IP shell am crash com.amazon.tv.launcher
+# this does not work on protected applications
+#adb -s $FIRESTICK_IP shell am kill  com.amazon.tv.launcher
+
 # Get bluetooth address
 adb -s $FIRESTICK_IP shell settings get secure bluetooth_address
 
