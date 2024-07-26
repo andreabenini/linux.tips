@@ -30,6 +30,9 @@ adb disconnect
 # Open adb shell interactively
 adb -s $FIRESTICK_IP shell
 
+# Start an application from remote, example: wolf launcher
+adb -s $FIRESTICK_IP shell am start com.wolf.firelauncher
+
 # Get bluetooth address
 adb -s $FIRESTICK_IP shell settings get secure bluetooth_address
 
