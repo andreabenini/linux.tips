@@ -207,8 +207,11 @@ git log --name-status -2
 
 ## View previous git commits
 ```sh
+# Easy, just few changes here
 git log
 git show <LOGNAME>
+# Harder, way more changes reported, combination of (git-log + less). Color edition
+git log --pretty=oneline v254.15..v254.17 --color=always |less -R
 ```
 
 
