@@ -13,3 +13,17 @@ rpm -qa |grep tmux
 zypper info tmux
 zypper download tmux
 ```
+
+# Repository related commands
+## Search packages installed from a specific repository
+```sh
+zypper search --installed-only --repo <repositoryName>
+```
+
+## Remove a repository
+```sh
+# Easy
+zypper repo delete <repositoryName>
+# Manual
+sudo rm /etc/zypp/repos.d/<repositoryFileName>
+```
