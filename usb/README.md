@@ -1,4 +1,4 @@
-## USB Gadget Topics:
+# USB Gadget Topics:
 - kernel detection  
     https://wiki.postmarketos.org/wiki/USB_Gadget
 - USB gadget on Linux & how to integrate it with systemd  
@@ -12,12 +12,17 @@
     https://www.reddit.com/r/SteamDeck/comments/10ps589/usb_gadget_mode_on_sd_will_essentially_turn_any/
 - How to Use USB Gadget Ethernet  
     https://linuxlink.timesys.com/docs/wiki/engineering/HOWTO_Use_USB_Gadget_Ethernet
-### Troubleshooting
+## USB mass storage gadget
+- From an hackweek project: **CEPH USB Cloud Storage Gateway**
+    - https://hackweek.opensuse.org/13/projects/ceph-rbd-backed-usb-mass-storage-gadget
+    - https://archive.fosdem.org/2017/schedule/event/cephusb/attachments/slides/1836/export/events/attachments/cephusb/slides/1836/ceph_usb_gw.pdf
+    - https://blog.elastocloud.org/2015/12/ceph-usb-storage-gateway.html
+## General troubleshooting
 - udc-core: couldn't find an available UDC - added [g_mass_storage] to list of pending drivers
     https://unix.stackexchange.com/questions/373569/emulating-usb-device-with-a-file-using-g-mass-storage-udc-core-couldnt-find
 
 
-## USB-C ethernet links between two computers
+# USB-C ethernet links between two computers
 Interesting experiment for a network connection without eth transceivers, here are few useful links
 - Some basics first, read and understand it before going further:  
     How does USB-C affect USB's distinction between "host" and "peripheral"?  
@@ -35,6 +40,7 @@ Interesting experiment for a network connection without eth transceivers, here a
     https://gist.github.com/dafta/0aadeba3aa8bcbbc8b92a233977571ed
 - https://developer.ridgerun.com/wiki/index.php/How_to_use_USB_device_networking
 
-## testusb
+
+# testusb
 - Test a Linux kernel USB Device Controller driver with testusb
     https://bootlin.com/blog/test-a-linux-kernel-usb-device-controller-driver-with-testusb/
