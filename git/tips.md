@@ -80,6 +80,12 @@ git reflog
 git reset --hard HEAD@{2}
 ```
 
+## git push with a different key
+With multiple keys and multiple repositories it might be handy to specify a ssh keyfile in oneshot commands
+```sh
+GIT_SSH_COMMAND='ssh -i /path/of/the/id_rsa.key.pub -o IdentitiesOnly=yes' git push
+```
+
 ## See Push changes before submitting them
 For a list of files to be pushed:
 ```sh
