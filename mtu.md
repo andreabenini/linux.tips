@@ -24,5 +24,6 @@ ping -c 1 -s $((1500-28)) -M do www.archlinux.org
 Root access is obviously required
 ```sh
 # Setting MTU size to 1000b on tun0 network interface
+# Useful for tweaking with some mobile operators ip settings: [openvpn]+[mobile phone]. (iliad+openvpn)
 sudo ip link set tun0 mtu 1000
 ```
