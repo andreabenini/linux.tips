@@ -235,6 +235,8 @@ https://api.github.com/users/<username>/events/public
 git show
 #...also works
 git diff HEAD^ HEAD
+#...also works (diff between this commit and the previous one)
+git diff HEAD HEAD~1
 ```
 
 
