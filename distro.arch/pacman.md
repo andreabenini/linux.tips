@@ -32,12 +32,29 @@ sudo pacman -Fy
 # Search locally which package provides specific filename (example: md2html)
 pacman -F md2html
 ```
+## Detect which package installed a specific file
+```sh
+pacman -Qo /etc/containers/registries.conf
+# /etc/containers/registries.conf is owned by containers-common x:x.xx.x-x
+```
+
+
+&nbsp;
+---
+&nbsp;
+
 
 # Reinstall a specific package as well as its dependencies
 With a little bit of bashism here's a method to reinstall a package (graphviz in my example)
 ```sh
 pacman -Si graphviz | awk -F ": " -v filter="^Depends" \ '$0 ~ filter {gsub(/[>=<][^ ]*/,"",$2) ; gsub(/ +/,"\n",$2) ; print $2}' | sudo pacman -S --asdeps -
 ```
+
+
+&nbsp;
+---
+&nbsp;
+
 
 # Remove package
 ```sh
@@ -53,6 +70,11 @@ pacman -Rsn $(pacman -Qdtq)
 pacman -Rnsu pack1 pack2
 ```
 
+&nbsp;
+---
+&nbsp;
+
+
 # Clear package cache
 Arch Linux stores a copy of each package you download in the `/var/cache/pacman/pkg/` directory.
 This includes every package you download, even upgrades. You can roll back to previous versions
@@ -65,6 +87,11 @@ Adding another -c flag in the command will remove all of the cached packages too
 pacman -Scc
 ```
 
+&nbsp;
+---
+&nbsp;
+
+
 # Pacman on PacMan
 Add some fancy pacman-like animations on pacman package manager
 ```
@@ -74,6 +101,11 @@ Add some fancy pacman-like animations on pacman package manager
 - Save and enjoy a curses based pacman animation each time a progress bar is
   visible in pacman (the package manager)
 ```
+
+&nbsp;
+---
+&nbsp;
+
 
 # Unable to lock database
 ```sh
