@@ -48,6 +48,13 @@ for FILE in $DIRSRC; do
 done
 ```
 
+# Crop video stream to the upper left region
+Crop a full screen video capture to the upper left part of it (1920x1080) and
+remove audio tracks too, useful for bigger screens and demos
+```sh
+ffmpeg -i inputVideo.mkv -vf "crop=1920:1080:0:0" -c:v libx264 -an outputVideo.mp4
+```
+
 # Convert webm to mp3
 ```sh
 # -vn      # disable video
