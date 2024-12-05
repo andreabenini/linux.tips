@@ -22,6 +22,11 @@ git reset HEAD -- path/to/file
 # or (recursive on dirs)
 git reset HEAD -- .
 ```
+To Undo latest `git add ...` and `git commit -m 'msg'` just:
+```
+git reset HEAD~1
+# Changes previously written in the staging area will be revoked and unstaged
+```
 
 
 ## Reset/Discard local branch changes
