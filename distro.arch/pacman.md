@@ -44,6 +44,18 @@ pacman -Qo /etc/containers/registries.conf
 &nbsp;
 
 
+# Install a specific binary package
+As simple as:
+```sh
+pacman -U your.arch.linux.binary.package.pkg.tar.zst
+```
+
+
+&nbsp;
+---
+&nbsp;
+
+
 # Reinstall a specific package as well as its dependencies
 With a little bit of bashism here's a method to reinstall a package (graphviz in my example)
 ```sh
