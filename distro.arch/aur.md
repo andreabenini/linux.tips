@@ -22,6 +22,17 @@ makepkg -si
 At the end of the installation process an arch package file is created and root access is required to finally install
 the binary pkg
 
+## Temporary fixes on failures
+```sh
+==> Verifying source file signatures with gpg...
+    Python-3.xx.xx.tar.xz ... FAILED (unknown public key xxxxxxxxxxxxxxxx)
+==> ERROR: One or more PGP signatures could not be verified!
+```
+Might be ignored by adding `--skippgpcheck` so basically:
+```sh
+makepkg -si --skippgpcheck
+```
+
 ## Reinstall/Repair procedures
 It happened to me just once and it might be a package specific problem or something related to the application, this might be the case because the application was "zoom" (so, stop laughing). These steps solved a problem that never happened to me before.
 - Remove/uninstall the package (`sudo pacman -rsn [packageName]`)
