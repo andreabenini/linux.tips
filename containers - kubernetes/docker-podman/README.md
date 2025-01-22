@@ -1,5 +1,20 @@
 # Useful commands
 
+
+## Basic and getting started
+```sh
+# Best ever hello world example
+podman run busybox echo "hello"
+
+# Basic image in 5secs from universal base image 9
+cat <<EOT > Containerfile
+FROM ubi9:latest
+MAINTAINER Tux tux@example.com
+USER root
+EOT
+```
+
+
 ## Registry related commands
 ```sh
 # Podman login to the specified registry with supplied credentials (for rootless containers)
@@ -67,7 +82,8 @@ podman run nginx
 # Same as above but run the container as a daemon in the background even if it's a system container (detached)
 podman run -d nginx
 # To detach from a running container while you're inside it you can press: Ctrl-p, Ctrl-q 
-#       this detaches the shell from a running container
+#       this detaches the shell from a running container, or something like:
+podman run --detach --name containerimage --publish 8080:80 mywebcontainer
 
 # Start a container and put the user inside the maching by using the interactive mode (-it) and required shell (/bin/bash)
 # This command does not start the default entrypoint but it runs the shell instead
