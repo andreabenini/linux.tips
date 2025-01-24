@@ -19,6 +19,8 @@ EOT
 ```sh
 # Podman login to the specified registry with supplied credentials (for rootless containers)
 podman login -u [username] -p [password] [registry.access.redhat.com]
+#...to skip self signed certificates on internal quay registries just add the skip flag to it
+podman login -u [username] -p [password] --tls-verify=false [https://internal.quay.registry.domain.com]
 
 # Search the container registry (red hat/docker.io), just like yum search
 podman search ubi
