@@ -90,6 +90,10 @@
         `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub`
     - Generate the GRUB configuration file  
         `grub-mkconfig -o /boot/grub/grub.cfg`
+    - Remove optional or old EFI entries
+        - `efibootmgr` to display available configurations
+        - `efibootmgr -b 0000 -B`. Removes entry **"Boot0000"** from the list (for example: Windows Boot Manager)
+        - run `efibootmgr` again to see changes
 14. Exit, unount and reboot
     - `exit`
     - `umount -R /mnt`
