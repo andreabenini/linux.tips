@@ -69,10 +69,16 @@
         ```
         LANG=en_US.UTF-8
         ```
+    - Adding extra terminal fonts (totally optional, skip it if not needed)  
+        - `pacman -S terminus-font`
+        - `ls /usr/share/kbd/consolefonts`
+        - `setfont ter-124b` (or whatsoever font you prefer)
     - Create `/etc/vconsole.conf` like:
         ```
         KEYMAP=en
+        FONT=ter-124b
         ```
+        `FONT=xxx` is totally optional and it depends in your personal flavors and previously executed step
 11. Network configuration
     - Edit `/etc/hostname` and write your hostname there
     - `systemctl enable NetworkManager`
