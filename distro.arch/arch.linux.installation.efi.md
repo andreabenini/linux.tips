@@ -73,6 +73,7 @@
         - `pacman -S terminus-font`
         - `ls /usr/share/kbd/consolefonts`
         - `setfont ter-124b` (or whatsoever font you prefer)
+        - `showconsolefont` to print its characters on stdout
     - Create `/etc/vconsole.conf` like:
         ```
         KEYMAP=en
