@@ -21,3 +21,17 @@ After struggling for a while I ended up (and solved the problem) with few minor 
 
 and you'll be fine. Those twos will install `ghostscript` and various libs as dependencies and after that you'll solve
 the problem.
+
+
+## Brother printers
+### HL-L8260CDW
+- Follow the hint reported above and related to `lib32-glibc` if needed. With HL-L8260CDW seems to be mandatory even if you're running
+on a AMD64 installation
+- Current driver: `brother-hl-l8260cdw 1.5.0-1` has a problem and it's missing a filter.  
+From `/var/log/cups/error_log` you might spot an error like:  
+```
+/opt/brother/Printers/hll8260cdw/lpd/brhll8260cdwfilter: No such file or directory
+```
+Which means exactly what it is written there, newer drivers are somehow missing it but I fortunately recovered from
+previous **1.4.0-1** version and added to this repository
+
