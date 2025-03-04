@@ -1,8 +1,3 @@
-# Restart cups
-```
-systemctl restart org.cups.cupsd
-```
-
 ## Few tips
 Brother printers, among others, still requires lib32 deps because their drivers really sucks.
 Sometimes you're forced to install `lib32-glibc` even if you're running an AMD64 platform so you're warned.
