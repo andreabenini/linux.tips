@@ -25,6 +25,7 @@ the problem.
 
 ## Brother printers
 ### HL-L8260CDW
+- Get drivers from AUR (https://aur.archlinux.org/packages/brother-hl-l8260cdw) and install package from there
 - Follow the hint reported above and related to `lib32-glibc` if needed. With HL-L8260CDW seems to be mandatory even if you're running
 on a AMD64 installation
 - Current driver: `brother-hl-l8260cdw 1.5.0-1` has a problem and it's missing a filter.  
