@@ -33,9 +33,16 @@ sudo pacman -Fy
 pacman -F md2html
 ```
 ## Detect which package installed a specific file
+This works to detect which package installed what and also to understand what package
+will provide a specific program
 ```sh
+# something already in the system
 pacman -Qo /etc/containers/registries.conf
 # /etc/containers/registries.conf is owned by containers-common x:x.xx.x-x
+
+# Want to know which package provides the specified binary/application
+pacman -Qo $(which aclocal)
+# /usr/bin/aclocal is owned by automake x.xx-x
 ```
 
 
