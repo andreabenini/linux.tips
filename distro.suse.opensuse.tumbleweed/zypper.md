@@ -15,9 +15,13 @@ zypper download tmux
 ```
 
 # Repository related commands
-## Search packages installed from a specific repository
+## Search related commands
 ```sh
+# Search packages installed from a specific repository
 zypper search --installed-only --repo <repositoryName>
+
+# Search binary from a package, no matter if it's installed or not
+zypper search --provides <binary-Name>
 ```
 
 ## Remove a repository
