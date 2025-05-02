@@ -1,4 +1,12 @@
 # Query commands
+## Getting information about a package from the repository
+When a package is not installed it's easy to get additional information by:
+```sh
+pacman -Si <packageName>
+# -ii for extended information
+pacman -Sii <packageName>
+```
+
 ## debug packages
 Find installed packages with the debug flag enabled
 ```sh
@@ -16,10 +24,12 @@ pacman -Qi
 pacman -Qe
 pacman -Qe --color=always | less -r   # With colors
 ```
+
 ## List orphans packages
 ```sh
 pacman -Qdt
 ```
+
 ## List of files installed by a package:
 ```sh
 pacman -Ql <packageName>
