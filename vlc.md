@@ -1,4 +1,5 @@
 # Share part of your screen with usual collaboration platforms
+### !! This method works with x11/xorg, wayland is different and it won't work with it !!
 If you want to share a part of your monitor with your peers you're usually not allowed by common conferencing
 platforms (Zoom, Meet, Teams, Slack, ...), there are no options focused on it even if ultra wide monitors are
 becoming more popular, it's always a mess to deal with an ultra wide monitor when you want to share something
