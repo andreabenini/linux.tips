@@ -12,4 +12,5 @@ Usually installed or just suggested, use at your own disposal
 | Tray Icons: Reloaded                        | Tray Icons Reloaded is a GNOME Shell extension which bring back Tray Icons to top panel, with additional features
 | User Themes                                 | Load shell themes from user directory
 | Windows List                                | Display a window list at the bottom of the screen
+| AppIndicator Support                        | Adds AppIndicator, KStatusNotifierItem and legacy Tray icons support to the Shell, useful for Telegram
 
