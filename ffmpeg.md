@@ -48,12 +48,21 @@ for FILE in $DIRSRC; do
 done
 ```
 
+# Convert from Canon .mov file to a more modern .mp4  file
+```sh
+# Input    input.mov
+# Output   output.mp4
+ffmpeg -fflags +genpts -f avi -i input.mov -map 0:v:0 -map 0:a:0 -c:v libx264 -crf 23 -pix_fmt yuv420p -c:a aac -ar 44100 -b:a 128k output.mp4
+```
+
+
 # Crop video stream to the upper left region
 Crop a full screen video capture to the upper left part of it (1920x1080) and
 remove audio tracks too, useful for bigger screens and demos
 ```sh
 ffmpeg -i inputVideo.mkv -vf "crop=1920:1080:0:0" -c:v libx264 -an outputVideo.mp4
 ```
+
 
 # Convert webm to mp3
 ```sh
