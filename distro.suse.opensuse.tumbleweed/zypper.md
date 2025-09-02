@@ -31,3 +31,14 @@ zypper repo delete <repositoryName>
 # Manual
 sudo rm /etc/zypp/repos.d/<repositoryFileName>
 ```
+
+## Refresh repository
+If you're getting something like:
+```txt
+    Warning: Repository metadata expired: Check if 'autorefresh' is turned on (zypper lr), otherwise                                                                                                                                    
+    manually refresh the repository (zypper ref). If this does not solve the issue, it could be that                                                                                                                                    
+    you are using a broken mirror or the server has actually discontinued to support the repository. 
+```
+It's just a matter of running `zypper ref` in order to resync with current repos, after that you can safely
+run `zypper dup` or whatever you need
+
