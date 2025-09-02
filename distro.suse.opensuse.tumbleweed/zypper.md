@@ -42,3 +42,11 @@ If you're getting something like:
 It's just a matter of running `zypper ref` in order to resync with current repos, after that you can safely
 run `zypper dup` or whatever you need
 
+## Enable and Disable repositories
+- `zypper repos` to list all your available repositories as usual.  
+- `zypper modifyrepo -d repo-backports-update` to disable (not delete) a repository. The repository number could be used
+   but it's better to always use the Alias instead of it
+- `zypper modifyrepo -e repo-backports-update` to enable it back again. Same suggestions reported one line above are
+   still valid
+
+
