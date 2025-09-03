@@ -61,10 +61,17 @@ pacman -Qo $(which aclocal)
 &nbsp;
 
 
-# Install a specific binary package
-As simple as:
+# Installation
+## Install a specific binary package
+When you have a package is as simple as:
 ```sh
 pacman -U your.arch.linux.binary.package.pkg.tar.zst
+```
+
+## Update a specific package only, not the entire installation
+```sh
+# You're updating package info and installing THAT package only, it's not a whole update
+pacman -Sy discord
 ```
 
 
