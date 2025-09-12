@@ -20,6 +20,13 @@ journalctl -f | grep -E "(custom-menu-panel|extension|gnome-shell)" --color=alwa
 Gnome debug shell utility
 - ALT+F2 (to run a command)
 - lg     (to execute Looking Glass)
+### debug console information
+```javascript
+// Current log level (int), it can be changed here too
+// https://api.pygobject.gnome.org/GLib-2.0/enum-LogLevelFlags.html
+// https://docs.gtk.org/glib/flags.LogLevelFlags.html
+GLib.LogLevelFlags.LEVEL_MESSAGE
+```
 
 
 # Nautilus
