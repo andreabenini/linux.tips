@@ -10,9 +10,16 @@ echo "$XDG_SESSION_TYPE"
 Developing gnome plugins is not too hard but it's supposed to be simpler, expecially when you need to debug your extensions.
 When you need some sort of debugging with your JS hell code a console is usually nice, so run this in your favorite terminal:
 ```sh
+# Explicitly tag gnome-shell executable
 journalctl /usr/bin/gnome-shell -f -o cat
+
+# ...or more comprehensive GNOME Shell filtering
+journalctl -f | grep -E "(custom-menu-panel|extension|gnome-shell)" --color=always
 ```
-and reload the whole gnome environment (X11: `<alt>+<f2>`, `'r'`.   Wayland: Logout/Login) as usual
+## Looking glass
+Gnome debug shell utility
+- ALT+F2 (to run a command)
+- lg     (to execute Looking Glass)
 
 
 # Nautilus
