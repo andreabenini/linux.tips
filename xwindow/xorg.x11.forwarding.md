@@ -47,3 +47,17 @@ As usual comes handy to always see what it does during the login phase. that's t
 ssh -vvY user@oldMachine
 ```
 comes handy when you still have login issues or the X11 channel is not properly forwarded
+
+### Known host automation for future connections
+Instead of using each single time something like:
+```sh
+ssh -Y user@otherMachine
+```
+Really comes handy to store this profile with some default options. It's usually possible through the `~/.ssh/config` file.  
+This might be a default X11 forwarder for a specific host
+```conf
+Host other-machine
+    HostName <IP.Address.Other.Machine>
+    User <username>
+    ForwardX11 yes
+```
