@@ -35,8 +35,15 @@ ssh -X user@remoteserver
 Now in this new shell you can run everything you want from command line and applications will be rendered locally on your
 XOrg server
 
-### Note:
+### Note: Suggested login
 If you receive errors trying to run graphical applications, try ForwardX11Trusted instead
 ```sh
 ssh -Y user@remoteserver
 ```
+
+### Troubleshooting
+As usual comes handy to always see what it does during the login phase. that's the reason why issuing commands like:
+```sh
+ssh -vvY user@oldMachine
+```
+comes handy when you still have login issues or the X11 channel is not properly forwarded
