@@ -13,15 +13,14 @@ Here are needed steps to avoid it:
 - Edit `/etc/ssh/sshd_config` file
 - Set these options in it
 ```conf
-    AllowTcpForwarding  yes
     X11Forwarding       yes
-    X11DisplayOffset    10
-    X11UseLocalhost     yes
 ```
 - Save and close the file
 - Restart sshd daemon (with init script or systemctl utility)
-- Check if `xauth` is present on `remoteserver`, if it not present you need to install it with your favorite
-package manager
+- Install `xorg-xauth` in your local machine to connect and support x11 authentication through the tunnel, the package
+  has no dependencies and it's quite thin but it has to be installed (locally and on remote server)
+- Check if `xauth` is present on `remoteserver`, if it not present you need to install it with your favorite package
+  manager. Usually called `xorg-xauth|x11-auth|xauth`. Most common name is `xorg-xauth`.
 - Open a new shell from `localhost` to `remoteserver` with a command like this one:
 ```
 ssh -X user@remoteserver
@@ -30,7 +29,8 @@ ssh -X user@remoteserver
 ```
 /usr/bin/xauth:  file /home/YourUserName/.Xauthority does not exist
 ```
-  It's quite normal, xauth is informing you about your brand new xauth security file, just ignore it
+  It's quite normal, xauth is informing you about your brand new xauth security file, just ignore it or reboot to see if
+  it goes away. On latest xorg installations a reboot is suggested.
 
 Now in this new shell you can run everything you want from command line and applications will be rendered locally on your
 XOrg server
