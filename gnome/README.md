@@ -28,6 +28,20 @@ Gnome debug shell utility
 GLib.LogLevelFlags.LEVEL_MESSAGE
 ```
 
+# gnome-shell under wayland for developing plugins
+This is a real pain mostly because:
+- Alt+F2, 'r' is not possible because wayland does NOT have an independent client/server structure.
+  Reloading an entire environment is not possible.
+- disabling/enabling a plugin does not always work because it's not reloading sources on nested files
+  and it's pretty lame due to that
+- dbus messages and halting certain parts of the display server is not safe at all
+- logout/login process always works but it's also pretty lame if you're developing an extension
+- The real working option consists in starting a new session inside a shell. Something like:
+```sh
+    dbus-run-session -- gnome-shell --nested --wayland
+```
+which is ugly but seems to be the most reliable option for it
+
 
 # Nautilus
 ## Show Hidden Files by default
