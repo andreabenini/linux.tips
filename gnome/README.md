@@ -39,6 +39,9 @@ This is a real pain mostly because:
 - The real working option consists in starting a new session inside a shell. Something like:
 ```sh
     dbus-run-session -- gnome-shell --nested --wayland
+
+    # Even better, if you'd like to have a large window screen just use something like:
+    # MUTTER_DEBUG_DUMMY_MODE_SPECS=1440x900 dbus-run-session -- gnome-shell --nested --wayland
 ```
 which is ugly but seems to be the most reliable option for it
 
