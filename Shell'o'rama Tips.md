@@ -81,7 +81,7 @@ There are chances that your changes will be lost during system upgrades if you a
 
 
 ## Shell separator-\<hr> like command
-```
+```sh
 # Print a separator until last column
 printf '━%.0s' $(seq $COLUMNS)
 
@@ -141,6 +141,15 @@ ping 8.8.8.8 | sed -e 's/Unreachable/Unreachable\r ❌ /' -e 's/ ms/ ms\r✅/'
 
 ## Shell fork bomb
 A classic to use where ulimit is not set :)
-```
+```sh
 :(){ :|:& };:
+```
+
+## Detect if a script has being sourced or executed
+To force a script to be sourced instead of just plainly executed it's as easy as getting `return` evaluation inside it.
+If you need to necessarily `source your.script.sh` because you're, for example, exporting some variables you can barely
+add this one liner to check it.
+```sh
+# This line acts as a guard. It aborts the script if it's not sourced.
+(return 0 2>/dev/null) || { echo "Error: This script must be sourced, not executed." >&2; exit 1; }
 ```
