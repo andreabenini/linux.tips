@@ -72,3 +72,15 @@ pacman -Ss rp-pppoe
     systemctl enable ppp@connectionName.service
     # Change it to your connection name accordingly
     ```
+
+# Tips and Tricks
+- If pppd is running, you can force a connection reset by sending the SIGHUP signal to the process:
+    ```sh
+    MESSAGE="Restarting the PPP connection @:" $(date)
+    PPPD_PID=$(pidof pppd)
+    kill -s HUP $PPPD_PID
+    echo $MESSAGE
+    ```
+    And you have redialed the connection make sure you have `persist` option enabled in your 
+    `/etc/ppp/peers/provider` tab.
+    Additionally you might want to set `holdoff 0` to reconnect without waiting.
