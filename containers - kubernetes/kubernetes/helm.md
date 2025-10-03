@@ -27,6 +27,8 @@
     ```sh
         # Getting manifest for an already installed package
         helm get manifest RELEASE_NAME
+        # Show available variables for the char
+        helm show values TYPE://URL/charts/Application
 
         # Getting specs from the repository, untar in current working dir as an option
         # - _Always_ use this to better evaluate the chart
@@ -35,7 +37,6 @@
 
         # Manage installed charts
         helm list --namespace $NAMESPACE
-        
     ```
 - creation
     ```sh
