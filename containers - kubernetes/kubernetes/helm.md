@@ -1,0 +1,66 @@
+# HELM Charts
+- installation
+    ```sh
+        helm repo list
+        # $USERNAME, $PASSWORD but even the entire [helm registry...] command could be taken from account credentials
+        # command from token request listed below or from rancher.access.token.md.sample file
+        helm registry login dp.apps.rancher.io -u $USERNAME -p $PASSWORD
+        helm repo list
+        # Helm template evaluation on stdout
+        helm template 0.1.6 oci://dp.apps.rancher.io/charts/vllm [--namespace $NAMESPACE]
+        # ...and installation
+        helm install 0.1.6 oci://dp.apps.rancher.io/charts/vllm --namespace $NAMESPACE [--dry-run]
+    ```
+- upgrades
+    ```sh
+        # Adding handy 'diff' command to helm
+        helm plugin install https://github.com/databus23/helm-diff
+        # Show additions, deletions and modifications
+        helm diff upgrade 0.1.6 oci://dp.apps.rancher.io/charts/vllm [--values my-values.yaml]
+    ```
+- management
+    ```sh
+        # Getting manifest for an already installed package
+        helm get manifest RELEASE_NAME
+
+        # Getting specs from the repository, untar in current working dir as an option
+        # - _Always_ use this to better evaluate the chart
+        # - _Always_ look at newly generated values.yaml file for seeing available configurations
+        helm pull oci://dp.apps.rancher.io/charts/vllm [--untar]
+    ```
+- creation
+    ```sh
+        # Create a basic helm chart
+        helm create myapp
+        cd myapp
+    ```
+    - jinja templating engine all around, just be warned about it
+    - `Chart.yaml` The **"ID card"** for the chart, contains metadata like name and version
+    - `values.yaml` The **"control panel"** for the chart  
+        This is where configuration values definition can be easily changed by users
+    - `templates/deployment.yaml` The template for creating the Kubernetes Deployment which
+        manages the application's pods.
+    - `templates/service.yaml` The template for creating the Kubernetes Service, which exposes
+        the application to the network.
+    - Ignore or customize `_helpers.tpm`, `NOTES.txt`, `ingress.yaml` later on if needed
+
+    To preview, install and customize:
+    - preview
+    ```sh
+        # Preview what Kubernetes resources will be created
+        helm template my-first-release ./myapp
+    ```
+    - install
+    ```sh
+        # Install the chart in the cluster
+        helm install my-first-release ./myapp
+    ```
+    - uninstall
+    ```sh
+        # Uninstall and clean the chart from the cluster
+        helm template my-first-release ./myapp
+    ```
+    - extending it
+        - Add values in `values.yaml` file
+        - Use these values in `templates/deployment.yaml` (or similar) files for example
+
