@@ -7,16 +7,21 @@
         helm registry login dp.apps.rancher.io -u $USERNAME -p $PASSWORD
         helm repo list
         # Helm template evaluation on stdout
-        helm template 0.1.6 oci://dp.apps.rancher.io/charts/vllm [--namespace $NAMESPACE]
+        helm template VERSION TYPE://URL/charts/Application [--namespace $NAMESPACE]
         # ...and installation
-        helm install 0.1.6 oci://dp.apps.rancher.io/charts/vllm --namespace $NAMESPACE [--dry-run]
+        helm install VERSION TYPE://URL/charts/Application --namespace $NAMESPACE [--dry-run]
     ```
 - upgrades
     ```sh
-        # Adding handy 'diff' command to helm
+        # Adding handy 'diff' command to helm, adjust repo name and version accordingly
         helm plugin install https://github.com/databus23/helm-diff
         # Show additions, deletions and modifications
-        helm diff upgrade 0.1.6 oci://dp.apps.rancher.io/charts/vllm [--values my-values.yaml]
+        helm diff upgrade VERSION TYPE://URL/charts/Application [--values my-values.yaml]
+    ```
+- Uninstall
+    ```sh
+        # Uninstall an helm chart
+        helm uninstall VERION -n $NAMESPACE
     ```
 - management
     ```sh
@@ -26,7 +31,11 @@
         # Getting specs from the repository, untar in current working dir as an option
         # - _Always_ use this to better evaluate the chart
         # - _Always_ look at newly generated values.yaml file for seeing available configurations
-        helm pull oci://dp.apps.rancher.io/charts/vllm [--untar]
+        helm pull TYPE://URL/charts/Aplication [--untar]
+
+        # Manage installed charts
+        helm list --namespace $NAMESPACE
+        
     ```
 - creation
     ```sh
