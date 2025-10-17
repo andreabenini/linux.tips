@@ -1,7 +1,13 @@
 # Homepage customization
-Required software
+Additional software
 - Launch manager (mini) https://www.techdoctoruk.com/sdm_downloads/lm-mini/
+- Launch on boot [28907]: https://play.google.com/store/apps/details?id=com.andreabianchini.launchonboot&hl=en_US
+  - enabled
+  - launch when device wakes up
+  - launch tv app on boot (disabled)
+- Project Ivy Launcher [28907]: https://play.google.com/store/apps/details?id=com.spocky.projengmenu&hl=en_US
 - Wolf Launcher (or whatever other nice launcher for fire tv) https://www.techdoctoruk.com/sdm_downloads/lm-mini/
+- [Moonlight game streaming](https://www.amazon.com/Cameron-Gutman-Moonlight-Game-Streaming/dp/B00JK4MFN2) Streams games from the PC to the local network
 
 ### Device setup
 ```sh
