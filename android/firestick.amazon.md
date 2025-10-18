@@ -56,6 +56,13 @@ adb -s $FIRESTICK_IP shell appops set com.wolf.minilm SYSTEM_ALERT_WINDOW allow
 # Various adb commands
 adb -s $FIRESTICK_IP shell pm grant com.wolf.minilm android.permission.READ_LOGS
 adb -s $FIRESTICK_IP shell dumpsys deviceidle whitelist +com.wolf.minilm
+
+# Getting running application from the system
+# ...from the shell
+ps -A 2>&1|grep com.amazon.tv.launcher >/dev/null; echo $?
+# ...from the activity manager
+adb -s $FIRESTICK_IP shell logcat -s ActivityManager:I *:S | grep --line-buffered "com.amazon.tv.launcher"
+
 # untested/not working
 adb -s $FIRESTICK_IP exec-out run-as org.xbmc.kodi ls -R
 ```
