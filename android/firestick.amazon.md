@@ -35,6 +35,8 @@ adb disconnect
 
 # Open adb shell interactively
 adb -s $FIRESTICK_IP shell
+# Execute a single command in the shell and quit
+adb -s $FIRESTICK_IP shell "ls -la"
 
 # Start an application from remote, example: wolf launcher
 adb -s $FIRESTICK_IP shell am start com.wolf.firelauncher
