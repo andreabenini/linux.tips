@@ -37,6 +37,9 @@ adb disconnect
 adb -s $FIRESTICK_IP shell
 # Execute a single command in the shell and quit
 adb -s $FIRESTICK_IP shell "ls -la"
+# Execute a single command in background in the shell. In the end it's always a unix shell btw
+# Detatch stdin and stdout if it's needed, nohup style as usual
+adb shell "nohup sh /your/favorite/shell/command.sh >/dev/null 2>&1 &"
 
 # Start an application from remote, example: wolf launcher
 adb -s $FIRESTICK_IP shell am start com.wolf.firelauncher
