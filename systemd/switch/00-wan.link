@@ -1,6 +1,9 @@
 # Rename a device [eth0] with a new name [wan]
 
 [Match]
+# Always prefer renaming through MACAddress resolution instead of assigned network name
+#     Network name might change and it's subject to change from kernel or systemd, 
+#     while mac address is absolutely tied to a specific device only
 OriginalName=eth0
 #MACAddress=aa:bb:cc:11:22:33
 
