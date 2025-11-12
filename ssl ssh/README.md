@@ -146,7 +146,8 @@ eval $(ssh-agent)
 - Restart cygwin xorg and you're set. Now you can use `ssh <username@yourHost>` without passwords
 
 
-# Common Errors
+# Common Errors or Warnings
+## Refused connections
 > ssh refusing connection with message "no hostkey alg"
 
 On the destination machine it's better to create new rsa and dsa keys to fix it:
@@ -154,3 +155,26 @@ On the destination machine it's better to create new rsa and dsa keys to fix it:
 ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
 ```
+
+## Quantum encryption warnings
+    ** WARNING: connection is not using a post-quantum key exchange algorithm.
+    ** This session may be vulnerable to "store now, decrypt later" attacks.
+    ** The server may need to be upgraded. See https://openssh.com/pq.html
+Check out for a key **KexAlgorithms** entry in your `/etc/sshd/sshd_config` or
+in the `/etc/sshd/sshd_config.d` directory. It has to be replaced with something like:
+
+    KexAlgorithms sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512
+Which obviously are post quantum encryption algorithms. You can achieve it by:
+- Removing the offending line in the file with **KexAlgorithms** content that misses the above values
+- If **KexAlgorithms** is totally missing in `sshd_config` it's safe to create a new file in
+    `/etc/sshd/sshd_config` (like for example `30-post-quantum-fix.conf`) and add content there
+- If you want to keep your default configuration that contains the offending line it's also possible
+    to override it by creating a file that has to be loaded before it. If you have a file like:
+    `/etc/sshd/sshd_config.d/40-suse-crypto-policies.conf` containing that (wrong) policy you can
+    override by loading your policy first, like creating a `30-post-quantum-fix.conf` which is
+    loaded before it. **sshd** will load your configuration first and keeps it even if a new config
+    will come after it
+    ```toml
+    # /etc/ssh/sshd_config.d/30-post-quantum-fix.conf content
+    KexAlgorithms sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512
+    ```
