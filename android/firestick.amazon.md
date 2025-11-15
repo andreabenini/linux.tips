@@ -68,7 +68,7 @@ ps -A 2>&1|grep com.amazon.tv.launcher >/dev/null; echo $?
 # ...from the activity manager
 adb -s $FIRESTICK_IP shell logcat -s ActivityManager:I *:S | grep --line-buffered "com.amazon.tv.launcher"
 
-# untested/not working
+# Execute commands with application's permissions
 adb -s $FIRESTICK_IP exec-out run-as org.xbmc.kodi ls -R
 ```
 
