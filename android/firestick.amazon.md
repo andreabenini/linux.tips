@@ -89,3 +89,26 @@ sm partition disk:8,0 public
 # half/half private and public usage
 sm partition disk:8,0 mixed 50 50
 ```
+
+### Hacking 1st generation firestick to get USB support back
+Amazon simply hided USB storage options and disabled external storage management on each single
+menu and configuration.
+Even if it's highly undocumented it's still possible to manage USB attached storage as well
+as storing applications with ADB commands and the shell. `pm` move commands are here to help
+```sh
+# List available packages
+pm list packages
+pm list packages | grep kodi
+
+# Manually moving applications from local internal memory to an external USB storage
+# pm move-pacakge packageName partitionID
+pm move-package org.xbmc.kodi 9d103a43-56e3-4b0c-91dd-fc70178ee73a
+
+# extra tip, if you're hacking here'n'there or swapping storage drives 
+# just try to move it internally
+pm move-package org.xbmc.kodi internal
+# and then move it back to the newly created storage drive
+pm move-package org.xbmc.kodi 9d103a43-56e3-4b0c-91dd-fc70178ee73a
+#...and verify you're effectively using that new disk...
+df -h
+```
