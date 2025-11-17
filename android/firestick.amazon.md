@@ -90,25 +90,44 @@ sm partition disk:8,0 public
 sm partition disk:8,0 mixed 50 50
 ```
 
-### Hacking 1st generation firestick to get USB support back
-Amazon simply hided USB storage options and disabled external storage management on each single
-menu and configuration.
-Even if it's highly undocumented it's still possible to manage USB attached storage as well
-as storing applications with ADB commands and the shell. `pm` move commands are here to help
+### Hacking 1st generation firestick TV 4k **and get USB support back !**
+Amazon simply hid USB storage options and apparently disabled external storage management
+on each single menu and configuration.  
+Even if it's highly undocumented it's still possible to manage external USB storage devices for
+storing data or extending applications memory, although ADB commands are required for it.
+`pm` move commands are here to help
 ```sh
-# List available packages
+# - First: refer to the section above to properly format the external drive
+
+# - Disconnect the external USB drive and report your current file system disk space usage
+df -h
+
+# - Connect the external USB drive to the system
+# - Check if the connected storage is currently supported from the kernel. If you see it
+#   automounted it basically means Linux is able to use it and Android above might use the
+#   associated memory for storing data or apps.
+# - Take a look at the differencies and your new drive probably have a partition ID mounted,
+#   copy that partition id
+df -h
+
+# - List available/installed packages
+# - Not every package can be moved in the external storage, luckily some programs like kodi 
+#   can be moved
 pm list packages
 pm list packages | grep kodi
 
 # Manually moving applications from local internal memory to an external USB storage
-# pm move-pacakge packageName partitionID
+# syntax:  pm move-pacakge packageName partitionID
+# example:
 pm move-package org.xbmc.kodi 9d103a43-56e3-4b0c-91dd-fc70178ee73a
 
-# extra tip, if you're hacking here'n'there or swapping storage drives 
-# just try to move it internally
+# Extra tip: if you're hacking here'n'there or swapping storage drives and the above command
+#   failed just try to move it in the internal memory and then back to the external storage
 pm move-package org.xbmc.kodi internal
 # and then move it back to the newly created storage drive
 pm move-package org.xbmc.kodi 9d103a43-56e3-4b0c-91dd-fc70178ee73a
-#...and verify you're effectively using that new disk...
+
+# Start the moved program to see if it works and install something (like skins) to verify
+# you're effectively using that new disk...
 df -h
 ```
