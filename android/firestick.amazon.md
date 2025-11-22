@@ -72,6 +72,24 @@ adb -s $FIRESTICK_IP shell logcat -s ActivityManager:I *:S | grep --line-buffere
 adb -s $FIRESTICK_IP exec-out run-as org.xbmc.kodi ls -R
 ```
 
+### Disable power saving features
+The FireStick is aggressive about saving power, when you walk into the room, see a black screen, 
+and don't know if the TV is off or if the Stick is just sleeping. These flags will definitively
+turn it always on
+#### Initial setup
+  - First Generation Firesticks
+    - Settings / Display & Sounds / Screensaver
+      - Set **Start Time** to *Never*
+    - Settings / Preferences / Data Usage Monitoring
+      - Turn **Still watching** to _off_
+    - Settings / Display & Sounds / Ambient Experience
+      - Turn **Automatic Start** to _off_
+  - Second Generation Firesticks
+    - Settings / Display & Sounds / Ambient Experience
+      - Turn ** Ambient Experience** to _off_
+#### ADB Commands
+**(TODO)**
+
 ### External storage setup
 From the adb shell command:
 ```sh
