@@ -1,4 +1,4 @@
-# Homepage customization
+## Homepage customization
 Additional software
 - Launch manager (mini) https://www.techdoctoruk.com/sdm_downloads/lm-mini/
 - Launch on boot [28907]: https://play.google.com/store/apps/details?id=com.andreabianchini.launchonboot&hl=en_US
@@ -9,7 +9,7 @@ Additional software
 - Wolf Launcher (or whatever other nice launcher for fire tv) https://www.techdoctoruk.com/sdm_downloads/lm-mini/
 - [Moonlight game streaming](https://www.amazon.com/Cameron-Gutman-Moonlight-Game-Streaming/dp/B00JK4MFN2) Streams games from the PC to the local network
 
-### Device setup
+## adb device setup
 ```sh
 # they're now restricting devices more and more, even local adb is now forbidden (why ?),
 # this remote hack circumvents these fancy guys by setting permissions in the android 
@@ -76,7 +76,7 @@ adb -s $FIRESTICK_IP exec-out run-as org.xbmc.kodi ls -R
 The FireStick is aggressive about saving power, when you walk into the room, see a black screen, 
 and don't know if the TV is off or if the Stick is just sleeping. These flags will definitively
 turn it always on
-#### Initial setup
+- Initial setup
   - First Generation Firesticks
     - Settings / Display & Sounds / Screensaver
       - Set **Start Time** to *Never*
@@ -87,8 +87,14 @@ turn it always on
   - Second Generation Firesticks
     - Settings / Display & Sounds / Ambient Experience
       - Turn ** Ambient Experience** to _off_
-#### ADB Commands
-**(TODO)**
+- ADB Commands  
+Use both commands to finally disable all fancy features, it's up to you to decide when you want
+to turn the TV ON/OFF
+  - Disable timeout to avoid power saving features  
+    `adb shell settings put secure sleep_timeout 0`
+  - Avoid screen dim and going black  
+    `adb shell settings put system screen_off_timeout 2147483647`
+
 
 ### External storage setup
 From the adb shell command:
