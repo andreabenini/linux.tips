@@ -72,3 +72,84 @@ spec:
               port: 
                 number: 7070
 ```
+
+Another sample
+```yaml
+# nginx-hello-world.yaml
+
+# Configmap for the hello world sample
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-index-html
+  namespace: temp
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Hello World</title>
+    </head>
+    <body>
+    <h1>Hello World</h1>
+    <p>Service proudly exposed by your favorite cluster</p>
+    </body>
+    </html>
+---
+
+# Creates and manages the Nginx pod, replicaset:1, port:80
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-nginx
+  namespace: temp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      annotations:
+        checksum/config: "v4"
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        # This 'resources' block is required by the quota
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        # This volumeMount tells the container where to place the custom index.html
+        volumeMounts:
+        - name: nginx-index
+          mountPath: /usr/share/nginx/html
+      # This volume uses the ConfigMap as its source
+      volumes:
+      - name: nginx-index
+        configMap:
+          name: nginx-index-html
+---
+
+# Exposing Deployment on a stable IP address inside the cluster, port: 80
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-service
+  namespace: temp
+spec:
+  selector:
+    app: hello-world
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+```
