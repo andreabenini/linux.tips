@@ -3,6 +3,14 @@
 ifconfig eth0:0 192.168.11.22 netmask 255.255.255.0 up
 ```
 
+# Check and manage interface state
+```sh
+# detect status for the current interfaces
+ip link show
+# Force an interface to go up
+ip link set dev <interface_name> up
+```
+
 # Routing
 ### route pretty print
 ```sh
