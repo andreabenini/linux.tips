@@ -12,3 +12,16 @@ preventing the fix.
   ```
   This will force fsck checking at startup and autorepair if errors will be detected
 - Press Ctrl+X (or F10) to boot.
+
+
+# grub installation fix
+- Detect efi bootloader id name. Use `efibootmgr` to detect boot labels from the list
+- Reinstall grub
+  ```sh
+  # Use detected label, in this case: "GRUB"
+  grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+  ```
+- Regenerate the grub configuration
+  ```sh
+  grub-mkconfig -o /boot/grub/grub.cfg
+  ```
