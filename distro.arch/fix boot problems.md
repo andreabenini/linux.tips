@@ -25,3 +25,13 @@ preventing the fix.
   ```sh
   grub-mkconfig -o /boot/grub/grub.cfg
   ```
+
+
+# EFI boot manager fix
+`efibootmgr` command list lines with all available boots from the EFI partition. It changes the UEFI Boot Manager configuration
+```sh
+# Show possible list in the uefi configuration
+efibootmgr
+# Delete an old entry (assuming it is 0001)
+efibootmgr -b 0001 -B
+```
