@@ -9,3 +9,9 @@ replace the filename with the actual one found:
 ```sh
 pacman -U /var/cache/pacman/pkg/linux-6.6.7.arch1-1-x86_64.pkg.tar.zst
 ```
+
+# Reinstall a kernel package from internet
+```sh
+pacman -S linux linux-headers
+mkinitcpio -P
+```
