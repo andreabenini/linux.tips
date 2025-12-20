@@ -35,6 +35,15 @@ pacman -Qdt
 pacman -Ql <packageName>
 ```
 
+## Check filesystem files corruption
+```sh
+# Check if firmware files are intact
+pacman -Qkk linux-firmware
+# Check if kernel files are intact
+pacman -Qkk linux
+```
+
+
 ## Query which package provides specific filename
 ```sh
 # Get latest package database from remote
