@@ -10,7 +10,7 @@ Before messing around with software updates or configuration is always better to
 ```sh
 # Distribution upgrade
 sudo zypper dup
-#...even better, start with Packam updates before doing something else..
+#...even better, start with Packman updates before doing something else..
 sudo zypper dup --from packman
 
 # Packages updates
