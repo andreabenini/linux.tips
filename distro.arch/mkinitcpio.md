@@ -48,4 +48,17 @@ mkinitcpio -P
 # All available presets listed here
 # initramfs is pointed from [default_image] variable, and /boot mounting option
 cat /etc/mkinitcpio.d/linux.preset
+
+# also from 
+cat /etc/mkinitcpio.conf
+```
+
+## Adding preset to check filesystem at startup
+To ensure the OS automatically checks the disk before trying to mount it next time it's always safe
+to have the `fsck` flag as an argument to HOOKS variable
+```sh
+# Ensure fsck is in the list (usually before filesystems)
+# For example:
+HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems fsck)
+# or use /etc/mkinitcpio.d/ directory and add a special configuration file in there
 ```
