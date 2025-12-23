@@ -37,3 +37,8 @@ sudo mkinitcpio -k /boot/vmlinuz-linux -g /boot/initramfs-linux-fallback.img -S 
 ```
 
 
+## Rebuild an image
+To simply reboot an image with current configuaration it's just just a matter of:
+```sh
+mkinitcpio -P
+```
