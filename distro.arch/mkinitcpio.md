@@ -42,3 +42,10 @@ To simply reboot an image with current configuaration it's just just a matter of
 ```sh
 mkinitcpio -P
 ```
+
+## Detect linux presets
+```sh
+# All available presets listed here
+# initramfs is pointed from [default_image] variable, and /boot mounting option
+cat /etc/mkinitcpio.d/linux.preset
+```
