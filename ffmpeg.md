@@ -29,7 +29,7 @@ ffpmeg -i filename.mkv
 ffmpeg -i filename.mkv -map 0:0 -map 0:1 -acodec copy -vcodec copy filenamenew.mkv
 ```
 
-# Reduce size, re-encode file to h264
+# Reduce file size with encoding
 ```sh
 # -vcodec libx264: Tells it to use the standard H.264 video codec.
 # -crf 23: This is the most important number, the scale goes from 0 to 51
@@ -39,6 +39,10 @@ ffmpeg -i filename.mkv -map 0:0 -map 0:1 -acodec copy -vcodec copy filenamenew.m
 # -preset  Three interesting presets available: medium, veryfast, ultrafast
 #          but also: fast, medium, slow  (takes longer)
 ffmpeg -i inputFile.mkv -vcodec libx264 -crf 23 -preset veryfast -c:a copy outputFile.mp4
+
+# Also interesting is the h265 HEVC encoding
+# H265 is highly efficient, often saving 50% more space than H264, older devices (old TVs/computers) might struggle to play it
+ffmpeg -i inputFile.mkv -vcodec libx265 -crf 28 -preset medium outputFile.mp4
 ```
 
 # Convert 1080p -> 720p
