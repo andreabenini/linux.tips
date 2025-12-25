@@ -29,6 +29,17 @@ ffpmeg -i filename.mkv
 ffmpeg -i filename.mkv -map 0:0 -map 0:1 -acodec copy -vcodec copy filenamenew.mkv
 ```
 
+# Reduce size, re-encode file to h264
+```sh
+# -vcodec libx264: Tells it to use the standard H.264 video codec.
+# -crf 23: This is the most important number, the scale goes from 0 to 51
+#          Lower number  = Higher quality, larger file size
+#          Higher number = Lower quality, smaller file size
+#          23 is the default and usually a great balance. If 23 is still too big, try 28
+# -preset  Three interesting presets available: medium, veryfast, ultrafast
+#          but also: fast, medium, slow  (takes longer)
+ffmpeg -i inputFile.mkv -vcodec libx264 -crf 23 -preset veryfast -c:a copy outputFile.mp4
+```
 
 # Convert 1080p -> 720p
 Convert files in a directory from 1080p to 720p
