@@ -49,6 +49,15 @@ systemctl daemon-reload
 systemctl reset-failed
 ```
 
+## Restart a network interface
+`systemd ... restart` service might be used but `networkctl` should be preferred instead.  
+```sh
+# Reconfigure interface named 'wan'
+sudo networkctl reconfigure wan
+# global reload, rather invasive
+sudo networkctl reload
+```
+
 
 ## Status of a service/socket
 ```sh
