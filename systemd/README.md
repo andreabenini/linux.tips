@@ -57,6 +57,9 @@ sudo networkctl reconfigure wan
 # global reload, rather invasive
 sudo networkctl reload
 ```
+Additional nodes:
+- Avoid running `systemctl restart systemd-networkd` if critical services are running on other interfaces, as it momentarily takes all managed interfaces down and up
+- Do **not** use `daemon-reload` unless needed. `daemon-reload` is only for Service Unit files (.service) and it ignores changes inside systemd-networkd configuration files (.network)
 
 
 ## Status of a service/socket
