@@ -2,7 +2,12 @@
 Name=wan
 
 [Network]
-# DHCP=yes
-Address=192.168.0.16/24
-Gateway=192.168.0.1
-DNS=8.8.8.8
+DHCP=no
+#Address=192.168.1.26/24
+#Gateway=192.168.1.1
+#DNS=8.8.8.8
+
+# Keep the link UP so pppd can use it, usually don't assign an IP here
+#     because the PPP interface will get the public IP.
+# If ISP requires a "dummy" connection first, you might change this.
+LinkLocalAddressing=no
