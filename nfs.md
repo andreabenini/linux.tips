@@ -34,13 +34,8 @@ More info from https://wiki.archlinux.org/title/NFS
   #...
   host=192.168.1.1
   ```
-- **nfs-mountd**, edit the service file (`systemctl edit --full nfs-mountd`)  
-  Add as many --bind-host option as you like there too
-  ```conf
-  [Service]
-  Type=forking
-  ExecStart=/usr/sbin/rpc.mountd --bind-host 127.0.0.1 --bind-host 192.168.1.1
-  ```
+- **nfs-mountd** has no restrictions and blindly always listen on 0.0.0.0.
+  Switch to nfsv4 and use a firewall to avoid it as much as you can
 
 
 # Useful links
