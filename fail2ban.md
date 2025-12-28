@@ -5,6 +5,9 @@ fail2ban-client status
 
 # Service specific
 fail2ban-client status sshd
+
+# Dump the entire compiled configuration
+fail2ban-client -d
 ```
 
 # Delete all fail2ban bans
