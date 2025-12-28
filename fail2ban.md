@@ -1,5 +1,10 @@
-# Delete all fail2ban bans
+# Status
+```sh
+fail2ban-client status
 ```
+
+# Delete all fail2ban bans
+```sh
 #     unban --all                unbans all IP addresses (in all jails and database)
 #     unban <IP> ... <IP>        unbans <IP> (in all jails and database)
 # example:
