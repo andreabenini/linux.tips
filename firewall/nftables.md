@@ -41,3 +41,7 @@
     ```sh
     nft --file /etc/nftables.conf
     ```
+- enable service
+    ```sh
+    systemctl enable --now nftables
+    ```
