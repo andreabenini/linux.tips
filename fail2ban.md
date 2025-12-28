@@ -1,6 +1,10 @@
 # Status
 ```sh
+# Overall
 fail2ban-client status
+
+# Service specific
+fail2ban-client status sshd
 ```
 
 # Delete all fail2ban bans
