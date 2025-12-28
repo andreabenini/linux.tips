@@ -37,3 +37,7 @@
     ```sh
     nft --check --file /etc/nftables.conf
     ```
+- apply a configuration
+    ```sh
+    nft --file /etc/nftables.conf
+    ```
