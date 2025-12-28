@@ -23,6 +23,26 @@ host=nfsservername
 More info from https://wiki.archlinux.org/title/NFS
 
 
+# Limit on specific interfaces only
+- **rpcbind**, edit the service file (`systemctl edit --full rpcbind`)  
+  Add to **ExecStart** attribute a string with all your required interfaces:  
+  > `ExecStart=/usr/bin/rpcbind ... -h 127.0.0.1 -h 192.168.1.1`
+- Restrict nfs server on `/etc/nfs.conf`  
+  In the **[nfsd]** section explicitly define all your IP addresses
+  ```conf
+  [nfsd]  
+  #...
+  host=192.168.1.1
+  ```
+- **nfs-mountd**, edit the service file (`systemctl edit --full nfs-mountd`)  
+  Add as many --bind-host option as you like there too
+  ```conf
+  [Service]
+  Type=forking
+  ExecStart=/usr/sbin/rpc.mountd --bind-host 127.0.0.1 --bind-host 192.168.1.1
+  ```
+
+
 # Useful links
 - HowTo speedup NFS volume<br>
   http://nfs.sourceforge.net/nfs-howto/ar01s05.html
