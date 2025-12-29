@@ -149,7 +149,12 @@ More information https://wiki.archlinux.org/index.php/Systemd/User, seems to be 
 ### Explicitly enabling lingering for a defined user
 This ensures the **myuser** user's processes start at boot and keep running even when the user isn't logged in.
 ```sh
-sudo loginctl enable-linger myuser
+loginctl enable-linger myuser
+```
+### Revoke lingering to users
+This removes the lingering previously applied to users
+```sh
+loginctl disable-linger myuser
 ```
 ### List users
 Users with special lingering can be listed with this command
