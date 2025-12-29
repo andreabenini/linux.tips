@@ -145,6 +145,12 @@ Just use `--user` flag on each single command.
 Systemd will take care of your settings and create a `$HOME/.config/systemd/user` folder where it will store your setup.  
 This is called **user lingering** and should be applied to user supplied or specific services run by a user.  
 More information https://wiki.archlinux.org/index.php/Systemd/User, seems to be an effective way to start user specific daemons (mpd, gaming services and so on)
+## Lingering management
+### Explicitly enabling lingering for a defined user
+This ensures the **myuser** user's processes start at boot and keep running even when the user isn't logged in.
+```sh
+sudo loginctl enable-linger myuser
+```
 
 
 # Targets (aka RunLevels)
