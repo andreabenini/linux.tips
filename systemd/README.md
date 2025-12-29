@@ -151,7 +151,11 @@ This ensures the **myuser** user's processes start at boot and keep running even
 ```sh
 sudo loginctl enable-linger myuser
 ```
-
+### List users
+Users with special lingering can be listed with this command
+```sh
+loginctl list-users
+```
 
 # Targets (aka RunLevels)
 An init system transitions between different states and it typically refers to them as "runlevels", it allows to be in one
