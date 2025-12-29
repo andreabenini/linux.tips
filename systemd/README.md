@@ -147,9 +147,14 @@ This is called **user lingering** and should be applied to user supplied or spec
 More information https://wiki.archlinux.org/index.php/Systemd/User, seems to be an effective way to start user specific daemons (mpd, gaming services and so on)
 ## Lingering management
 ### Explicitly enabling lingering for a defined user
-This ensures the **myuser** user's processes start at boot and keep running even when the user isn't logged in.
+This ensures the **myuser** user's processes start at boot and keep running even
+when the user isn't logged in.  
+Lingering properties on systemd are usually saved as empty files in the directory
+`/var/lib/systemd/linger`. **loginctl** is basically a wrapper to it
 ```sh
 loginctl enable-linger myuser
+
+# creates the empty file /var/lib/systemd/linger/myuser
 ```
 ### Revoke lingering to users
 This removes the lingering previously applied to users
