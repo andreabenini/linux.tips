@@ -60,3 +60,22 @@
 - It can be scheduled with .timers or as a cron job. I rather prefer to update it manually but it's up to you
 
 
+## Backups and configuration
+- Configuration files will be stored in `~/hass_config/`
+- Simple backup script, feel free to adapt or pick your own:
+  ```sh
+     #!/bin/sh
+     # Define variables
+     BACKUP_DIR="$HOME/backups"
+     CONFIG_DIR="$HOME/hass_config"
+     DATE=$(date +%Y-%m-%d_%H%M)
+     FILENAME="hass_backup_$DATE.tar.gz"
+
+     # Create the backup
+     tar -czf "$BACKUP_DIR/$FILENAME" -C "$CONFIG_DIR" .
+
+     # Optional: Delete backups older than 7 days to save space
+     find "$BACKUP_DIR" -type f -name "hass_backup_*.tar.gz" -mtime +7 -delete
+  ```
+
+  
