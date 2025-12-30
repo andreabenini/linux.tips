@@ -47,3 +47,16 @@
      systemctl --user enable --now homeassistant
      systemctl --user status homeassistant
     ```
+
+
+## Updates
+- Updates are related to previously tagged label: `--label "io.containers...."`
+  ```sh
+     # Test it with a dry-run to see what might happen
+     podman auto-update --dry-run
+     # Update it for real
+     podman auto-update
+  ```
+- It can be scheduled with .timers or as a cron job. I rather prefer to update it manually but it's up to you
+
+
