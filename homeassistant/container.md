@@ -48,6 +48,35 @@
      systemctl --user status homeassistant
     ```
 
+## HACS installation
+- Enter in the _homeassistant_ container and use the suggested installation script
+  ```sh
+      # Entering in the homeassistant container
+      docker exec -it homeassistant bash
+      # Execute the installation script
+      wget -O - https://get.hacs.xyz | bash -
+  ```
+- Restart the container
+    ```sh
+     systemctl --user restart homeassistant
+     systemctl --user status homeassistant
+    ```
+- Open Home Assistant instance in the browser, clear your browser cache
+  (Ctrl+F5) to ensure the new HACS icon can load later
+- Go to **Settings > Devices & Services**
+- Click **+ ADD INTEGRATION** in the bottom right
+- Search for HACS and select it
+    - Check all the acknowledgment boxes, then click **Submit**
+    - A __"Device Activation"__ code will appear, copy it
+    - Visit https://github.com/login/device
+        - Select your github profile to continue
+        - Paste the previously copied code in the device authorization github dialog that appears
+        - Press button **Authorize HACS** to continue and add HACS to your github profile
+        - If everything is fine a welcoming message like
+            `Congratulations, you're all set! Your device is now connected.`
+             might appear
+    - In HomeAssistant a "Device Created" dialog appears, just hit **Skip and Finish** button to continue
+
 
 ## Updates
 - Updates are related to previously tagged label: `--label "io.containers...."`
