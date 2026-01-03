@@ -11,3 +11,7 @@ Deprecated methods:
   Your system in a Python environment (virtualenv), not to be confused with Container
 - Supervised installation  
   Running your own operating system, then installing the Supervisor and other requirements on top of that
+
+## Links
+- Getting started link, quite useful to get an overview of all components  
+  https://www.youtube.com/watch?v=oG8oRUcMbRo
