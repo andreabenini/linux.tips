@@ -1,1 +1,7 @@
 # Custom configs and usual changes to basic configuration file
+
+# Custom-sidebar setup
+frontend:
+  extra_module_url:
+    # Use this SPECIFIC file for the YAML configuration version
+    - /hacsfiles/custom-sidebar/custom-sidebar-yaml.js
