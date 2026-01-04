@@ -1,7 +1,13 @@
 # Custom configs and usual changes to basic configuration file
 
-# Custom-sidebar setup
+# HACS custom-sidebar setup
 frontend:
   extra_module_url:
     # Use this SPECIFIC file for the YAML configuration version
     - /hacsfiles/custom-sidebar/custom-sidebar-yaml.js
+
+# HACS favicon setup
+favicon:
+  title: window title name
+  # ./www/favicons
+  icon_path: /local/favicons/
