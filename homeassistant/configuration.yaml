@@ -11,3 +11,15 @@ favicon:
   title: window title name
   # ./www/favicons
   icon_path: /local/favicons/
+
+# Creating yaml defined custom dashboards
+lovelace:
+  dashboards:
+
+    # NewDashboard definition
+    new-dashboard:    # ID
+      mode: yaml
+      title: The New Dashboard
+      icon: mdi:home-assistant
+      show_in_sidebar: true
+      filename: dashboard-new.yaml
