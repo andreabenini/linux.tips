@@ -1,0 +1,12 @@
+views:
+  - title: My New Dashboard
+    cards: []
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: New section
+          - type: weather-forecast
+            entity: weather.forecast_home
+            show_forecast: false
