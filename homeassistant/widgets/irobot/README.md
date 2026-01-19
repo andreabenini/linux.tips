@@ -30,5 +30,9 @@ systemctl --user restart homeassistant
 ```
 
 
-# other
-ip address, not the name
+# discovery wizard to add a new device
+In the discovery phase to add a new device is almost impossible to manually add a new vacuum,
+the wizard has to figure it out on its own. When the device is not found it's possible to manually
+enter the name or the IP address.  
+Sometimes when the device name is specified the python resolver library works badly and it usually fails after it.  
+**Always** prefer the ip address and avoid entering the name in these cases
