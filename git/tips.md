@@ -244,6 +244,8 @@ git show
 git diff HEAD^ HEAD
 #...also works (diff between this commit and the previous one)
 git diff HEAD HEAD~1
+# report diffs between head and local branch
+git diff HEAD...@{u}
 ```
 
 
