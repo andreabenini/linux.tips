@@ -223,6 +223,8 @@ git log
 git show <LOGNAME>
 # Harder, way more changes reported, combination of (git-log + less). Color edition
 git log --pretty=oneline v254.15..v254.17 --color=always |less -R
+# Simpler, latest changes from logs reported easily, color edition too
+git log --graph --oneline --left-right HEAD...@{u}
 ```
 
 
