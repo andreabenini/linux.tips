@@ -14,8 +14,9 @@
 - WebRTC camera (install it from HACS)
 - ### HACS, Installed widgets and cards
   - HACS, powerful UI to handle downloads and all custom needs
+  - Mushroom, Build a beautiful Home Assistant dashboard easily
   - button-card, Lovelace button-card for home assistant
-  - WebRTC camera
+  - WebRTC camera, custom component for real-time viewing of camera streams using WebRTC and other technologies
   - browser_mod, Home Assistant integration to turn the browser into a controllable entity and media player
   - card-mod, add CSS styles to (almost) any lovelace card
   - layout-card, Get more control over the placement of lovelace cards
