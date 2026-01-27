@@ -219,3 +219,10 @@ sudo ls -ladZ /srv/dbfiles/
 # Mount the newly applied storage dir back to the image (and create a new container)
 podman run -v /hostdir:/dir-in-container myimage
 ```
+
+## Generating systemd services for containers
+```sh
+# Generate a service file from a running container
+# This is a user generated service file, adapt it to match your settings for a system wide one
+podman generate systemd --new --name homeassistant > ~/.config/systemd/user/homeassistant.service
+```
