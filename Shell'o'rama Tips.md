@@ -135,7 +135,7 @@ to your ~/.screenrc file.
 Somewhat nice and eye catching when you've a 10000 lines terminal full of ping output
 ```sh
 # Using Google but whatever other classic ip is fine too
-ping 8.8.8.8 | sed -e 's/Unreachable/Unreachable\r ❌ /' -e 's/ ms/ ms\r✅/'
+ping 8.8.8.8 | sed -e 's/bytes from //' -e 's/Unreachable/Unreachable\r ❌ /' -e 's/ ms/ ms\r✅/'
 ```
 
 
