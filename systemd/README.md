@@ -74,17 +74,24 @@ systemctl --machine=ben@.host --user status podman.socket
 
 ## Getting an Overview of the System State
 To get all of the unit files that systemd has listed as _active_, type:
-```
+```sh
 systemctl list-units
+# or simply filter all services only because I'm looking for them only
+systemctl list-units --type=service
+```
+If you want to see them on a user level (locally managed services held by a single user)
+```sh
+systemctl list-units --user --type=service
+# usually dbus-broker might come around when running in a desktop manager, just ignore it
 ```
 To list all the units that systemd has loaded or attempted to load into memory,
 including those that are not currently active just add the `--all` switch
-```
+```sh
 systemctl list-units --all
 ```
 To list all of the units installed in a system, 
 this includes those that systemd has not tried to load into memory
-```
+```sh
 systemctl list-unit-files
 ```
 
