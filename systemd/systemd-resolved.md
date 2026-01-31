@@ -39,6 +39,16 @@ using `nmcli connection show`.
     # Example: "Wired connection 1" or "Wi-Fi"
     nmcli connection modify "Your_Local_Connection" ipv4.dns-priority 10 ipv6.dns-priority 10
     ```
+- Verify  
+  Apply the changes (restart connections) and verify:
+  ```sh
+  # Restart the connection to apply changes
+  nmcli connection up "Your_VPN_Name"
+  # Check the status
+  resolvectl status
+  ```
+  You should see your local link with the default route and the VPN link serving only the 
+  specific search domain.
 
 
 ## Links
