@@ -22,6 +22,23 @@ be updated nor overwritten by your friendly network connection applet and are no
   - Local Ethernet/Wi-Fi: Set to High Priority (10)
   - VPN: Set to Lower Priority (50)
 
+## Configuration
+Replace "Your_VPN_Name" and "Your_Local_Connection" with your actual connection names or find them
+using `nmcli connection show`.
+- Configure the VPN (The "Split")  
+  Tell the system to use the VPN's DNS only for specific domains (e.g., domain.com and company.com).  
+  The `~` prefix is crucial—it signals "routing only" mode. This is NOT what you see in the Gnome
+  vpn control panel, you manually need to access it through "_nmcli connection modify_"  
+  `nmcli connection modify "Your_VPN_Name" ipv4.dns-search "~domain.com,~company.com"`
+- Set DNS Priorities (The "Ranking")  
+  Explicitly rank your local connection higher (lower number) than the VPN
+  - VPN (Lower Priority)  
+    `nmcli connection modify "Your_VPN_Name" ipv4.dns-priority 50 ipv6.dns-priority 50`
+  - Local connection (higher priority)  
+    ```sh
+    # Example: "Wired connection 1" or "Wi-Fi"
+    nmcli connection modify "Your_Local_Connection" ipv4.dns-priority 10 ipv6.dns-priority 10
+    ```
 
 
 ## Links
