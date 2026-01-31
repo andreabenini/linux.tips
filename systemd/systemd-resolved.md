@@ -14,6 +14,14 @@ NetworkManager has an (odd) solution to the problem with `systemd-resolved` but 
 If you want to tinker with `systemd-resolved` and you want to control everything from fancy widgets
 (gnome, kde) you're in the wrong place. These settings are applied directly to NetworkManager, they won't
 be updated nor overwritten by your friendly network connection applet and are now considered the default way for solving these problems.
+#### Example
+- Local Traffic: Uses local DNS (e.g., 192.168.1.1).
+- Company Traffic (*.company.com): Uses VPN DNS.
+- Restricted VPN DNS Scope: Configured the VPN connection to strictly handle only company.com domains
+- Adjusted DNS Priorities
+  - Local Ethernet/Wi-Fi: Set to High Priority (10)
+  - VPN: Set to Lower Priority (50)
+
 
 
 ## Links
