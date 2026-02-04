@@ -39,6 +39,8 @@ Interesting experiment for a network connection without eth transceivers, here a
 - USB_ethernet script for steam deck:  
     https://gist.github.com/dafta/0aadeba3aa8bcbbc8b92a233977571ed
 - https://developer.ridgerun.com/wiki/index.php/How_to_use_USB_device_networking
+- Proxmox VE 9 + Thunderbolt 4 + Ceph Cluster Guide  
+    https://github.com/taslabs-net/proxmox-tb4
 
 
 # testusb
