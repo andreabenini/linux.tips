@@ -64,6 +64,29 @@ ls -R / 2>/dev/null | awk '
 NF&&f{ print s"/"$0 }' |grep WhatEverFileName
 ```
 
+## diff on directories and files
+If you want to massively compare directories containing your source code or taking track of changes
+between different backups you can use one of these methods.  
+### Method 1, an overview, see only what's different
+```sh
+# Compare two ./src directory within project (./dir) and its backup copy (./dir.backup)
+diff -rq dir/src dir.backup/src | grep -E '\.(c|h)( |$)'
+#> Then take a look at changes there reported as:
+#>      Files dir/src/input.c and dir.backup/src/input.c differ
+```
+### Method 2, I'm lazy show me commands I need when files differs
+```sh
+# almost the same but results are quite interesting
+diff -r dir/src dir.backup/src | grep -E '\.(c|h)( |$)'
+# You barely need to copy 'n' paste outputs to evaluate files singularly
+#>      diff -r dir/src/input.c dir.backup/src/input.c
+#>      diff -r dir/src/...
+
+# Evaluate them and their changes, one file at a time
+diff -r dir/src/input.c dir.backup/src/input.c
+```
+
+
 ## Shell prompt colors
 My favorite shell colors (gentoo rocks) on /etc/bash/bashrc, /etc/bash.bashrc or whatever your favorite Linux OS calls it
 ```sh
