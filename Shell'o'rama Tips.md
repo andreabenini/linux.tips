@@ -86,6 +86,16 @@ diff -r dir/src dir.backup/src | grep -E '\.(c|h)( |$)'
 diff -r dir/src/input.c dir.backup/src/input.c
 ```
 
+### Method 3, just use git !
+`git` always saves the day with the special bonus that you can always use it.  
+This command is usable even if those directories are not part of a git repository, basically because
+git uses rsync and diff all the time, no matter if you're syncing with or without git repos, `git diff`
+does it for you
+```sh
+#
+git diff --no-index dir/src dir.backup/src -- '*.c' '*.h'
+```
+
 
 ## Shell prompt colors
 My favorite shell colors (gentoo rocks) on /etc/bash/bashrc, /etc/bash.bashrc or whatever your favorite Linux OS calls it
