@@ -82,7 +82,10 @@ diff -r dir/src dir.backup/src | grep -E '\.(c|h)( |$)'
 #>      diff -r dir/src/input.c dir.backup/src/input.c
 #>      diff -r dir/src/...
 
-# Evaluate them and their changes, one file at a time
+# even lazier... copy and paste commands directly and use meld with it (sed basics)
+diff -r dir/src dir.backup/src | grep -E '\.(c|h)( |$)' | sed 's/diff -r/meld/'
+
+# or evaluate them and their changes, one file at a time
 diff -r dir/src/input.c dir.backup/src/input.c
 ```
 
