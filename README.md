@@ -1,8 +1,6 @@
+<img src="logo.png" align="right" width="500px" alt="Project Logo" />
+
 # linux.tips
-<div align="center">
-  <picture>
-    <img src="logo.png" height="150" alt="Linux Logo">
-  </picture>
 
 Various hints, bookmarks, suggestions and hacks.
 </div>
