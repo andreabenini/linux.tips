@@ -14,6 +14,8 @@ NetworkManager has an (odd) solution to the problem with `systemd-resolved` but 
 If you want to tinker with `systemd-resolved` and you want to control everything from fancy widgets
 (gnome, kde) you're in the wrong place. These settings are applied directly to NetworkManager, they won't
 be updated nor overwritten by your friendly network connection applet and are now considered the default way for solving these problems.
+
+
 #### Example
 - Local Traffic: Uses local DNS (e.g., 192.168.1.1).
 - Company Traffic (*.company.com): Uses VPN DNS.
@@ -22,6 +24,9 @@ be updated nor overwritten by your friendly network connection applet and are no
   - Local Ethernet/Wi-Fi: Set to High Priority (10)
   - VPN: Set to Lower Priority (50)
 
+
+
+
 ## Configuration
 Replace "Your_VPN_Name" and "Your_Local_Connection" with your actual connection names or find them
 using `nmcli connection show`.
@@ -29,7 +34,8 @@ using `nmcli connection show`.
   Tell the system to use the VPN's DNS only for specific domains (e.g., domain.com and company.com).  
   The `~` prefix is crucial—it signals "routing only" mode. This is NOT what you see in the Gnome
   vpn control panel, you manually need to access it through "_nmcli connection modify_"  
-  `nmcli connection modify "Your_VPN_Name" ipv4.dns-search "~domain.com,~company.com"`
+  `nmcli connection modify "Your_VPN_Name" ipv4.dns-search "~domain.com,~company.com"`  
+  `nmcli connection modify "Your_VPN_Name" ipv6.dns-search "~domain.com,~company.com"`  
 - Set DNS Priorities (The "Ranking")  
   Explicitly rank your local connection higher (lower number) than the VPN
   - VPN (Lower Priority)  
@@ -44,11 +50,46 @@ using `nmcli connection show`.
   ```sh
   # Restart the connection to apply changes
   nmcli connection up "Your_VPN_Name"
+
   # Check the status
   resolvectl status
   ```
   You should see your local link with the default route and the VPN link serving only the 
   specific search domain.
+- **Troubleshooting**  
+  ```sh
+  # Troubleshoot on a specific host you trust (or already know)
+  resolvectl query your.host.name.com
+  
+  # when an host gets resolved from CNAME, PTR or other kind of records rather
+  #     than `IN A` you migt see helpful messages like:
+  #
+  #>  your.host.name.com: Name 'your.host.company.org' not found
+  ```
+  Here you can clearly see the real name DNS server you picked up (from vpn) trying to forward
+  or rename resolved hostname to something else as internally addressed
+  (`your.host.name.com -> 'your.host.company.org'`).  
+  This **always** gives you an important hint: _add that domain to **dns-search** query too_.  
+  ```sh
+  # "company.org"
+  #    MUST be added to properly get dns resolution, so:
+  nmcli connection modify "Your_VPN_Name" ipv4.dns-search "~domain.com,~company.com,~company.org"
+  nmcli connection modify "Your_VPN_Name" ipv6.dns-search "~domain.com,~company.com,~company.org"
+
+  # Now check it back again
+  resolvectl query your.host.name.com
+  #>    hostname            IP Address                VPN link
+  #>
+  #>    your.host.name.com: 10.10.100.10           -- link: tun0
+  #>                        (your.host.company.org)
+  #> -- Information acquired via protocol DNS in nn.0ms.
+  #> -- Data is authenticated: no; Data was acquired via local or encrypted transport: no
+  #> -- Data from: cache network
+  ```
+  Basically: if you want to have it working and you've some kind of double resolution domain 
+  (or simply multiple addressing) you need to add all additionals domain too.
+
+
 
 
 ## Links
