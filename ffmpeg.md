@@ -50,20 +50,23 @@ favorites as a recap:
 - `-c:a ac3 -b:a 640k`  
     Converts the likely-massive DTS-HD/TrueHD audio track to a standard 5.1
     surround sound format at a high bitrate
-
+- `-c:a aac -ac 2 -b:a 160k`      (160k: Stereo audio only)  
+    - `-c:a aac`  
+        Switches the audio codec to AAC (Advanced Audio Coding)
+    - `-ac 2`  
+        Audio Channels flag. Downmix the 5.1/7.1 source into 2-channel stereo.
+        ffmpeg handles the logic to avoid loosing center-channel dialogue
+    - `-b:a 160k`  
+        Set bitrate to 160kbps. For a stereo AAC track
+        - 160k is considered "transparent" (high quality)
+        - 640k is needed for 5.1.
+- `-filter:a "loudnorm"`  
+    When downmixing 5.1 surround sound to 2.0 stereo, the dialogue can sometimes
+    end up sounding very quiet compared to the explosions/music.
+    If the output audio is too _"thin"_, adding this filter would normalize the volume
+- `-map 0:v:0 -map 0:a:0`  
+    To grab only the first (default) language and nothing else mapping is usually a nice catch
 ```sh
-# -c:a aac -ac 2 -b:a 160k      (for Stereo audio only)
-#           -c:a aac    Switches the audio codec to AAC (Advanced Audio Coding).
-#           -ac 2       Audio Channels flag. Downmix the 5.1/7.1 source into 2-channel stereo
-#                       FFmpeg handles the logic to avoid loosing center-channel dialogue
-#           -b:a 160k   Set bitrate to 160kbps. For a stereo AAC track, 
-#                       160k is considered "transparent" (high quality)
-#                       640k is needed for 5.1.
-# -filter:a "loudnorm"
-#           When downmixing 5.1 surround sound to 2.0 stereo, the dialogue can sometimes
-#           end up sounding very quiet compared to the explosions/music. 
-#           If the output audio is too "thin," adding this filter would normalize the volume
-
 # Force it to use h264
 ffmpeg -i inputFile.mkv -vcodec libx264 -crf 23 -preset veryfast -c:a copy outputFile.mp4
 
