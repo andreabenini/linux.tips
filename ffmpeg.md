@@ -60,12 +60,18 @@ favorites as a recap:
         Set bitrate to 160kbps. For a stereo AAC track
         - 160k is considered "transparent" (high quality)
         - 640k is needed for 5.1.
+- `-c:s copy`  
+    Simply copy subtitle tracks without modifying them
 - `-filter:a "loudnorm"`  
     When downmixing 5.1 surround sound to 2.0 stereo, the dialogue can sometimes
     end up sounding very quiet compared to the explosions/music.
     If the output audio is too _"thin"_, adding this filter would normalize the volume
-- `-map 0:v:0 -map 0:a:0`  
-    To grab only the first (default) language and nothing else mapping is usually a nice catch
+- `-map 0:v:0 -map 0:a:0`, `-map 0:v:0 -map 0:a:0 -map 0:s?:`  
+    Grab the first video track, the first audio track, and all subtitle tracks, the 
+    `?` prevents the command from failing if there are no subtitles
+- `-map_metadata -1`  
+    High-quality MKV rips often contain chapters, tags, and even embedded cover art.
+    This flag nukes them all for a cleaner, slightly smaller file.
 ```sh
 # Force it to use h264
 ffmpeg -i inputFile.mkv -vcodec libx264 -crf 23 -preset veryfast -c:a copy outputFile.mp4
@@ -74,6 +80,9 @@ ffmpeg -i inputFile.mkv -vcodec libx264 -crf 23 -preset veryfast -c:a copy outpu
 # H265 is highly efficient, often saving 50% more space than H264
 # older devices (old TVs/computers) might struggle to play it
 ffmpeg -i inputFile.mkv -vcodec libx265 -crf 28 -preset medium outputFile.mp4
+
+# When h265 is accepted this is a quite good definitive command
+ffmpeg -i inputFile.mkv -map 0:v:0 -map 0:a:0 -map 0:s? -c:v libx265 -crf 24 -preset slow -c:a aac -ac 2 -b:a 160k -c:s copy -map_metadata -1 outputFile.mkv
 ```
 
 # Convert 1080p -> 720p
