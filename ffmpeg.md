@@ -31,17 +31,41 @@ ffmpeg -i filename.mkv -map 0:0 -map 0:1 -acodec copy -vcodec copy filenamenew.m
 
 # Reduce file size with encoding
 ```sh
-# -vcodec libx264: Tells it to use the standard H.264 video codec.
-# -crf 23: This is the most important number, the scale goes from 0 to 51
-#          Lower number  = Higher quality, larger file size
-#          Higher number = Lower quality, smaller file size
-#          23 is the default and usually a great balance. If 23 is still too big, try 28
-# -preset  Three interesting presets available: medium, veryfast, ultrafast
-#          but also: fast, medium, slow  (takes longer)
+# -i inputFile.mkv
+#           Obviously the file in, outputFile.xxx is always the last parameter
+# -vcodec libx264
+#           Tells it to use the standard H.264 video codec
+# -c:v libx265
+#           Uses the H.265 codec. Maintains a "good" quality at a high compression ratio
+# -crf 23
+#           This is the most important number, the scale goes from 0 to 51
+#               Lower number  = Higher quality, larger file size
+#               Higher number = Lower quality, smaller file size
+#           23/24 is the default and usually a great balance. If 23 is still too big, try 26 or 28
+# -preset slow
+#           Three interesting presets available: medium, veryfast, ultrafast
+#           but also: fast, medium, slow  (takes longer)
+# -c:a ac3 -b:a 640k
+#           Converts the likely-massive DTS-HD/TrueHD audio track to a standard 5.1
+#           surround sound format at a high bitrate
+# -c:a aac -ac 2 -b:a 160k      (for Stereo audio only)
+#           -c:a aac    Switches the audio codec to AAC (Advanced Audio Coding).
+#           -ac 2       Audio Channels flag. Downmix the 5.1/7.1 source into 2-channel stereo
+#                       FFmpeg handles the logic to avoid loosing center-channel dialogue
+#           -b:a 160k   Set bitrate to 160kbps. For a stereo AAC track, 
+#                       160k is considered "transparent" (high quality)
+#                       640k is needed for 5.1.
+# -filter:a "loudnorm"
+#           When downmixing 5.1 surround sound to 2.0 stereo, the dialogue can sometimes
+#           end up sounding very quiet compared to the explosions/music. 
+#           If the output audio is too "thin," adding this filter would normalize the volume
+
+# Force it to use h264
 ffmpeg -i inputFile.mkv -vcodec libx264 -crf 23 -preset veryfast -c:a copy outputFile.mp4
 
 # Also interesting is the h265 HEVC encoding
-# H265 is highly efficient, often saving 50% more space than H264, older devices (old TVs/computers) might struggle to play it
+# H265 is highly efficient, often saving 50% more space than H264
+# older devices (old TVs/computers) might struggle to play it
 ffmpeg -i inputFile.mkv -vcodec libx265 -crf 28 -preset medium outputFile.mp4
 ```
 
