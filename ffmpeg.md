@@ -30,9 +30,8 @@ ffmpeg -i filename.mkv -map 0:0 -map 0:1 -acodec copy -vcodec copy filenamenew.m
 ```
 
 # Reduce file size with encoding
-Entering down in the ffmpeg rabbit hole flags and options requires a certain amount of time and insanity
-to better figure out all those nice features aimed to downsampling files. Here are my
-favorites as a recap:
+Entering down in the ffmpeg rabbit hole flags and options requires a certain amount of time and insanity.  
+To better figure all those nice features aimed to downsampling files here is as quick recap:
 - `-i inputFile.mkv`  
     Obviously the file in, outputFile.xxx is always the last parameter
 - `-vcodec libx264`  
