@@ -30,24 +30,28 @@ ffmpeg -i filename.mkv -map 0:0 -map 0:1 -acodec copy -vcodec copy filenamenew.m
 ```
 
 # Reduce file size with encoding
+Entering down in the ffmpeg rabbit hole flags and options requires a certain amount of time and insanity
+to better figure out all those nice features aimed to downsampling files. Here are my
+favorites as a recap:
+- `-i inputFile.mkv`  
+    Obviously the file in, outputFile.xxx is always the last parameter
+- `-vcodec libx264`  
+    Tells it to use the standard H.264 video codec
+- `-c:v libx265`  
+    Uses the H.265 codec. Maintains a "good" quality at a high compression ratio
+- `-crf 23`  
+    This is the most important number, the scale goes from 0 to 51.  
+    23/24 is the default and usually a great balance. If 23 is still too big, try 26 or 28
+    - Lower number  = Higher quality, larger file size
+    - Higher number = Lower quality, smaller file size
+- `-preset slow`  
+    Three interesting presets available: **_medium, veryfast, ultrafast_**
+    but also: **_fast, medium, slow_**  (takes longer)
+- `-c:a ac3 -b:a 640k`  
+    Converts the likely-massive DTS-HD/TrueHD audio track to a standard 5.1
+    surround sound format at a high bitrate
+
 ```sh
-# -i inputFile.mkv
-#           Obviously the file in, outputFile.xxx is always the last parameter
-# -vcodec libx264
-#           Tells it to use the standard H.264 video codec
-# -c:v libx265
-#           Uses the H.265 codec. Maintains a "good" quality at a high compression ratio
-# -crf 23
-#           This is the most important number, the scale goes from 0 to 51
-#               Lower number  = Higher quality, larger file size
-#               Higher number = Lower quality, smaller file size
-#           23/24 is the default and usually a great balance. If 23 is still too big, try 26 or 28
-# -preset slow
-#           Three interesting presets available: medium, veryfast, ultrafast
-#           but also: fast, medium, slow  (takes longer)
-# -c:a ac3 -b:a 640k
-#           Converts the likely-massive DTS-HD/TrueHD audio track to a standard 5.1
-#           surround sound format at a high bitrate
 # -c:a aac -ac 2 -b:a 160k      (for Stereo audio only)
 #           -c:a aac    Switches the audio codec to AAC (Advanced Audio Coding).
 #           -ac 2       Audio Channels flag. Downmix the 5.1/7.1 source into 2-channel stereo
