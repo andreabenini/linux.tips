@@ -15,7 +15,8 @@ Watch out on newer openssh (9.6 and above), ssh-rsa has been officially deprecat
 it's better to use newer algoritm like:
 ```sh
 # ed25519 is fine (now)
-ssh-keygen -t ed25519 -b 4096 -C "your.email@domain.com" -f .ssh/id_ed25519
+# -a 100 Increases the number of "KDF rounds", it's harder to brute-force it
+ssh-keygen -t ed25519 -a 100 -C "your.email@domain.com" -f .ssh/id_ed25519
 
 # SUSE specific command to verify crypto policies
 update-crypto-policies --show
