@@ -11,6 +11,13 @@ ssh-keygen -t rsa -b 4096 -C "your.email@domain.com"
 # Write it to a specific file
 ssh-keygen -t rsa -b 4096 -C "your.email@domain.com" -f .ssh/newfile.not.thedefault.id_rsa
 ```
+Watch out on newer openssh (9.6 and above), ssh-rsa has been officially deprecated, 
+it's better to use newer algoritm like:
+```sh
+# ed25519 is fine (now)
+ssh-keygen -t ed25519 -b 4096 -C "your.email@domain.com" -f .ssh/id_ed25519
+```
+
 
 ### List ssh keys
 ```sh
