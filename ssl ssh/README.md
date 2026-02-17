@@ -16,6 +16,10 @@ it's better to use newer algoritm like:
 ```sh
 # ed25519 is fine (now)
 ssh-keygen -t ed25519 -b 4096 -C "your.email@domain.com" -f .ssh/id_ed25519
+
+# SUSE specific command to verify crypto policies
+update-crypto-policies --show
+# If it says DEFAULT or FUTURE it's officially blocking RSA keys
 ```
 
 
