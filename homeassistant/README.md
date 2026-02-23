@@ -15,3 +15,5 @@ Deprecated methods:
 ## Links
 - Getting started link, quite useful to get an overview of all components  
   https://www.youtube.com/watch?v=oG8oRUcMbRo
+- Beginners guide to Cheap Yellow Display with ESPHome  
+  https://blog.decryption.net.au/posts/cyd-for-beginners.html
