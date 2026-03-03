@@ -324,6 +324,14 @@ GIT_SSL_NO_VERIFY=true git clone https://example.com/path/to/git
 git config [--global] http.sslVerify false
 ```
 
+
+## git clone and specify the ssh key when it's required
+When ssh or gpg keys are required to work in a repository it's usually better to provide those as:
+```sh
+GIT_SSH_COMMAND="ssh -i ~/.ssh/your_private_key" git clone git@your.private.git.server:projects/repository.git
+```
+
+
 ## Permanently remove a file from the repository and wipe its information from history too
 ```sh
 # Go to repository home
