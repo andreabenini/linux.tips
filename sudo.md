@@ -19,3 +19,15 @@ runuser -l dummyuser -c 'ls -la'
 # this is when user has no login shell
 runuser -u dummyuser -- ls -la
 ```
+
+# Alternative: machinectl _(systemd)_
+On a system with systemd (this is the cleanest way to get a full, "proper" session for another user
+```sh
+# ".host" can be ignored (sometimes)
+machinectl shell username@.host
+```
+This usually solves issues like:
+```log
+Failed to connect to user scope bus via local transport: $DBUS_SESSION_BUS_ADDRESS and $XDG_RUNTIME_DIR not defined
+(consider using --machine=<user>@.host --user to connect to bus of other user)
+```
