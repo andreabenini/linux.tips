@@ -55,6 +55,13 @@ Host * !caronte
 Host *
     User root
     Compression yes
+
+    # do not tag packets with special low-latency/priority headers (QoS).
+    # ..When a packet is tagged if the home router does not recognize
+    #   QoS and you'll obtain the opposite. No QoS at all and package
+    #   choked, trottled down (even dropped)
+    # It makes sense to DEAL with the router config and manage QoS PROPERLY
+    IPQoS 0
 ```
 
 
