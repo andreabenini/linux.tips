@@ -39,7 +39,12 @@ Iesoh0Gulier1esie,sh
 ```
 
 # Method 2: openssl
-```
-~ $ openssl rand -base64 16
+As simple as:
+```sh
+openssl rand -base64 16
 oZvKxO8bjHOPy18oJQ7OPg==
+```
+...or even better if you want a pure hash:
+```sh
+openssl rand -base64 32 | tr -d "=+/" | cut -c1-32
 ```
