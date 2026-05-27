@@ -2,5 +2,5 @@
 
 # linux.tips
 
-Various hints, bookmarks, suggestions and hacks.
+Hints, bookmarks, suggestions and hacks.
 </div>
