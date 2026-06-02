@@ -109,6 +109,12 @@ for FILE in $DIRSRC; do
 done
 ```
 
+# Convert to old DVD player format (MPEG-2 + AC3)
+Old-school DVD player, standard DVD-compliant MPEG-2 video with AC3 (Dolby Digital) audio.
+```sh
+ffmpeg -i inputFile.avi -target ntsc-dvd outputFile.mpg
+```
+
 # Convert from Canon .mov file to a more modern .mp4  file
 ```sh
 # Input    input.mov
