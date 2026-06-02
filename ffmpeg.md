@@ -59,8 +59,12 @@ To better figure all those nice features aimed to downsampling files here is as 
         Set bitrate to 160kbps. For a stereo AAC track
         - 160k is considered "transparent" (high quality)
         - 640k is needed for 5.1.
+- `-c:a libmp3lame`  
+    Converts the audio to MP3.
 - `-c:s copy`  
     Simply copy subtitle tracks without modifying them
+- `-q:a 4`  
+    Sets the MP3 quality (VBR). 4 is roughly 165 kbps, which is great for standard audio.
 - `-filter:a "loudnorm"`  
     When downmixing 5.1 surround sound to 2.0 stereo, the dialogue can sometimes
     end up sounding very quiet compared to the explosions/music.
@@ -72,6 +76,9 @@ To better figure all those nice features aimed to downsampling files here is as 
     High-quality MKV rips often contain chapters, tags, and even embedded cover art.
     This flag nukes them all for a cleaner, slightly smaller file.
 ```sh
+# Convert "something" (divx older, newer, ...) into a broadly available (and readable) h264+mp3 audio
+ffmpeg -i inputFile.mkv -vcodec libx264 -crf 23 -preset veryfast -c:a libmp3lame -q:a 4 outputFile.mp4
+
 # Force it to use h264
 ffmpeg -i inputFile.mkv -vcodec libx264 -crf 23 -preset veryfast -c:a copy outputFile.mp4
 
