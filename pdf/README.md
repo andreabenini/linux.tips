@@ -17,7 +17,7 @@ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQ
 ImageMagick+GhostScript to the rescue here, as simple as:
 ```sh
 # Basically concat all images into a single and giant pdf file
-img2pdf 1.jpg 2.jpg 3.jpg 4.jpg --rotation=ifvalid -o bigpdffile.pdf
+magick 1.jpg 2.jpg 3.jpg 4.jpg bigpdffile.pdf
 
 # Shrink, compress, A4-resize. All at once to get a suitably smaller pdf file from it
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sPAPERSIZE=a4 -dPDFFitPage -sOutputFile=output.pdf bigpdffile.pdf
