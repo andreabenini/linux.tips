@@ -12,7 +12,14 @@ Find installed packages with the debug flag enabled
 ```sh
 pacman -Qtdq
 ```
-To disable debug packages requirements or installation just:
+#### Removing or disabling system wide debug flags
+If you're not interested in having debug flags in the system and you are installing from AUR
+you might get something like:
+```log
+makepkg -si
+==> ERROR: Cannot find the debugedit binary required for including source files in debug packages.
+```
+To disable debug packages requirements entirely just:
 - edit `/etc/makepkg.conf`
 - in **OPTIONS** change `debug` to `!debug`
 
