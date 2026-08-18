@@ -83,7 +83,22 @@ If you want to see them on a user level (locally managed services held by a sing
 ```sh
 systemctl list-units --user --type=service
 # usually dbus-broker might come around when running in a desktop manager, just ignore it
+systemctl --user list-units --type=service
 ```
+### Note: If you're having issues like:
+> systemctl --user list-units --type=service
+> Failed to connect to user scope bus via local transport: $DBUS_SESSION_BUS_ADDRESS and $XDG_RUNTIME_DIR  not defined (consider using --machine=<user>@.host --user to connect to bus of other user)
+
+That's because you opened the session without a XDG login (like `sudo su - <username>`), you can solve it with:
+```sh
+$ export XDG_RUNTIME_DIR=/run/user/$(id -u)
+$ systemctl --user list-units --type=service
+  UNIT                  LOAD   ACTIVE SUB     DESCRIPTION                             
+  .......
+```
+
+---
+
 To list all the units that systemd has loaded or attempted to load into memory,
 including those that are not currently active just add the `--all` switch
 ```sh
