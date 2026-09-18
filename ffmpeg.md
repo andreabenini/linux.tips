@@ -78,6 +78,8 @@ To better figure all those nice features aimed to downsampling files here is as 
 ```sh
 # Convert "something" (divx older, newer, ...) into a broadly available (and readable) h264+mp3 audio
 ffmpeg -i inputFile.mkv -vcodec libx264 -crf 23 -preset veryfast -c:a libmp3lame -q:a 4 outputFile.mp4
+# Same as abov but also keep copy of multiple audio tracks in it
+ffmpeg -i inputFile.mkv -map 0 -c:v libx264 -crf 23 -preset veryfast -c:a libmp3lame -q:a 4 -c:s copy outputFile.mkv
 
 # Force it to use h264
 ffmpeg -i inputFile.mkv -vcodec libx264 -crf 23 -preset veryfast -c:a copy outputFile.mp4
@@ -86,6 +88,8 @@ ffmpeg -i inputFile.mkv -vcodec libx264 -crf 23 -preset veryfast -c:a copy outpu
 # H265 is highly efficient, often saving 50% more space than H264
 # older devices (old TVs/computers) might struggle to play it
 ffmpeg -i inputFile.mkv -vcodec libx265 -crf 28 -preset medium outputFile.mp4
+# Same as above but also keep copy of multiple audio tracks in it
+ffmpeg -i inputFile.mkv -map 0 -c:v libx265 -crf 28 -preset medium -c:a copy -c:s copy outputFile.mkv
 
 # When h265 is accepted this is a quite good definitive command
 ffmpeg -i inputFile.mkv -map 0:v:0 -map 0:a:0 -map 0:s? -c:v libx265 -crf 24 -preset slow -c:a aac -ac 2 -b:a 160k -c:s copy -map_metadata -1 outputFile.mkv
