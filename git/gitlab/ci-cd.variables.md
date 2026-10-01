@@ -16,3 +16,8 @@ on the host side, take that value and store it into the var instead of the origi
 ```sh
 echo "$PRIVATE_KEY_B64" | base64 -d
 ```
+
+### Use CI/CD variables as light secrets
+```sh
+echo '$YOUR_GITLAB_ENV_VAR' | base64 --decode | tr -d '\r' > ~/your.decoded.env.var
+```
